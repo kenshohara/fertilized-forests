@@ -17,7 +17,7 @@ namespace fertilized {
   namespace Result_Types {
     /**
      * \brief Classification result types.
-     * 
+     *
      * They are always defined as std::vector<float>.
      */
     struct probabilities {
@@ -32,7 +32,7 @@ namespace fertilized {
     };
     /**
      * \brief Regression result types.
-     * 
+     *
      * They depend on the input_dtype. See the documentation of the
      * \ref RegressionLeafManager.
      */
@@ -48,7 +48,7 @@ namespace fertilized {
     };
     /**
      * \brief Hough Forest result types.
-     * 
+     *
      * They consist of a pair of float (foreground prob.) and a pointer to
      * a vector of int16_t (offsets). For a forest, contains a vector of these
      * pairs.
@@ -61,6 +61,17 @@ namespace fertilized {
       template <typename input_dtype, typename feature_dtype, typename annotation_dtype>
       struct forest_return_dtype {
         typedef std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>> type;
+      };
+    };
+
+    struct multi_class_hough_map {
+      template <typename input_dtype, typename feature_dtype, typename annotation_dtype>
+      struct leaf_return_dtype {
+        typedef std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<int16_t>>> type;
+      };
+      template <typename input_dtype, typename feature_dtype, typename annotation_dtype>
+      struct forest_return_dtype {
+        typedef std::vector<std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<int16_t>>>> type;
       };
     };
   };
@@ -372,7 +383,7 @@ namespace fertilized {
 * - uint8_t; uint
 * - uint8_t; int16_t
 * .
-* 
+*
 * -----
 */
   std::shared_ptr<fertilized::ClassificationLeafManager<input_dtype,annotation_dtype>>
@@ -1145,7 +1156,7 @@ namespace fertilized {
 *
 * Use exactly the library template names `input_dtype`, `feature_dtype`,
 * `annotation_dtype`, `leaf_return_dtype`, `forest_dtype` for your
-* objects as necessary (you may omit unnecessary ones). If your class is 
+* objects as necessary (you may omit unnecessary ones). If your class is
 * templated differently, only one possible
 * template instantiation can be used for the interfaces. In that case, you
 * have to specify this with a parser list "Soil type always:". You can find
@@ -1593,7 +1604,7 @@ namespace fertilized {
 * Soil type always:
 * - float
 * .
-* 
+*
 * -----
 */
   std::shared_ptr<fertilized::ShannonEntropy<float>>
@@ -1976,7 +1987,7 @@ namespace fertilized {
 * It builds its sample database from two pointer on memory arrays with
 * data and annotations. Both must be provided in contiguous layout. The
 * data (but not the annotations!) can be provided row- or column-wise.
-* Column-wise layout is to be preferred, since it has more locality for 
+* Column-wise layout is to be preferred, since it has more locality for
 * most optimization processes.
 *
 * The annotations MUST always be provided in row major order, independent
@@ -2000,7 +2011,7 @@ namespace fertilized {
 * - double; double
 * - float; float
 * .
-* 
+*
 * -----
 */
   std::shared_ptr<fertilized::UnchangedDataProvider<input_dtype,annotation_dtype>>
@@ -2039,7 +2050,7 @@ namespace fertilized {
 * - double; double
 * - float; float
 * .
-* 
+*
 * -----
 */
   std::shared_ptr<fertilized::UnchangedFDataProvider<input_dtype,annotation_dtype>>
@@ -2178,7 +2189,7 @@ namespace fertilized {
 *
 *
 * \ingroup fertilizedfeaturesGroup
-*   
+*
 * -----
 * Available in:
 * - C++
@@ -2947,7 +2958,7 @@ namespace fertilized {
     };
 
   /**
-* Extract the Hough forest features. If `full` is set, uses the 
+* Extract the Hough forest features. If `full` is set, uses the
 * 32 feature channels used by Juergen Gall in his original publications,
 * else use 15 feature channels as used by Matthias Dantone.
 *
@@ -2959,7 +2970,7 @@ namespace fertilized {
 * - Python
 * - Matlab
 * .
-* 
+*
 * -----
 *
 * \param image Array<uint8_t>, row-major contiguous
