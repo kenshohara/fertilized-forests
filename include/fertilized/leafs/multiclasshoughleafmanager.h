@@ -1,7 +1,7 @@
 /* Author: Christoph Lassner. */
 #pragma once
-#ifndef FERTILIZED_LEAFS_HOUGHLEAFMANAGER_H_
-#define FERTILIZED_LEAFS_HOUGHLEAFMANAGER_H_
+#ifndef FERTILIZED_LEAFS_MULTICLASSHOUGHLEAFMANAGER_H_
+#define FERTILIZED_LEAFS_MULTICLASSHOUGHLEAFMANAGER_H_
 
 #ifdef SERIALIZATION_ENABLED
 #include <boost/serialization/serialization.hpp>
@@ -19,35 +19,6 @@
 #include "./ileafmanager.h"
 
 namespace fertilized {
-  /** Utility function for adding Hough forest result vectors to an image. */
-  template <typename annotation_dtype>
-  inline void __add_hough_offs(const std::shared_ptr<std::vector<annotation_dtype>> offs,
-                               const float &proba,
-                               float *result,
-                               const size_t &pos_x,
-                               const size_t &pos_y,
-                               const size_t &shape_y,
-                               const size_t &shape_x,
-                               const float *ratios) {
-    if (offs -> size() == 0)
-      return;
-    FASSERT(offs -> size() % 2 == 0);
-    const float &ratio = (ratios ? ratios[0] : 1.f);
-    const float &ratio_x = (ratios ? ratios[2] : 1.f);
-    const float &ratio_y = (ratios ? ratios[3] : 1.f);
-    size_t py, px;
-    const annotation_dtype *off_ptr = &(*offs)[0];
-    // Add the offset vectors to the image.
-    for (size_t offset_index = 0; offset_index < offs -> size() / 2; ++offset_index){
-      px = pos_x + static_cast<size_t>(static_cast<float>(*(off_ptr++)) * ratio * ratio_x + 0.5f);
-      py = pos_y + static_cast<size_t>(static_cast<float>(*(off_ptr++)) * ratio_y + 0.5f);
-      if (py >= 0 && py < shape_y &&
-          px >= 0 && px < shape_x)
-        result[ py * shape_x +
-                px ] += proba;
-    }
-  };
-
   /**
    * \brief Stores the offset vectors for positive samples and their
    * probabilities in the leafs.
@@ -67,7 +38,7 @@ namespace fertilized {
    * -----
    */
   template<typename input_dtype, typename annotation_dtype>
-  class HoughLeafManager
+  class MultiClassHoughLeafManager
     : public ILeafManager<input_dtype, annotation_dtype,
                           std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>,
                           std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>>> {
@@ -93,7 +64,7 @@ namespace fertilized {
      * \param annot_dim size_t>0
      *   The number of offset dimensions. Default: 2.
      */
-    explicit HoughLeafManager(
+    explicit MultiClassHoughLeafManager(
       const uint &n_classes=2,
       const size_t &annot_dim=2)
     : n_classes(n_classes), annot_dim(annot_dim)
@@ -189,8 +160,8 @@ namespace fertilized {
                                  annotation_dtype,
                                  std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>,
                                  std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>>> &rhs) const {
-      const auto *rhs_c = dynamic_cast<HoughLeafManager<input_dtype,
-                                                        annotation_dtype> const*>(&rhs);
+      const auto *rhs_c = dynamic_cast<MultiClassHoughLeafManager<input_dtype,
+                                                                  annotation_dtype> const*>(&rhs);
       if (rhs_c == nullptr)
         return false;
       else {
@@ -313,4 +284,4 @@ namespace fertilized {
     std::unordered_map<node_id_t, std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>> distribution_map;
   };
 };  // namespace fertilized
-#endif  // FERTILIZED_LEAFS_HOUGHLEAFMANAGER_H_
+#endif  // FERTILIZED_LEAFS_MULTICLASSHOUGHLEAFMANAGER_H_
