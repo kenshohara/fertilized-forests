@@ -40,12 +40,12 @@ namespace fertilized {
   template<typename input_dtype, typename annotation_dtype>
   class MultiClassHoughLeafManager
     : public ILeafManager<input_dtype, annotation_dtype,
-                          std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>,
-                          std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>>> {
+                          std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<annotation_dtype>>>,
+                          std::vector<std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<annotation_dtype>>>>> {
    public:
     typedef ILeafManager<input_dtype, annotation_dtype,
-                         std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>,
-                         std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>>> leaf_man_t;
+                         std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<annotation_dtype>>>,
+                         std::vector<std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<annotation_dtype>>>>> leaf_man_t;
     using typename leaf_man_t::dprov_t;
     using typename leaf_man_t::wlresult_list_t;
 
@@ -60,7 +60,7 @@ namespace fertilized {
      * -----
      *
      * \param n_classes uint>1
-     *   The number of classes. Currently only 2 are supported. Default: 2.
+     *   The number of classes. Default: 2.
      * \param annot_dim size_t>0
      *   The number of offset dimensions. Default: 2.
      */
@@ -108,7 +108,8 @@ namespace fertilized {
       // class, normalize the probability also by the number of classes
       // (see code by Juergen Gall).
       auto ret_val = distribution_map.emplace(node_id,
-                                              std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>(
+                                              std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<annotation_dtype>>>(
+                                                        ..., //assign class label
                                                         n_pos/total,
                                                         offset_coordinates));
       if (!ret_val.second) {
