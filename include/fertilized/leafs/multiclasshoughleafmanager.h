@@ -40,12 +40,12 @@ namespace fertilized {
   template<typename input_dtype, typename annotation_dtype>
   class MultiClassHoughLeafManager
     : public ILeafManager<input_dtype, annotation_dtype,
-                          std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<annotation_dtype>>>,
-                          std::vector<std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<annotation_dtype>>>>> {
+                          std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>,
+                          std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>>> {
    public:
     typedef ILeafManager<input_dtype, annotation_dtype,
-                         std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<annotation_dtype>>>,
-                         std::vector<std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<annotation_dtype>>>>> leaf_man_t;
+                         std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>,
+                         std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>>> leaf_man_t;
     using typename leaf_man_t::dprov_t;
     using typename leaf_man_t::wlresult_list_t;
 
@@ -69,7 +69,7 @@ namespace fertilized {
       const size_t &annot_dim=2)
     : n_classes(n_classes), annot_dim(annot_dim)
     , distribution_map(std::unordered_map<node_id_t,
-       std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>>()) {
+       std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>>()) {
       if (n_classes != 2) {
         throw Fertilized_Exception("The HoughLeaf Manager currently only supports "
           "two classes!");
@@ -90,6 +90,7 @@ namespace fertilized {
       // Create the probability distribution at this leaf.
       // Currently assume there are only two classes.
       FASSERT(element_list.size() > 0);
+      auto class_labels = std::make_shared<std::vector<annotation_dtype>>();
       auto offset_coordinates = std::make_shared<std::vector<annotation_dtype>>();
       float total = static_cast<float>(element_list.size());
       auto sample_list_ref = data_provider.get_samples();
@@ -99,18 +100,20 @@ namespace fertilized {
       for (const auto &element_id : element_list) {
         annot = (*sample_list_ref)[ element_id ].annotation;
         n_pos += (*annot == 0) ? 0.f : 1.f;
-        if (*(annot++) != 0)
+        if (*(annot++) != 0) {
+          class_labels -> push_back(*(annot++));
           for (size_t i = 0; i < annot_dim; ++i)
             offset_coordinates -> push_back(*(annot++));
+        }
       }
 
       // Note: if this should be implemented for more than one 'positive'
       // class, normalize the probability also by the number of classes
       // (see code by Juergen Gall).
       auto ret_val = distribution_map.emplace(node_id,
-                                              std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<annotation_dtype>>>(
-                                                        ..., //assign class label
-                                                        n_pos/total,
+                                              std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>, std::shared_ptr<std::vector<annotation_dtype>>>(
+                                                        1.0/total,
+                                                        class_labels,
                                                         offset_coordinates));
       if (!ret_val.second) {
         throw Fertilized_Exception("Tried to create the leaf value for a node "
@@ -213,8 +216,7 @@ namespace fertilized {
                                       const float *ratio_parameters)
      const {
       if (prediction_pair.first > ratio_parameters[1]) {
-        float weight = prediction_pair.first /
-              static_cast<float>(prediction_pair.second -> size());
+        float weight = prediction_pair.first;
         __add_hough_offs(prediction_pair.second,
                          weight,
                          result.getData(),
@@ -245,8 +247,7 @@ namespace fertilized {
         // Do the trick of Juergen Gall to speed up detection and only add
         // vectors for which the determined object probability > min_prob_threshold.
         if (prediction_pair.first > ratio_parameters[1]) {
-          float weight = (prediction_pair.first * tree_weights[tree_index]) /
-           (static_cast<float>(prediction_pair.second -> size()) * weight_sum);
+          float weight = (prediction_pair.first * tree_weights[tree_index]) / weight_sum;
           __add_hough_offs(prediction_pair.second,
                            weight,
                            result.getData(),
@@ -282,7 +283,7 @@ namespace fertilized {
    private:
     uint n_classes;
     size_t annot_dim;
-    std::unordered_map<node_id_t, std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>> distribution_map;
+    std::unordered_map<node_id_t, std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> distribution_map;
   };
 };  // namespace fertilized
 #endif  // FERTILIZED_LEAFS_MULTICLASSHOUGHLEAFMANAGER_H_
