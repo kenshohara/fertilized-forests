@@ -99,8 +99,8 @@ namespace fertilized {
       const annotation_dtype *annot;
       for (const auto &element_id : element_list) {
         annot = (*sample_list_ref)[ element_id ].annotation;
-        n_pos += (*annot == 0) ? 0.f : 1.f;
-        if (*(annot++) != 0) {
+        n_pos += (*annot < 0) ? 0.f : 1.f;
+        if (*(annot) >= 0) {
           class_labels -> push_back(*(annot++));
           for (size_t i = 0; i < annot_dim; ++i)
             offset_coordinates -> push_back(*(annot++));
