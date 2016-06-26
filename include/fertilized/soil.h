@@ -67,11 +67,11 @@ namespace fertilized {
     struct multi_class_hough_map {
       template <typename input_dtype, typename feature_dtype, typename annotation_dtype>
       struct leaf_return_dtype {
-        typedef std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<int16_t>>> type;
+        typedef std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>> type;
       };
       template <typename input_dtype, typename feature_dtype, typename annotation_dtype>
       struct forest_return_dtype {
-        typedef std::vector<std::tuple<annotation_dtype, float, std::shared_ptr<std::vector<int16_t>>>> type;
+        typedef std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> type;
       };
     };
   };

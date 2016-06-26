@@ -237,8 +237,8 @@ namespace fertilized {
    */
   template <typename input_dtype>
   std::shared_ptr<fertilized::Tree<input_dtype, input_dtype, input_dtype,
-       std::pair<std::shared_ptr<std::vector<input_dtype>>,std::shared_ptr<std::vector<input_dtype>>>, 
-       std::vector<std::pair<std::pair<std::shared_ptr<std::vector<input_dtype>>,std::shared_ptr<std::vector<input_dtype>>>,float>>>> 
+       std::pair<std::shared_ptr<std::vector<input_dtype>>,std::shared_ptr<std::vector<input_dtype>>>,
+       std::vector<std::pair<std::pair<std::shared_ptr<std::vector<input_dtype>>,std::shared_ptr<std::vector<input_dtype>>>,float>>>>
     construct_regression_tree(
       const size_t &n_features,
       uint max_depth=0,
@@ -372,8 +372,8 @@ namespace fertilized {
    */
   template <typename input_dtype>
   std::shared_ptr<fertilized::Tree<input_dtype, input_dtype, input_dtype,
-       std::pair<std::shared_ptr<std::vector<input_dtype>>,std::shared_ptr<std::vector<input_dtype>>>, 
-       std::vector<std::pair<std::pair<std::shared_ptr<std::vector<input_dtype>>,std::shared_ptr<std::vector<input_dtype>>>,float>>>> 
+       std::pair<std::shared_ptr<std::vector<input_dtype>>,std::shared_ptr<std::vector<input_dtype>>>,
+       std::vector<std::pair<std::pair<std::shared_ptr<std::vector<input_dtype>>,std::shared_ptr<std::vector<input_dtype>>>,float>>>>
     construct_fast_regression_tree(
       const size_t &n_features,
       uint max_depth=0,
@@ -613,7 +613,7 @@ namespace fertilized {
       new VolumeFeatureSelectionProvider(2, patch_x, patch_y, patch_z,
                                          real_selections_to_generate, random_seed));
     auto surf_calc = std::shared_ptr<DirectPatchDifferenceSurfCalculator<input_dtype, feature_dtype, annotation_dtype>>(
-      new DirectPatchDifferenceSurfCalculator<input_dtype, feature_dtype, annotation_dtype>(patch_x, patch_y, patch_z, 
+      new DirectPatchDifferenceSurfCalculator<input_dtype, feature_dtype, annotation_dtype>(patch_x, patch_y, patch_z,
         patch_annot_luc));
     size_t n_valids_to_use = 0;
     if (allow_redraw)
@@ -624,6 +624,206 @@ namespace fertilized {
         hough_heuristic_ratio, hough_heuristic_maxd));
     auto leaf_man = std::shared_ptr<HoughLeafManager<input_dtype, annotation_dtype>>(
       new HoughLeafManager<input_dtype, annotation_dtype>(2, 2));
+    return std::make_shared<Tree<input_dtype, feature_dtype, annotation_dtype,
+                         std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>,
+                         std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>>>>(
+                         max_depth, min_samples_at_leaf, min_samples_at_node,
+                         weak_classifier, leaf_man);
+  };
+
+  /**
+   * Constructs a multi-class 3D Hough tree.
+   *
+   * -----
+   * Available in:
+   * - C++
+   * - Python
+   * - Matlab
+   * .
+   * Instantiations:
+   * - uint8_t; int16_t; int16_t
+   * - float; float; int16_t
+   * .
+   * Exported name: MultiClass3DHoughTree
+   *
+   * -----
+   *
+   * \param patch_dimensions vector<size_t>0>, three elements
+   *     The patch size in x, y, z.
+   * \param n_thresholds_per_split size_t>=0
+   *     The number of thresholds to evaluate per feature.
+   * \param n_splits_per_node size_t>0
+   *     The number of features to evaluate as split criteria at each tree
+   *     node.
+   * \param max_depth uint>=0
+   *     The maximum tree depth. If 0, it is set to UINT_MAX to allow for
+   *     maximally large trees.
+   * \param min_sample_counts vector<uint>0>, two elements.
+   *     The min samples per leaf, and min samples per split. The second value
+   *     must be >= 2 * the first value.
+   * \param random_seed uint>=1
+   *     The random seed to initialize the RNG.
+   * \param min_gain_thresholds vector<float>=0.f>, two elements.
+   *     The minimum gains for classification and regression.
+   * \param patch_annot_luc bool
+   *     Whether the patch annotations contain patch position for the patch
+   *     left upper corner or patch center. Default: false.
+   * \param allow_redraw bool
+   *     If set to true, allows to try a new feature when optimizing for a
+   *     split, when for a feature no split could be found that satisfied
+   *     the minimum number of samples per leaf for each subgroup. This may be
+   *     done until all features have been checked. Default: true.
+   * \param num_threads uint>0
+   *     The number of threads to use for optimizing the split nodes.
+   *     Default: 1.
+   * \param entropy_names vector<string in ["induced", "classification_error", "renyi", "tsallis", "shannon"]>, two elements.
+   *     The entropy type to use for classification and regression.
+   *     Default: ["shannon", "shannon"]
+   * \param entropy_p1 vector<float>0.f>, two elements.
+   *     The entropy parameters. Might be unused (e.g. for the Shannon entropy).
+   *     Default: [2, 2]
+   * \param use_hough_heuristic bool
+   *   Whether or not to use a heuristic for hough
+   *   forests introduced by Juergen Gall
+   *   (http://www.vision.ee.ethz.ch/~gallju/projects/houghforest/houghforest.html)
+   *   Can be used only with an \ref AlternatingThresholdOptimizer.
+   *   If used, the AlternatingThresholdOptimizer will guaranteed
+   *   use opt2 if the ratio of negative samples is < \ref hough_heuristic_ratio or
+   *   depth >= \ref hough_heuristic_maxd. opt2 must be a
+   *   \ref VarianceClassificationThresholdOptimizer (check this
+   *   manually!). Default: true.
+   * \param hough_heuristic_ratio float>=0.f
+   *   Default: 0.05f.
+   * \param hough_heuristic_maxd uint
+   *   Default: 0.
+   */
+  template <typename input_dtype, typename feature_dtype, typename annotation_dtype>
+  std::shared_ptr<fertilized::Tree<input_dtype, feature_dtype, annotation_dtype,
+                       std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>,
+                       std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> >>
+    construct_multi_class_3d_hough_tree(const uint &n_classes,
+                                        const std::size_t &n_features,
+                                        const size_t &n_thresholds_per_split,
+                                        const size_t &n_splits_per_node,
+                                        uint max_depth,
+                                        const std::vector<uint> &min_sample_counts,
+                                        const uint &random_seed,
+                                        const std::vector<float> &min_gain_thresholds,
+                                        const bool &allow_redraw=true,
+                                        const uint &num_threads=1,
+                                        const std::vector<std::string> &entropy_names=_DEFAULT_ENTROPY_VEC_2,
+                                        const std::vector<float> &entropy_p1=_DEFAULT_ENTROPY_P1_2,
+                                        const bool &use_hough_heuristic=true,
+                                        const float &hough_heuristic_ratio=0.05f,
+                                        uint hough_heuristic_maxd=0) {
+    if (n_splits_per_node == 0) {
+      throw Fertilized_Exception("n_splits_per_node must be >0!");
+    }
+    if (max_depth == 0) {
+      max_depth = std::numeric_limits<uint>::max();
+    }
+    if (min_sample_counts.size() != 2) {
+      throw Fertilized_Exception("Exactly two sample counts are required!");
+    }
+    uint min_samples_at_leaf = min_sample_counts[0];
+    uint min_samples_at_node = min_sample_counts[1];
+    if (min_gain_thresholds.size() != 2) {
+      throw Fertilized_Exception("Exactly two thresholds are required!");
+    }
+    float class_gain_threshold = min_gain_thresholds[0];
+    float var_gain_threshold = min_gain_thresholds[1];
+    if (hough_heuristic_maxd == 0) {
+      hough_heuristic_maxd = max_depth - 2;
+    }
+    if (entropy_names.size() != 2) {
+      throw Fertilized_Exception("Exactly two entropy names are required!");
+    }
+    std::shared_ptr<IEntropyFunction<float>> entropy_class;
+    std::shared_ptr<IEntropyFunction<float>> entropy_reg;
+    if ((entropy_names[0] == "induced" ||
+         entropy_names[0] == "tsallis" ||
+         entropy_names[0] == "renyi") &&
+        entropy_p1.size() < 1) {
+        throw Fertilized_Exception("If a generalized entropy should be used "
+          "for classification, entropy_p1[0] must be specified!");
+    }
+    if (entropy_names[0] == "induced") {
+      entropy_class = std::make_shared<InducedEntropy<float>>(entropy_p1[0]);
+    } else {
+      if (entropy_names[0] == "shannon") {
+        entropy_class = std::make_shared<ShannonEntropy<float>>();
+      } else {
+        if (entropy_names[0] == "tsallis") {
+          entropy_class = std::make_shared<TsallisEntropy<float>>(entropy_p1[0]);
+        } else {
+          if (entropy_names[0] == "renyi") {
+            entropy_class = std::make_shared<RenyiEntropy<float>>(entropy_p1[0]);
+          } else {
+            throw Fertilized_Exception("Unknown entropy name for classification!");
+          }
+        }
+      }
+    }
+    if ((entropy_names[1] == "induced" ||
+         entropy_names[1] == "tsallis" ||
+         entropy_names[1] == "renyi") &&
+        entropy_p1.size() < 2) {
+        throw Fertilized_Exception("If a generalized entropy should be used "
+          "for regression, entropy_p1[1] must be specified!");
+    }
+    if (entropy_names[1] == "induced") {
+      entropy_reg = std::make_shared<InducedEntropy<float>>(entropy_p1[1]);
+    } else {
+      if (entropy_names[1] == "shannon") {
+        entropy_reg = std::make_shared<ShannonEntropy<float>>();
+      } else {
+        if (entropy_names[1] == "nvariance") {
+          entropy_reg = std::shared_ptr<IEntropyFunction<float>>(nullptr);
+        } else {
+          if (entropy_names[1] == "tsallis") {
+            entropy_reg = std::make_shared<TsallisEntropy<float>>(entropy_p1[1]);
+          } else {
+            if (entropy_names[1] == "renyi") {
+              entropy_reg = std::make_shared<RenyiEntropy<float>>(entropy_p1[1]);
+            } else {
+              throw Fertilized_Exception("Unknown entropy name for regression!");
+            }
+          }
+        }
+      }
+    }
+    auto gainc = std::make_shared<EntropyGain<float>>(entropy_class);
+    size_t offset_dimension = 3;
+    uint annotation_dimension = offset_dimension + 1;
+    auto class_thresh_opt = std::shared_ptr<RandomizedClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>>(
+      new RandomizedClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>(
+        n_thresholds_per_split,
+        n_classes, gainc, class_gain_threshold,
+        annotation_dimension, random_seed));
+    auto var_thresh_opt = std::shared_ptr<VarianceClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>>(
+      new VarianceClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>(
+        n_thresholds_per_split, n_classes, offset_dimension, entropy_reg, var_gain_threshold, random_seed+1));
+    auto alt_thresh_opt = std::shared_ptr<AlternatingThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>>(
+      new AlternatingThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>(
+        class_thresh_opt, var_thresh_opt, random_seed));
+    size_t real_selections_to_generate = n_splits_per_node;
+    if (allow_redraw)
+      real_selections_to_generate = 3 * n_splits_per_node;
+    auto feat_sel = std::shared_ptr<VolumeFeatureSelectionProvider>(
+      new VolumeFeatureSelectionProvider(2, patch_x, patch_y, patch_z,
+                                         real_selections_to_generate, random_seed));
+    auto surf_calc = std::shared_ptr<DirectPatchDifferenceSurfCalculator<input_dtype, feature_dtype, annotation_dtype>>(
+      new DirectPatchDifferenceSurfCalculator<input_dtype, feature_dtype, annotation_dtype>(patch_x, patch_y, patch_z,
+        patch_annot_luc));
+    size_t n_valids_to_use = 0;
+    if (allow_redraw)
+      n_valids_to_use = n_splits_per_node;
+    auto weak_classifier = std::shared_ptr<ThresholdDecider<input_dtype, feature_dtype, annotation_dtype>>(
+      new ThresholdDecider<input_dtype, feature_dtype, annotation_dtype>(feat_sel, surf_calc,
+        alt_thresh_opt, n_valids_to_use, num_threads, use_hough_heuristic,
+        hough_heuristic_ratio, hough_heuristic_maxd));
+    auto leaf_man = std::shared_ptr<HoughLeafManager<input_dtype, annotation_dtype>>(
+      new MultiClassHoughLeafManager<input_dtype, annotation_dtype>(n_classes, offset_dimension));
     return std::make_shared<Tree<input_dtype, feature_dtype, annotation_dtype,
                          std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>,
                          std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>>>>(
