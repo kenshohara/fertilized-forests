@@ -20,15 +20,15 @@
 #include "./ifeatureselectiongenerator.h"
 
 namespace fertilized {
-  /** The generator for the \ref MultichannelFeatureSelectionProvider.
+  /** The generator for the \ref MultiChannelFeatureSelectionProvider.
    *
    * Internal use only.
    */
-  class MultichannelFeatureSelectionGenerator
+  class MultiChannelFeatureSelectionGenerator
     : public IFeatureSelectionGenerator {
    public:
     /** Standard constructor. */
-    MultichannelFeatureSelectionGenerator(
+    MultiChannelFeatureSelectionGenerator(
       const size_t &dimension,
       const std::vector<size_t> &n_features,
       const size_t &how_many_per_node,

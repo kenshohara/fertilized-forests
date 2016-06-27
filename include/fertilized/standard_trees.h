@@ -819,8 +819,8 @@ namespace fertilized {
     size_t real_selections_to_generate = n_splits_per_node;
     if (allow_redraw)
       real_selections_to_generate = 3 * n_splits_per_node;
-    auto feat_sel = std::shared_ptr<MultichannelFeatureSelectionProvider>(
-      new MultichannelFeatureSelectionProvider(2, n_features,
+    auto feat_sel = std::shared_ptr<MultiChannelFeatureSelectionProvider>(
+      new MultiChannelFeatureSelectionProvider(2, n_features,
                                                real_selections_to_generate, random_seed));
     auto surf_calc = std::shared_ptr<DifferenceSurfaceCalculator<input_dtype, feature_dtype, annotation_dtype>>(
       new DifferenceSurfaceCalculator<input_dtype, feature_dtype, annotation_dtype>());

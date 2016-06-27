@@ -38,7 +38,7 @@ namespace fertilized {
    *
    * -----
    */
-  class MultichannelFeatureSelectionProvider
+  class MultiChannelFeatureSelectionProvider
     : public IFeatureSelectionProvider {
    public:
     /**
@@ -68,7 +68,7 @@ namespace fertilized {
      * \param random_seed A random seed for the random number generator. Must
      *            be greater than 0.
      */
-    MultichannelFeatureSelectionProvider(
+    MultiChannelFeatureSelectionProvider(
           const size_t &selection_dimension,
           const std::vector<size_t> &n_features,
           const size_t &how_many_per_node,
@@ -117,8 +117,8 @@ namespace fertilized {
 
     /** Returns the \ref VolumeFeatureSelectionGenerator used. */
     std::shared_ptr<IFeatureSelectionGenerator> get_proposal_generator() {
-      return std::shared_ptr<MultichannelFeatureSelectionGenerator>(
-        new MultichannelFeatureSelectionGenerator(
+      return std::shared_ptr<MultiChannelFeatureSelectionGenerator>(
+        new MultiChannelFeatureSelectionGenerator(
           dimension, n_features,
           how_many_per_node, random_engine));
     };
@@ -159,7 +159,7 @@ namespace fertilized {
      */
     bool operator==(const IFeatureSelectionProvider &rhs)
       const {
-      const auto *rhs_c = dynamic_cast<MultichannelFeatureSelectionProvider const *>(&rhs);
+      const auto *rhs_c = dynamic_cast<MultiChannelFeatureSelectionProvider const *>(&rhs);
       if (rhs_c == nullptr)
         return false;
       else
