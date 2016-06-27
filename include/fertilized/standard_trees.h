@@ -29,8 +29,10 @@
 #include "./regression/constantregressioncalculator.h"
 #include "./regression/linearregressioncalculator.h"
 #include "./features/alignedsurfacecalculator.h"
+#include "./features/differencesurfacecalculator.h"
 #include "./features/standardfeatureselectionprovider.h"
 #include "./features/volumefeatureselectionprovider.h"
+#include "./features/multichannelfeatureselectionprovider.h"
 #include "./deciders/thresholddecider.h"
 #include "./leafs/classificationleafmanager.h"
 #include "./leafs/regressionleafmanager.h"
@@ -637,8 +639,6 @@ namespace fertilized {
    * -----
    * Available in:
    * - C++
-   * - Python
-   * - Matlab
    * .
    * Instantiations:
    * - uint8_t; int16_t; int16_t
@@ -648,8 +648,13 @@ namespace fertilized {
    *
    * -----
    *
-   * \param patch_dimensions vector<size_t>0>, three elements
-   *     The patch size in x, y, z.
+   * \param n_classes uint>1
+   *     The number of classes. All annotation labels must be in
+   *     [0, ..., n_classes[.
+   * \param n_channels uint>1
+   *     The number of feature channels.
+   * \param n_features size_t>0
+   *     The number of features for each feature channel.
    * \param n_thresholds_per_split size_t>=0
    *     The number of thresholds to evaluate per feature.
    * \param n_splits_per_node size_t>0
@@ -665,9 +670,6 @@ namespace fertilized {
    *     The random seed to initialize the RNG.
    * \param min_gain_thresholds vector<float>=0.f>, two elements.
    *     The minimum gains for classification and regression.
-   * \param patch_annot_luc bool
-   *     Whether the patch annotations contain patch position for the patch
-   *     left upper corner or patch center. Default: false.
    * \param allow_redraw bool
    *     If set to true, allows to try a new feature when optimizing for a
    *     split, when for a feature no split could be found that satisfied
@@ -702,7 +704,8 @@ namespace fertilized {
                        std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>,
                        std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> >>
     construct_multi_class_3d_hough_tree(const uint &n_classes,
-                                        const std::size_t &n_features,
+                                        const size_t &n_channels,
+                                        const std::vector<size_t> &n_features,
                                         const size_t &n_thresholds_per_split,
                                         const size_t &n_splits_per_node,
                                         uint max_depth,
@@ -716,6 +719,13 @@ namespace fertilized {
                                         const bool &use_hough_heuristic=true,
                                         const float &hough_heuristic_ratio=0.05f,
                                         uint hough_heuristic_maxd=0) {
+    if (n_classes < 2) {
+      throw Fertilized_Exception("It is not possible to create a classifier "
+        "for less than two classes!");
+    }
+    if (n_features.size() != n_channels) {
+      throw Fertilized_Exception("Exactly n_channels numbers of features required!");
+    }
     if (n_splits_per_node == 0) {
       throw Fertilized_Exception("n_splits_per_node must be >0!");
     }
@@ -809,12 +819,11 @@ namespace fertilized {
     size_t real_selections_to_generate = n_splits_per_node;
     if (allow_redraw)
       real_selections_to_generate = 3 * n_splits_per_node;
-    auto feat_sel = std::shared_ptr<VolumeFeatureSelectionProvider>(
-      new VolumeFeatureSelectionProvider(2, patch_x, patch_y, patch_z,
-                                         real_selections_to_generate, random_seed));
-    auto surf_calc = std::shared_ptr<DirectPatchDifferenceSurfCalculator<input_dtype, feature_dtype, annotation_dtype>>(
-      new DirectPatchDifferenceSurfCalculator<input_dtype, feature_dtype, annotation_dtype>(patch_x, patch_y, patch_z,
-        patch_annot_luc));
+    auto feat_sel = std::shared_ptr<MultichannelFeatureSelectionProvider>(
+      new MultichannelFeatureSelectionProvider(2, n_features,
+                                               real_selections_to_generate, random_seed));
+    auto surf_calc = std::shared_ptr<DifferenceSurfaceCalculator<input_dtype, feature_dtype, annotation_dtype>>(
+      new DifferenceSurfaceCalculator<input_dtype, feature_dtype, annotation_dtype>());
     size_t n_valids_to_use = 0;
     if (allow_redraw)
       n_valids_to_use = n_splits_per_node;
