@@ -20,16 +20,14 @@
 
 namespace fertilized {
   /**
-   * \brief Stores the offset vectors for positive samples and their
-   * probabilities in the leafs.
+   * \brief Stores the class labels, the offset vectors for positive samples, and
+   * their probabilities in the leafs.
    *
    * \ingroup fertilizedleafsGroup
    *
    * -----
    * Available in:
    * - C++
-   * - Python
-   * - Matlab
    * .
    * Instantiations:
    * - uint8_t; int16_t
@@ -53,8 +51,6 @@ namespace fertilized {
      * -----
      * Available in:
      * - C++
-     * - Python
-     * - Matlab
      * .
      *
      * -----
@@ -130,21 +126,23 @@ namespace fertilized {
     };
 
     /** \brief Gets the probability and offset vectors. */
-    std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>> get_result(const node_id_t &node_id,
-                                                                      const input_dtype *data,
-                                                                      const size_t &data_step=1,
-                                                                      const std::function<void(void*)> &dptf = nullptr) const {
+    std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>> get_result(
+      const node_id_t &node_id,
+      const input_dtype *data,
+      const size_t &data_step=1,
+      const std::function<void(void*)> &dptf = nullptr) const {
       return distribution_map.at( node_id );
     };
 
     /** Returns a vector of pairs with the tree prediction probability and the offset vectors per tree. */
-    std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>> get_combined_result(
+    std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> get_combined_result(
       const wlresult_list_t &leaf_results) {
-      std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>> comb_vec(0);
+      std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> comb_vec(0);
       for (size_t resindex = 0; resindex < leaf_results.size(); ++resindex) {
-        const std::pair<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>, float> *res_w_pair = &leaf_results[resindex];
-        comb_vec.emplace_back(res_w_pair -> first.first,
-                              res_w_pair -> first.second);
+        const std::pair<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>, float> *res_w_pair = &leaf_results[resindex];
+        comb_vec.emplace_back(std::get<0>(res_w_pair -> first),
+                              std::get<1>(res_w_pair -> first),
+                              std::get<2>(res_w_pair -> first));
       }
 
       return comb_vec;
@@ -154,16 +152,14 @@ namespace fertilized {
      * -----
      * Available in:
      * - C++
-     * - Python
-     * - Matlab
      * .
      *
      * -----
      */
     bool operator==(const ILeafManager<input_dtype,
                                  annotation_dtype,
-                                 std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>,
-                                 std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>>> &rhs) const {
+                                 std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>,
+                                 std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> &rhs) const {
       const auto *rhs_c = dynamic_cast<MultiClassHoughLeafManager<input_dtype,
                                                                   annotation_dtype> const*>(&rhs);
       if (rhs_c == nullptr)
@@ -171,8 +167,9 @@ namespace fertilized {
       else {
         bool vectors_equal = true;
         for (const auto &kvp : distribution_map) {
-          if (kvp.second.first != rhs_c -> distribution_map.at(kvp.first).first ||
-              (*((kvp.second).second)) != (*((rhs_c -> distribution_map.at(kvp.first)).second))) {
+          if (std::get<0>(kvp.second) != std::get<0>(rhs_c -> distribution_map.at(kvp.first)) ||
+              (*(std::get<1>(kvp.second))) != (*(std::get<1>(rhs_c -> distribution_map.at(kvp.first)))) ||
+              (*(std::get<2>(kvp.second))) != (*(std::get<2>(rhs_c -> distribution_map.at(kvp.first))))) {
             vectors_equal = false;
             break;
           }
@@ -191,7 +188,7 @@ namespace fertilized {
     };
 
     /** Throws. */
-    void summarize_tree_result(const std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>> &tree_result,
+    void summarize_tree_result(const std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>> &tree_result,
                                const ArrayRef<double, 1, 1> &result_row)
       const {
       throw Fertilized_Exception("Can not get a fixed summary for a hough "
@@ -200,7 +197,7 @@ namespace fertilized {
     };
 
     /** Throws. */
-    void summarize_forest_result(const std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>> &forest_result,
+    void summarize_forest_result(const std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> &forest_result,
                                  const ArrayRef<double, 1, 1> &result_row)
       const {
       throw Fertilized_Exception("Can not get a fixed summary for a hough "
@@ -208,57 +205,26 @@ namespace fertilized {
         "Use the 'predict_image' method instead.");
     };
 
-    /** Adds the hough offsets to an image. */
-    void add_tree_prediction_to_image(const std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>> &prediction_pair,
+    /** Throws. */
+    void add_tree_prediction_to_image(const std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>> &prediction_pair,
                                       const Array<float, 2, 2> &result,
                                       const size_t &write_x,
                                       const size_t &write_y,
                                       const float *ratio_parameters)
      const {
-      if (prediction_pair.first > ratio_parameters[1]) {
-        float weight = prediction_pair.first;
-        __add_hough_offs(prediction_pair.second,
-                         weight,
-                         result.getData(),
-                         write_x,
-                         write_y,
-                         static_cast<size_t>(result.getSize<0>()),
-                         static_cast<size_t>(result.getSize<1>()),
-                         ratio_parameters);
-      }
+      throw Fertilized_Exception("Cannot apply regression on an image!");
     };
 
-    /** Adds the hough offsets to an image. */
+    /** Throws. */
     void add_forest_prediction_to_image(
       const std::vector<float> &tree_weights,
-      const std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>> &forest_result,
+      const std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> &forest_result,
       const Array<float, 2, 2> &result,
       const size_t &write_x,
       const size_t &write_y,
       const float *ratio_parameters)
       const {
-      // Accumulate the probabilities.
-      // For each offset vector, add the dirac-measured weight, scaled by the
-      // number of trees (see HoughForestPaper-PAMI, p.5).
-      const float weight_sum = std::accumulate(tree_weights.begin(),
-                                               tree_weights.end(), 0.f);
-      size_t tree_index = 0;
-      for (const auto &prediction_pair : forest_result) {
-        // Do the trick of Juergen Gall to speed up detection and only add
-        // vectors for which the determined object probability > min_prob_threshold.
-        if (prediction_pair.first > ratio_parameters[1]) {
-          float weight = (prediction_pair.first * tree_weights[tree_index]) / weight_sum;
-          __add_hough_offs(prediction_pair.second,
-                           weight,
-                           result.getData(),
-                           write_x,
-                           write_y,
-                           static_cast<size_t>(result.getSize<0>()),
-                           static_cast<size_t>(result.getSize<1>()),
-                           ratio_parameters);
-        }
-        tree_index++;
-      }
+      throw Fertilized_Exception("Cannot apply regression on an image!");
     };
 
 #ifdef SERIALIZATION_ENABLED
