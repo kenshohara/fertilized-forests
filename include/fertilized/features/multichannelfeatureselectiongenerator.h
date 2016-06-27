@@ -63,7 +63,7 @@ namespace fertilized {
         // Draw two dimensions.
         selection = unique_indices<size_t>(dimension,
                                            0,
-                                           n_features.at(channel),
+                                           n_features[channel],
                                            random_engine.get(),
                                            false);
         size_t index_offset = std::accumulate(std::begin(n_features), std::begin(n_features) + channel, 0);
