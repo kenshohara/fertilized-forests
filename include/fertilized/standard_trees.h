@@ -828,15 +828,15 @@ namespace fertilized {
     size_t n_valids_to_use = 0;
     if (allow_redraw)
       n_valids_to_use = n_splits_per_node;
-    auto weak_classifier = std::shared_ptr<ThresholdDecider<input_dtype, feature_dtype, annotation_dtype>>(
+    auto weak_classifier = std::shared_ptr<MultiClassHoughThresholdDecider<input_dtype, feature_dtype, annotation_dtype>>(
       new MultiClassHoughThresholdDecider<input_dtype, feature_dtype, annotation_dtype>(feat_sel, surf_calc,
         alt_thresh_opt, n_valids_to_use, num_threads, use_hough_heuristic,
         hough_heuristic_ratio, hough_heuristic_maxd, n_classes));
-    auto leaf_man = std::shared_ptr<HoughLeafManager<input_dtype, annotation_dtype>>(
+    auto leaf_man = std::shared_ptr<MultiClassHoughLeafManager<input_dtype, annotation_dtype>>(
       new MultiClassHoughLeafManager<input_dtype, annotation_dtype>(n_classes, offset_dimension));
     return std::make_shared<Tree<input_dtype, feature_dtype, annotation_dtype,
-                         std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>,
-                         std::vector<std::pair<float, std::shared_ptr<std::vector<annotation_dtype>>>>>>(
+                                 std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>,
+                                 std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>>(
                          max_depth, min_samples_at_leaf, min_samples_at_node,
                          weak_classifier, leaf_man);
   };
