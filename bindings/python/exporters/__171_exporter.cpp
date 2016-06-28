@@ -3,14 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ClassificationThresholdOptimizer_exporter.h"
+#include "./__ClassicTraining_exporter.h"
 
 namespace pyfertilized {
   void __python_export_171() {
-    export_ClassificationThresholdOptimizer<
-              float,
-              int,
-              uint
-                            >("_f_i_uint");
+    export_ClassicTraining<
+              uint8_t,
+              int16_t,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+                            >("_uint8_int16_int16_ht_vht");
   };
 }  // namespace pyfertilized

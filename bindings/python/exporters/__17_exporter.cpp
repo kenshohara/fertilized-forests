@@ -8,11 +8,11 @@
 namespace pyfertilized {
   void __python_export_17() {
     export_IBaggingStrategy<
-              double,
-              double,
-              double,
-              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
-                            >("_d_d_d_rpd_vprpfd");
+              uint8_t,
+              int16_t,
+              int16_t,
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+                            >("_uint8_int16_int16_hp_vhp");
   };
 }  // namespace pyfertilized

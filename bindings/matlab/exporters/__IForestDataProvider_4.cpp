@@ -11,7 +11,7 @@ using namespace fertilized;
 
 
 // Destructor.
-void delete_IForestDataProvider_d_uint(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<IForestDataProvider<double,uint>>*>(ptr);
+void delete_IForestDataProvider_f_int16(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<IForestDataProvider<float,int16_t>>*>(ptr);
   delete storage;
 }

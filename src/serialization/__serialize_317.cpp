@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/boosting/samme_r.h"
+#include "fertilized/trainings/boostedtraining.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,16 +20,16 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (101 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "Samme_R is higher than the current library version "
+          "BoostedTraining is higher than the current library version "
           "(101 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 101!");
     }
     if (always_register ||
         serialization_library_version >= 101) {
-      ar.template register_type<Samme_R<
-              float,
-              float,
+      ar.template register_type<BoostedTraining<
+              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -45,23 +45,23 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const Samme_R<
-              float,
-              float,
+    TemplateFuncExport DllExport std::string serialize(const BoostedTraining<
+              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
-    TemplateFuncExport DllExport Samme_R<
-              float,
-              float,
+    TemplateFuncExport DllExport BoostedTraining<
+              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, Samme_R<
-              float,
-              float,
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, BoostedTraining<
+              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -74,9 +74,9 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<Samme_R<
-              float,
-              float,
+struct version<BoostedTraining<
+              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>

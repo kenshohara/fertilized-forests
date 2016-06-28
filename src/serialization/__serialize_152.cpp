@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/features/isurfacecalculator.h"
+#include "fertilized/leafs/ileafmanager.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,7 +20,7 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "ISurfaceCalculator is higher than the current library version "
+          "ILeafManager is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
@@ -38,20 +38,23 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const ISurfaceCalculator<
-              int,
-              int,
-              uint
+    TemplateFuncExport DllExport std::string serialize(const ILeafManager<
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  > *, const bool &);
-    TemplateFuncExport DllExport ISurfaceCalculator<
-              int,
-              int,
-              uint
+    TemplateFuncExport DllExport ILeafManager<
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, ISurfaceCalculator<
-              int,
-              int,
-              uint
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, ILeafManager<
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >*);
 }  // namespace fertilized
 
@@ -61,10 +64,11 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<ISurfaceCalculator<
-              int,
-              int,
-              uint
+struct version<ILeafManager<
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

@@ -12,7 +12,7 @@ using namespace fertilized;
 
 
 
-          void * getThresholdDecider_f_f_f (
+          void * getThresholdDecider_f_f_int16 (
 
         void * selection_provider,
         void * feature_calculator,
@@ -29,20 +29,20 @@ using namespace fertilized;
     auto __converted_selection_provider = *reinterpret_cast<std::shared_ptr<fertilized::IFeatureSelectionProvider>*>(selection_provider);
               
 
-    auto __converted_feature_calculator = *reinterpret_cast<std::shared_ptr<fertilized::ThresholdDecider<float, float, float>::feat_calc_t>*>(feature_calculator);
+    auto __converted_feature_calculator = *reinterpret_cast<std::shared_ptr<fertilized::ThresholdDecider<float, float, int16_t>::feat_calc_t>*>(feature_calculator);
               
 
-    auto __converted_threshold_optimizer = *reinterpret_cast<std::shared_ptr<fertilized::ThresholdDecider<float, float, float>::thresh_opt_t>*>(threshold_optimizer);
+    auto __converted_threshold_optimizer = *reinterpret_cast<std::shared_ptr<fertilized::ThresholdDecider<float, float, int16_t>::thresh_opt_t>*>(threshold_optimizer);
               
 
 #pragma warning( push )
 #pragma warning( disable : 4800 )
   // Get the libraries' result.
-  auto *libfunc_result = new std::shared_ptr<ThresholdDecider<float,float,float>>(
+  auto *libfunc_result = new std::shared_ptr<ThresholdDecider<float,float,int16_t>>(
     new ThresholdDecider<
               float,
               float,
-              float
+              int16_t
 >(
           __converted_selection_provider,
           __converted_feature_calculator,
@@ -61,11 +61,11 @@ using namespace fertilized;
 }		
 
 
-          mxArray * compute_feature_importancesThresholdDecider_f_f_f (void *__instance
+          mxArray * compute_feature_importancesThresholdDecider_f_f_int16 (void *__instance
 
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<ThresholdDecider<float,float,float>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<ThresholdDecider<float,float,int16_t>>*>(__instance);
   // From C types conversions.
 
 #pragma warning( push )
@@ -110,15 +110,15 @@ using namespace fertilized;
 }		
 
 
-          int eqThresholdDecider_f_f_f (void *__instance,
+          int eqThresholdDecider_f_f_int16 (void *__instance,
 
         void * rhs
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<ThresholdDecider<float,float,float>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<ThresholdDecider<float,float,int16_t>>*>(__instance);
   // From C types conversions.
 
-    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::IDecider<float, float, float>>*>(rhs);
+    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::IDecider<float, float, int16_t>>*>(rhs);
     auto &__converted_rhs = *(__shptr_rhs.get());
             
 
@@ -133,7 +133,7 @@ using namespace fertilized;
   return libfunc_result;
 }		
 // Destructor.
-void delete_ThresholdDecider_f_f_f(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<ThresholdDecider<float,float,float>>*>(ptr);
+void delete_ThresholdDecider_f_f_int16(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<ThresholdDecider<float,float,int16_t>>*>(ptr);
   delete storage;
 }

@@ -8,9 +8,9 @@
 namespace pyfertilized {
   void __python_export_85() {
     export_ISurfaceCalculator<
-              double,
-              double,
+              uint8_t,
+              uint8_t,
               uint
-                            >("_d_d_uint");
+                            >("_uint8_uint8_uint");
   };
 }  // namespace pyfertilized

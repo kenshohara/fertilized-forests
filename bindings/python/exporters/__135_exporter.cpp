@@ -3,14 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__AlternatingThresholdOptimizer_exporter.h"
+#include "./__AdaBoost_exporter.h"
 
 namespace pyfertilized {
   void __python_export_135() {
-    export_AlternatingThresholdOptimizer<
+    export_AdaBoost<
               double,
               double,
-              double
-                            >("_d_d_d");
+              uint,
+              std::vector<float>,
+              std::vector<float>
+                            >("_d_d_uint_fv_fv");
   };
 }  // namespace pyfertilized

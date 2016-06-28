@@ -10,16 +10,16 @@
 #pragma warning(pop)
 
 #include "../global.h"
-#include <../include/fertilized\./standard_trees.h>
+#include <../include/fertilized\./standard_forests.h>
 
 namespace py = boost::python;
 using namespace fertilized;
 
 namespace pyfertilized {
   void __export_module_function_15() {
-    py::def("construct_regression_tree_f",
-            &fertilized::construct_regression_tree<
-              float
+    py::def("construct_regression_forest_d",
+            &fertilized::construct_regression_forest<
+              double
                          >);
   };
 }  // namespace pyfertilized

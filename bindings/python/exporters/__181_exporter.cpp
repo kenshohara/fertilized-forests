@@ -3,14 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__DifferenceSurfaceCalculator_exporter.h"
+#include "./__ClassificationLeafManager_exporter.h"
 
 namespace pyfertilized {
   void __python_export_181() {
-    export_DifferenceSurfaceCalculator<
-              int,
-              int,
-              uint
-                            >("_i_i_uint");
+    export_ClassificationLeafManager<
+              uint8_t,
+              int16_t
+                            >("_uint8_int16");
   };
 }  // namespace pyfertilized

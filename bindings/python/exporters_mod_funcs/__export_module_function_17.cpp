@@ -10,13 +10,16 @@
 #pragma warning(pop)
 
 #include "../global.h"
-#include <../include/fertilized\feature_extraction/feature_extraction.h>
+#include <../include/fertilized\./standard_trees.h>
 
 namespace py = boost::python;
 using namespace fertilized;
 
 namespace pyfertilized {
   void __export_module_function_17() {
-    py::def("extract_hough_forest_features", &fertilized::extract_hough_forest_features);
+    py::def("construct_regression_tree_d",
+            &fertilized::construct_regression_tree<
+              double
+                         >);
   };
 }  // namespace pyfertilized

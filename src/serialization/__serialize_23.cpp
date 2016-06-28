@@ -28,8 +28,8 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<ClassicTraining<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -46,22 +46,22 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const ClassicTraining<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
     TemplateFuncExport DllExport ClassicTraining<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, ClassicTraining<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -75,8 +75,8 @@ namespace serialization {
 
 template <>
 struct version<ClassicTraining<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>

@@ -3,16 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__IBoostingStrategy_exporter.h"
+#include "./__IBaggingStrategy_exporter.h"
 
 namespace pyfertilized {
   void __python_export_21() {
-    export_IBoostingStrategy<
-              uint8_t,
-              uint8_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
-                            >("_uint8_uint8_uint_fv_fv");
+    export_IBaggingStrategy<
+              double,
+              double,
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
+                            >("_d_d_d_rpd_vprpfd");
   };
 }  // namespace pyfertilized

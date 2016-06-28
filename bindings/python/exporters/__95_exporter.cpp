@@ -3,14 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__IThresholdOptimizer_exporter.h"
+#include "./__ISurfaceCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_95() {
-    export_IThresholdOptimizer<
-              uint8_t,
-              uint8_t,
-              uint
-                            >("_uint8_uint8_uint");
+    export_ISurfaceCalculator<
+              double,
+              float,
+              double
+                            >("_d_f_d");
   };
 }  // namespace pyfertilized

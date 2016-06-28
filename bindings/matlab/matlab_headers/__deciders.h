@@ -88,6 +88,18 @@ extern "C"
         unsigned int hough_heuristic_maxd,
         int allow_early_stopping
 );
+    DllExport void * getThresholdDecider_f_f_int16 (
+
+        void * selection_provider,
+        void * feature_calculator,
+        void * threshold_optimizer,
+        size_t n_valid_features_to_use,
+        int num_threads,
+        int use_hough_heuristic,
+        float hough_heuristic_ratio,
+        unsigned int hough_heuristic_maxd,
+        int allow_early_stopping
+);
     DllExport void * getThresholdDecider_f_f_f (
 
         void * selection_provider,
@@ -132,6 +144,9 @@ extern "C"
     DllExport mxArray * compute_feature_importancesThresholdDecider_uint8_int16_int16 (void *__instance
 
 );
+    DllExport mxArray * compute_feature_importancesThresholdDecider_f_f_int16 (void *__instance
+
+);
     DllExport mxArray * compute_feature_importancesThresholdDecider_f_f_f (void *__instance
 
 );
@@ -164,6 +179,10 @@ extern "C"
 
         void * rhs
 );
+    DllExport int eqThresholdDecider_f_f_int16 (void *__instance,
+
+        void * rhs
+);
     DllExport int eqThresholdDecider_f_f_f (void *__instance,
 
         void * rhs
@@ -178,6 +197,7 @@ extern "C"
     DllExport void delete_ThresholdDecider_f_f_uint(void *ptr);
     DllExport void delete_ThresholdDecider_d_d_uint(void *ptr);
     DllExport void delete_ThresholdDecider_uint8_int16_int16(void *ptr);
+    DllExport void delete_ThresholdDecider_f_f_int16(void *ptr);
     DllExport void delete_ThresholdDecider_f_f_f(void *ptr);
     DllExport void delete_ThresholdDecider_d_d_d(void *ptr);
 #ifdef __cplusplus

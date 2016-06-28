@@ -3,16 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__Samme_exporter.h"
+#include "./__QuadraticSurfaceCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_264() {
-    export_Samme<
-              float,
-              float,
-              uint,
-              std::vector<float>,
-              std::vector<float>
-                            >("_f_f_uint_fv_fv");
+    export_QuadraticSurfaceCalculator<
+              double,
+              uint
+                            >("_d_uint");
   };
 }  // namespace pyfertilized

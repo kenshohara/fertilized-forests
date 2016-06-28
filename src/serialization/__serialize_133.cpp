@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/leafs/ileafmanager.h"
+#include "fertilized/data_providers/iforestdataprovider.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,7 +20,7 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "ILeafManager is higher than the current library version "
+          "IForestDataProvider is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
@@ -38,23 +38,17 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const ILeafManager<
+    TemplateFuncExport DllExport std::string serialize(const IForestDataProvider<
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double
 	  > *, const bool &);
-    TemplateFuncExport DllExport ILeafManager<
+    TemplateFuncExport DllExport IForestDataProvider<
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, ILeafManager<
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, IForestDataProvider<
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double
 	  >*);
 }  // namespace fertilized
 
@@ -64,11 +58,9 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<ILeafManager<
+struct version<IForestDataProvider<
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

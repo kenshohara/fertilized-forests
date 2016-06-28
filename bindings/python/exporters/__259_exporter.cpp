@@ -3,13 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__RegressionThresholdOptimizer_exporter.h"
+#include "./__PatchSampleManager_exporter.h"
 
 namespace pyfertilized {
   void __python_export_259() {
-    export_RegressionThresholdOptimizer<
-              float,
-              float
-                            >("_f_f");
+    export_PatchSampleManager<
+              uint8_t,
+              uint
+                            >("_uint8_uint");
   };
 }  // namespace pyfertilized

@@ -11,7 +11,7 @@ using namespace fertilized;
 
 
 // Destructor.
-void delete_IBaggingStrategy_f_f_f_rpf_vprpff(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<IBaggingStrategy<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(ptr);
+void delete_IBaggingStrategy_uint8_int16_int16_ht_vht(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<IBaggingStrategy<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(ptr);
   delete storage;
 }

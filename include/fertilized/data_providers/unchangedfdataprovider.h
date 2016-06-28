@@ -28,11 +28,12 @@ namespace fertilized {
    * - int; uint
    * - uint8_t; uint
    * - uint8_t; int16_t
+   * - float; int16_t
    * - double; uint
    * - double; double
    * - float; float
    * .
-   * 
+   *
    * -----
    */
   template<typename input_dtype, typename annotation_dtype>
@@ -60,7 +61,7 @@ namespace fertilized {
      * - double; double
      * - float; float
      * .
-     * 
+     *
      * -----
      *
      * \param data_array Array<input_dtype>, 2D, row-major contiguous.

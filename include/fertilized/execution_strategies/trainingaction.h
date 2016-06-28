@@ -23,6 +23,7 @@ namespace fertilized {
    * - double; uint
    * - uint8_t; uint
    * - uint8_t; int16_t
+   * - float; int16_t
    * - float; float
    * - double; double
    * .
@@ -44,7 +45,7 @@ namespace fertilized {
      * - Python
      * - Matlab
      * .
-     * 
+     *
      * -----
      *
      * \param tree_id size_t

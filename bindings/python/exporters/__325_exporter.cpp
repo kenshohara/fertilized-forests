@@ -3,10 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__VolumeFeatureSelectionProvider_exporter.h"
+#include "./__UnchangedDataProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_325() {
-    export_VolumeFeatureSelectionProvider("");
+    export_UnchangedDataProvider<
+              double,
+              double
+                            >("_d_d");
   };
 }  // namespace pyfertilized

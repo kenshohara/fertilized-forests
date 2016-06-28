@@ -304,6 +304,8 @@ namespace fertilized {
 * - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 * - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 * - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 * .
@@ -678,6 +680,8 @@ namespace fertilized {
 * - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 * - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 * - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 * .
@@ -711,6 +715,8 @@ namespace fertilized {
 * - double; double; uint; std::vector<float>; std::vector<float>
 * - uint8_t; uint8_t; uint; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 * - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 * - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 * .
@@ -756,6 +762,8 @@ namespace fertilized {
 * - double; double; uint; std::vector<float>; std::vector<float>
 * - uint8_t; uint8_t; uint; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 * - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 * - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 * .
@@ -791,6 +799,8 @@ namespace fertilized {
 * - double; double; uint; std::vector<float>; std::vector<float>
 * - uint8_t; uint8_t; uint; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 * - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 * - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 * .
@@ -824,6 +834,8 @@ namespace fertilized {
 * - double; double; uint; std::vector<float>; std::vector<float>
 * - uint8_t; uint8_t; uint; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 * - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 * - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 * .
@@ -1040,6 +1052,8 @@ namespace fertilized {
 * - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 * - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 * - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 * .
@@ -1216,6 +1230,8 @@ namespace fertilized {
 * - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 * - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 * - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 * .
@@ -1869,6 +1885,7 @@ namespace fertilized {
 * - float; float; uint
 * - double; double; uint
 * - uint8_t; int16_t; int16_t
+* - float; float; int16_t
 * - float; float; float
 * - double; double; double
 * .
@@ -1917,6 +1934,7 @@ namespace fertilized {
 * - double; uint
 * - uint8_t; uint
 * - uint8_t; int16_t
+* - float; int16_t
 * - float; float
 * - double; double
 * .
@@ -1963,6 +1981,8 @@ namespace fertilized {
 * - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 * - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 * - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 * .
@@ -2010,6 +2030,8 @@ namespace fertilized {
 * - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
 * - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 * - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 * - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 * .
@@ -2185,11 +2207,12 @@ namespace fertilized {
 * - int; uint
 * - uint8_t; uint
 * - uint8_t; int16_t
+* - float; int16_t
 * - double; uint
 * - double; double
 * - float; float
 * .
-* 
+*
 * -----
 */
   std::shared_ptr<fertilized::UnchangedFDataProvider<input_dtype,annotation_dtype>>
@@ -2864,6 +2887,108 @@ namespace fertilized {
          random_seed,
          min_gain_thresholds,
          patch_annot_luc,
+         allow_redraw,
+         num_threads,
+         entropy_names,
+         entropy_p1,
+         use_hough_heuristic,
+         hough_heuristic_ratio,
+         hough_heuristic_maxd
+       );
+    };
+
+  /**
+* Constructs a Hough tree without using the patch representation.
+*
+* -----
+* Available in:
+* - C++
+* - Python
+* - Matlab
+* .
+* Instantiations:
+* - uint8_t; int16_t; int16_t
+* .
+* Exported name: StandardHoughTree
+*
+* -----
+*
+* \param n_channels uint>1
+*     The number of feature channels.
+* \param n_features size_t>0
+*     The number of features for each feature channel.
+* \param n_thresholds_per_split size_t>=0
+*     The number of thresholds to evaluate per feature.
+* \param n_splits_per_node size_t>0
+*     The number of features to evaluate as split criteria at each tree
+*     node.
+* \param max_depth uint>=0
+*     The maximum tree depth. If 0, it is set to UINT_MAX to allow for
+*     maximally large trees.
+* \param min_sample_counts vector<uint>0>, two elements.
+*     The min samples per leaf, and min samples per split. The second value
+*     must be >= 2 * the first value.
+* \param random_seed uint>=1
+*     The random seed to initialize the RNG.
+* \param min_gain_thresholds vector<float>=0.f>, two elements.
+*     The minimum gains for classification and regression.
+* \param allow_redraw bool
+*     If set to true, allows to try a new feature when optimizing for a
+*     split, when for a feature no split could be found that satisfied
+*     the minimum number of samples per leaf for each subgroup. This may be
+*     done until all features have been checked. Default: true.
+* \param num_threads uint>0
+*     The number of threads to use for optimizing the split nodes.
+*     Default: 1.
+* \param entropy_names vector<string in ["induced", "classification_error", "renyi", "tsallis", "shannon"]>, two elements.
+*     The entropy type to use for classification and regression.
+*     Default: ["shannon", "shannon"]
+* \param entropy_p1 vector<float>0.f>, two elements.
+*     The entropy parameters. Might be unused (e.g. for the Shannon entropy).
+*     Default: [2, 2]
+* \param use_hough_heuristic bool
+*   Whether or not to use a heuristic for hough
+*   forests introduced by Juergen Gall
+*   (http://www.vision.ee.ethz.ch/~gallju/projects/houghforest/houghforest.html)
+*   Can be used only with an \ref AlternatingThresholdOptimizer.
+*   If used, the AlternatingThresholdOptimizer will guaranteed
+*   use opt2 if the ratio of negative samples is < \ref hough_heuristic_ratio or
+*   depth >= \ref hough_heuristic_maxd. opt2 must be a
+*   \ref VarianceClassificationThresholdOptimizer (check this
+*   manually!). Default: true.
+* \param hough_heuristic_ratio float>=0.f
+*   Default: 0.05f.
+* \param hough_heuristic_maxd uint
+*   Default: 0.
+*/
+  std::shared_ptr<fertilized::Tree<input_dtype , feature_dtype , annotation_dtype , std::pair<float , std::shared_ptr<std::vector<annotation_dtype> >> , std::vector<std::pair<float , std::shared_ptr<std::vector<annotation_dtype> >> >>> StandardHoughTree(
+
+        const size_t & n_channels,
+        const std::vector<size_t> & n_features,
+        const size_t & n_thresholds_per_split,
+        const size_t & n_splits_per_node,
+        unsigned int max_depth,
+        const std::vector<fertilized::uint> & min_sample_counts,
+        const unsigned int & random_seed,
+        const std::vector<float> & min_gain_thresholds,
+        const bool & allow_redraw=1,
+        const unsigned int & num_threads=1,
+        const std::vector<std::string> & entropy_names=_DEFAULT_ENTROPY_VEC_2,
+        const std::vector<float> & entropy_p1=_DEFAULT_ENTROPY_P1_2,
+        const bool & use_hough_heuristic=1,
+        const float & hough_heuristic_ratio=0.05,
+        unsigned int hough_heuristic_maxd=0
+    ) {
+    return fertilized::construct_hough_tree_without_patch<input_dtype,feature_dtype,annotation_dtype>(
+
+         n_channels,
+         n_features,
+         n_thresholds_per_split,
+         n_splits_per_node,
+         max_depth,
+         min_sample_counts,
+         random_seed,
+         min_gain_thresholds,
          allow_redraw,
          num_threads,
          entropy_names,

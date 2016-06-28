@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/deciders/idecider.h"
+#include "fertilized/data_providers/idataprovider.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,7 +20,7 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "IDecider is higher than the current library version "
+          "IDataProvider is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
@@ -38,18 +38,15 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const IDecider<
-              float,
+    TemplateFuncExport DllExport std::string serialize(const IDataProvider<
               float,
               uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport IDecider<
-              float,
+    TemplateFuncExport DllExport IDataProvider<
               float,
               uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, IDecider<
-              float,
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, IDataProvider<
               float,
               uint
 	  >*);
@@ -61,8 +58,7 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<IDecider<
-              float,
+struct version<IDataProvider<
               float,
               uint
 	  >> {

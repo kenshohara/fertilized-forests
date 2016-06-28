@@ -3,12 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__EntropyGain_exporter.h"
+#include "./__DifferenceSurfaceCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_200() {
-    export_EntropyGain<
-              uint
-                            >("_uint");
+    export_DifferenceSurfaceCalculator<
+              float,
+              float,
+              float
+                            >("_f_f_f");
   };
 }  // namespace pyfertilized

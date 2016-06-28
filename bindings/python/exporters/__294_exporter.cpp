@@ -3,14 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__TwoSideClassificationThresholdOptimizer_exporter.h"
+#include "./__ShannonEntropy_exporter.h"
 
 namespace pyfertilized {
   void __python_export_294() {
-    export_TwoSideClassificationThresholdOptimizer<
-              uint8_t,
-              uint8_t,
-              uint
-                            >("_uint8_uint8_uint");
+    export_ShannonEntropy<
+              float
+                            >("_f");
   };
 }  // namespace pyfertilized

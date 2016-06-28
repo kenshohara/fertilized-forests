@@ -17,6 +17,7 @@ classdef IForestDataProvider < FertilizedObject
     % - int; uint
     % - uint8_t; uint
     % - uint8_t; int16_t
+    % - float; int16_t
     % - double; uint
     % - double; double
     % - float; float

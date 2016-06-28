@@ -30,7 +30,7 @@ namespace fertilized {
       ar.template register_type<DifferenceSurfaceCalculator<
               float,
               float,
-              uint
+              float
 	  >>();
     }
   };
@@ -46,17 +46,17 @@ namespace fertilized {
     TemplateFuncExport DllExport std::string serialize(const DifferenceSurfaceCalculator<
               float,
               float,
-              uint
+              float
 	  > *, const bool &);
     TemplateFuncExport DllExport DifferenceSurfaceCalculator<
               float,
               float,
-              uint
+              float
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, DifferenceSurfaceCalculator<
               float,
               float,
-              uint
+              float
 	  >*);
 }  // namespace fertilized
 
@@ -69,7 +69,7 @@ template <>
 struct version<DifferenceSurfaceCalculator<
               float,
               float,
-              uint
+              float
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

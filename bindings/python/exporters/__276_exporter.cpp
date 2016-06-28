@@ -3,12 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ShannonEntropy_exporter.h"
+#include "./__RegressionLeafManager_exporter.h"
 
 namespace pyfertilized {
   void __python_export_276() {
-    export_ShannonEntropy<
-              uint
-                            >("_uint");
+    export_RegressionLeafManager<
+              float
+                            >("_f");
   };
 }  // namespace pyfertilized

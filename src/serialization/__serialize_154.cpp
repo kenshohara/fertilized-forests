@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/features/isurfacecalculator.h"
+#include "fertilized/regression/iregressioncalculator.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,7 +20,7 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "ISurfaceCalculator is higher than the current library version "
+          "IRegressionCalculator is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
@@ -38,20 +38,14 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const ISurfaceCalculator<
-              uint8_t,
-              int16_t,
-              int16_t
+    TemplateFuncExport DllExport std::string serialize(const IRegressionCalculator<
+              float
 	  > *, const bool &);
-    TemplateFuncExport DllExport ISurfaceCalculator<
-              uint8_t,
-              int16_t,
-              int16_t
+    TemplateFuncExport DllExport IRegressionCalculator<
+              float
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, ISurfaceCalculator<
-              uint8_t,
-              int16_t,
-              int16_t
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, IRegressionCalculator<
+              float
 	  >*);
 }  // namespace fertilized
 
@@ -61,10 +55,8 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<ISurfaceCalculator<
-              uint8_t,
-              int16_t,
-              int16_t
+struct version<IRegressionCalculator<
+              float
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

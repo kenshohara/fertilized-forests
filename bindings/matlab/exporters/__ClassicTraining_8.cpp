@@ -12,25 +12,25 @@ using namespace fertilized;
 
 
 
-          void * getClassicTraining_d_d_d_rpd_vprpfd (
+          void * getClassicTraining_f_f_int16_ht_vht (
 
         void * bagging_strategy
 ) {
   // From C types conversions.
 
-    auto __converted_bagging_strategy = *reinterpret_cast<std::shared_ptr<fertilized::ClassicTraining<double, double, double, std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>, std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>>::bag_strat_t>*>(bagging_strategy);
+    auto __converted_bagging_strategy = *reinterpret_cast<std::shared_ptr<fertilized::ClassicTraining<float, float, int16_t, std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>, std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>::bag_strat_t>*>(bagging_strategy);
               
 
 #pragma warning( push )
 #pragma warning( disable : 4800 )
   // Get the libraries' result.
-  auto *libfunc_result = new std::shared_ptr<ClassicTraining<double,double,double,std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>>>(
+  auto *libfunc_result = new std::shared_ptr<ClassicTraining<float,float,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>(
     new ClassicTraining<
-              double,
-              double,
-              double,
-              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
+              float,
+              float,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 >(
           __converted_bagging_strategy
           ));
@@ -41,15 +41,15 @@ using namespace fertilized;
 }		
 
 
-          int eqClassicTraining_d_d_d_rpd_vprpfd (void *__instance,
+          int eqClassicTraining_f_f_int16_ht_vht (void *__instance,
 
         void * rhs
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<ClassicTraining<double,double,double,std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<ClassicTraining<float,float,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
-    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::ITraining<double, double, double, std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>, std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>>>*>(rhs);
+    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::ITraining<float, float, int16_t, std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>, std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(rhs);
     auto &__converted_rhs = *(__shptr_rhs.get());
             
 
@@ -64,7 +64,7 @@ using namespace fertilized;
   return libfunc_result;
 }		
 // Destructor.
-void delete_ClassicTraining_d_d_d_rpd_vprpfd(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<ClassicTraining<double,double,double,std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>>>*>(ptr);
+void delete_ClassicTraining_f_f_int16_ht_vht(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<ClassicTraining<float,float,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(ptr);
   delete storage;
 }

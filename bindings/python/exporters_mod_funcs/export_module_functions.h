@@ -28,6 +28,7 @@ namespace pyfertilized {
   void __export_module_function_15();
   void __export_module_function_16();
   void __export_module_function_17();
+  void __export_module_function_18();
 }  // namespace pyfertilized
 
 #endif  // PYFERTILIZED_EXPORTERS_MOD_FUNCS_EXPORT_MODULE_FUNCTIONS_H_

@@ -30,9 +30,9 @@ namespace fertilized {
       ar.template register_type<ClassicTraining<
               uint8_t,
               int16_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              int16_t,
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
 	  >>();
     }
   };
@@ -48,23 +48,23 @@ namespace fertilized {
     TemplateFuncExport DllExport std::string serialize(const ClassicTraining<
               uint8_t,
               int16_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              int16_t,
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
 	  > *, const bool &);
     TemplateFuncExport DllExport ClassicTraining<
               uint8_t,
               int16_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              int16_t,
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, ClassicTraining<
               uint8_t,
               int16_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              int16_t,
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
 	  >*);
 }  // namespace fertilized
 
@@ -77,9 +77,9 @@ template <>
 struct version<ClassicTraining<
               uint8_t,
               int16_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              int16_t,
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

@@ -3,16 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ITraining_exporter.h"
+#include "./__IThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_103() {
-    export_ITraining<
+    export_IThresholdOptimizer<
+              uint8_t,
               float,
-              float,
-              uint,
-              std::vector<float>,
-              std::vector<float>
-                            >("_f_f_uint_fv_fv");
+              uint
+                            >("_uint8_f_uint");
   };
 }  // namespace pyfertilized

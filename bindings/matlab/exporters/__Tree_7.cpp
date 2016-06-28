@@ -12,7 +12,7 @@ using namespace fertilized;
 
 
 
-          void * getTree_f_f_f_rpf_vprpff (
+          void * getTree_uint8_int16_int16_ht_vht (
 
         unsigned int max_depth,
         unsigned int min_samples_at_leaf,
@@ -22,22 +22,22 @@ using namespace fertilized;
 ) {
   // From C types conversions.
 
-    auto __converted_decider = *reinterpret_cast<std::shared_ptr<fertilized::Tree<float, float, float, std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>, std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>::dec_t>*>(decider);
+    auto __converted_decider = *reinterpret_cast<std::shared_ptr<fertilized::Tree<uint8_t, int16_t, int16_t, std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>, std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>::dec_t>*>(decider);
               
 
-    auto __converted_leaf_manager = *reinterpret_cast<std::shared_ptr<fertilized::Tree<float, float, float, std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>, std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>::leaf_man_t>*>(leaf_manager);
+    auto __converted_leaf_manager = *reinterpret_cast<std::shared_ptr<fertilized::Tree<uint8_t, int16_t, int16_t, std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>, std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>::leaf_man_t>*>(leaf_manager);
               
 
 #pragma warning( push )
 #pragma warning( disable : 4800 )
   // Get the libraries' result.
-  auto *libfunc_result = new std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>(
+  auto *libfunc_result = new std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>(
     new Tree<
-              float,
-              float,
-              float,
-              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+              uint8_t,
+              int16_t,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 >(
           max_depth,
           min_samples_at_leaf,
@@ -52,7 +52,7 @@ using namespace fertilized;
 }		
 
 
-          void * getTreeFromFile_f_f_f_rpf_vprpff (
+          void * getTreeFromFile_uint8_int16_int16_ht_vht (
 
         char* filename
 ) {
@@ -61,13 +61,13 @@ using namespace fertilized;
 #pragma warning( push )
 #pragma warning( disable : 4800 )
   // Get the libraries' result.
-  auto *libfunc_result = new std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>(
+  auto *libfunc_result = new std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>(
     new Tree<
-              float,
-              float,
-              float,
-              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+              uint8_t,
+              int16_t,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 >(
           filename
           ));
@@ -78,16 +78,16 @@ using namespace fertilized;
 }		
 
 
-          void make_nodeTree_f_f_f_rpf_vprpff (void *__instance,
+          void make_nodeTree_uint8_int16_int16_ht_vht (void *__instance,
 
         void * data_provider,
         int append_on_different
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
-    auto __shptr_data_provider = *reinterpret_cast<std::shared_ptr<fertilized::Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>::dprov_t>*>(data_provider);
+    auto __shptr_data_provider = *reinterpret_cast<std::shared_ptr<fertilized::Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>::dprov_t>*>(data_provider);
     auto __converted_data_provider = (__shptr_data_provider.get());
             
 
@@ -103,11 +103,11 @@ using namespace fertilized;
 }		
 
 
-          size_t depthTree_f_f_f_rpf_vprpff (void *__instance
+          size_t depthTree_uint8_int16_int16_ht_vht (void *__instance
 
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
 #pragma warning( push )
@@ -121,17 +121,17 @@ using namespace fertilized;
 }		
 
 
-          void fitTree_f_f_f_rpf_vprpff (void *__instance,
+          void fitTree_uint8_int16_int16_ht_vht (void *__instance,
 
         mxArray * data,
         mxArray * annotations,
         int complete_dfs
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
-    fertilized::Array<float, 2, 2> __converted_data;
+    fertilized::Array<uint8_t, 2, 2> __converted_data;
     {
       const mwSize _matlab_ndim = mxGetNumberOfDimensions(data);
       const mxClassID _matlab_dtid = mxGetClassID(data);
@@ -142,7 +142,7 @@ using namespace fertilized;
           std::to_string(_matlab_ndim)).c_str());
       }
       // Dtype check.
-      if (_matlab_dtid != mxSINGLE_CLASS) {
+      if (_matlab_dtid != mxUINT8_CLASS) {
         mexErrMsgTxt("Wrong MATLAB datatype of argument data!");
       }
       Vector<std::size_t, 2> shape;
@@ -155,8 +155,8 @@ using namespace fertilized;
         _idx[i] = 0;
       }
       int dimidx;
-      float *_dptr = __converted_data.getData();
-      float *_iptr = reinterpret_cast<float*>(mxGetData(data));
+      uint8_t *_dptr = __converted_data.getData();
+      uint8_t *_iptr = reinterpret_cast<uint8_t*>(mxGetData(data));
       for (std::size_t i = 0; i < shape.product(); ++i) {
         _dptr[i] = _iptr[mxCalcSingleSubscript(data, _matlab_ndim, _idx)];
         dimidx = 2-1;
@@ -168,7 +168,7 @@ using namespace fertilized;
       }
     }
 
-    fertilized::Array<float, 2, 2> __converted_annotations;
+    fertilized::Array<int16_t, 2, 2> __converted_annotations;
     {
       const mwSize _matlab_ndim = mxGetNumberOfDimensions(annotations);
       const mxClassID _matlab_dtid = mxGetClassID(annotations);
@@ -179,7 +179,7 @@ using namespace fertilized;
           std::to_string(_matlab_ndim)).c_str());
       }
       // Dtype check.
-      if (_matlab_dtid != mxSINGLE_CLASS) {
+      if (_matlab_dtid != mxINT16_CLASS) {
         mexErrMsgTxt("Wrong MATLAB datatype of argument annotations!");
       }
       Vector<std::size_t, 2> shape;
@@ -192,8 +192,8 @@ using namespace fertilized;
         _idx[i] = 0;
       }
       int dimidx;
-      float *_dptr = __converted_annotations.getData();
-      float *_iptr = reinterpret_cast<float*>(mxGetData(annotations));
+      int16_t *_dptr = __converted_annotations.getData();
+      int16_t *_iptr = reinterpret_cast<int16_t*>(mxGetData(annotations));
       for (std::size_t i = 0; i < shape.product(); ++i) {
         _dptr[i] = _iptr[mxCalcSingleSubscript(annotations, _matlab_ndim, _idx)];
         dimidx = 2-1;
@@ -218,16 +218,16 @@ using namespace fertilized;
 }		
 
 
-          void fit_dprovTree_f_f_f_rpf_vprpff (void *__instance,
+          void fit_dprovTree_uint8_int16_int16_ht_vht (void *__instance,
 
         void * data_provider,
         int complete_dfs
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
-    auto __shptr_data_provider = *reinterpret_cast<std::shared_ptr<fertilized::Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>::dprov_t>*>(data_provider);
+    auto __shptr_data_provider = *reinterpret_cast<std::shared_ptr<fertilized::Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>::dprov_t>*>(data_provider);
     auto __converted_data_provider = (__shptr_data_provider.get());
             
 
@@ -243,16 +243,16 @@ using namespace fertilized;
 }		
 
 
-          mxArray * predictTree_f_f_f_rpf_vprpff (void *__instance,
+          mxArray * predictTree_uint8_int16_int16_ht_vht (void *__instance,
 
         mxArray * data,
         int num_threads
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
-    fertilized::Array<float, 2, 2> __converted_data;
+    fertilized::Array<uint8_t, 2, 2> __converted_data;
     {
       const mwSize _matlab_ndim = mxGetNumberOfDimensions(data);
       const mxClassID _matlab_dtid = mxGetClassID(data);
@@ -263,7 +263,7 @@ using namespace fertilized;
           std::to_string(_matlab_ndim)).c_str());
       }
       // Dtype check.
-      if (_matlab_dtid != mxSINGLE_CLASS) {
+      if (_matlab_dtid != mxUINT8_CLASS) {
         mexErrMsgTxt("Wrong MATLAB datatype of argument data!");
       }
       Vector<std::size_t, 2> shape;
@@ -276,8 +276,8 @@ using namespace fertilized;
         _idx[i] = 0;
       }
       int dimidx;
-      float *_dptr = __converted_data.getData();
-      float *_iptr = reinterpret_cast<float*>(mxGetData(data));
+      uint8_t *_dptr = __converted_data.getData();
+      uint8_t *_iptr = reinterpret_cast<uint8_t*>(mxGetData(data));
       for (std::size_t i = 0; i < shape.product(); ++i) {
         _dptr[i] = _iptr[mxCalcSingleSubscript(data, _matlab_ndim, _idx)];
         dimidx = 2-1;
@@ -333,7 +333,7 @@ using namespace fertilized;
 }		
 
 
-          mxArray * predict_imageTree_f_f_f_rpf_vprpff (void *__instance,
+          mxArray * predict_imageTree_uint8_int16_int16_ht_vht (void *__instance,
 
         mxArray * image,
         size_t step_size,
@@ -342,10 +342,10 @@ using namespace fertilized;
         float p2
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
-    fertilized::Array<float, 3, 3> __converted_image;
+    fertilized::Array<uint8_t, 3, 3> __converted_image;
     {
       const mwSize _matlab_ndim = mxGetNumberOfDimensions(image);
       const mxClassID _matlab_dtid = mxGetClassID(image);
@@ -356,7 +356,7 @@ using namespace fertilized;
           std::to_string(_matlab_ndim)).c_str());
       }
       // Dtype check.
-      if (_matlab_dtid != mxSINGLE_CLASS) {
+      if (_matlab_dtid != mxUINT8_CLASS) {
         mexErrMsgTxt("Wrong MATLAB datatype of argument image!");
       }
       Vector<std::size_t, 3> shape;
@@ -369,8 +369,8 @@ using namespace fertilized;
         _idx[i] = 0;
       }
       int dimidx;
-      float *_dptr = __converted_image.getData();
-      float *_iptr = reinterpret_cast<float*>(mxGetData(image));
+      uint8_t *_dptr = __converted_image.getData();
+      uint8_t *_iptr = reinterpret_cast<uint8_t*>(mxGetData(image));
       for (std::size_t i = 0; i < shape.product(); ++i) {
         _dptr[i] = _iptr[mxCalcSingleSubscript(image, _matlab_ndim, _idx)];
         dimidx = 3-1;
@@ -429,11 +429,11 @@ using namespace fertilized;
 }		
 
 
-          float get_weightTree_f_f_f_rpf_vprpff (void *__instance
+          float get_weightTree_uint8_int16_int16_ht_vht (void *__instance
 
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
 #pragma warning( push )
@@ -447,11 +447,11 @@ using namespace fertilized;
 }		
 
 
-          size_t get_n_nodesTree_f_f_f_rpf_vprpff (void *__instance
+          size_t get_n_nodesTree_uint8_int16_int16_ht_vht (void *__instance
 
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
 #pragma warning( push )
@@ -465,12 +465,12 @@ using namespace fertilized;
 }		
 
 
-          void set_weightTree_f_f_f_rpf_vprpff (void *__instance,
+          void set_weightTree_uint8_int16_int16_ht_vht (void *__instance,
 
         float new_weight
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
 #pragma warning( push )
@@ -484,11 +484,11 @@ using namespace fertilized;
 }		
 
 
-          size_t get_input_data_dimensionsTree_f_f_f_rpf_vprpff (void *__instance
+          size_t get_input_data_dimensionsTree_uint8_int16_int16_ht_vht (void *__instance
 
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
 #pragma warning( push )
@@ -502,11 +502,11 @@ using namespace fertilized;
 }		
 
 
-          mxArray * compute_feature_importancesTree_f_f_f_rpf_vprpff (void *__instance
+          mxArray * compute_feature_importancesTree_uint8_int16_int16_ht_vht (void *__instance
 
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
 #pragma warning( push )
@@ -551,11 +551,11 @@ using namespace fertilized;
 }		
 
 
-          size_t get_samples_storedTree_f_f_f_rpf_vprpff (void *__instance
+          size_t get_samples_storedTree_uint8_int16_int16_ht_vht (void *__instance
 
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
 #pragma warning( push )
@@ -569,15 +569,15 @@ using namespace fertilized;
 }		
 
 
-          int eqTree_f_f_f_rpf_vprpff (void *__instance,
+          int eqTree_uint8_int16_int16_ht_vht (void *__instance,
 
         void * rhs
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
-    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>::tree_t>*>(rhs);
+    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>::tree_t>*>(rhs);
     auto &__converted_rhs = *(__shptr_rhs.get());
             
 
@@ -593,12 +593,12 @@ using namespace fertilized;
 }		
 
 
-          void saveTree_f_f_f_rpf_vprpff (void *__instance,
+          void saveTree_uint8_int16_int16_ht_vht (void *__instance,
 
         char* filename
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(__instance);
   // From C types conversions.
 
 #pragma warning( push )
@@ -611,7 +611,7 @@ using namespace fertilized;
 
 }		
 // Destructor.
-void delete_Tree_f_f_f_rpf_vprpff(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<Tree<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(ptr);
+void delete_Tree_uint8_int16_int16_ht_vht(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<Tree<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(ptr);
   delete storage;
 }

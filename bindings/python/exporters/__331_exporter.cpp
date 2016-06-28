@@ -3,11 +3,11 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__NoCopyPatchSampleManager_exporter.h"
+#include "./__UnchangedFDataProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_331() {
-    export_NoCopyPatchSampleManager<
+    export_UnchangedFDataProvider<
               uint8_t,
               int16_t
                             >("_uint8_int16");

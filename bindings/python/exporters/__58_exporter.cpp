@@ -3,13 +3,10 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__IForestDataProvider_exporter.h"
+#include "./__IFeatureSelectionProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_58() {
-    export_IForestDataProvider<
-              double,
-              double
-                            >("_d_d");
+    export_IFeatureSelectionProvider("");
   };
 }  // namespace pyfertilized

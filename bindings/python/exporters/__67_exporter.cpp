@@ -3,15 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ILeafManager_exporter.h"
+#include "./__IGainCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_67() {
-    export_ILeafManager<
-              uint8_t,
-              int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
-                            >("_uint8_int16_hp_vhp");
+    export_IGainCalculator<
+              float
+                            >("_f");
   };
 }  // namespace pyfertilized

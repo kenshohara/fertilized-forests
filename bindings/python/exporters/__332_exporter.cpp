@@ -3,13 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__NoCopyPatchSampleManager_exporter.h"
+#include "./__UnchangedFDataProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_332() {
-    export_NoCopyPatchSampleManager<
-              uint8_t,
-              uint
-                            >("_uint8_uint");
+    export_UnchangedFDataProvider<
+              float,
+              int16_t
+                            >("_f_int16");
   };
 }  // namespace pyfertilized

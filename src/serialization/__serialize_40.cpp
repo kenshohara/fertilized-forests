@@ -28,7 +28,7 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<ClassificationThresholdOptimizer<
-              uint8_t,
+              int,
               float,
               uint
 	  >>();
@@ -44,17 +44,17 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const ClassificationThresholdOptimizer<
-              uint8_t,
+              int,
               float,
               uint
 	  > *, const bool &);
     TemplateFuncExport DllExport ClassificationThresholdOptimizer<
-              uint8_t,
+              int,
               float,
               uint
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, ClassificationThresholdOptimizer<
-              uint8_t,
+              int,
               float,
               uint
 	  >*);
@@ -67,7 +67,7 @@ namespace serialization {
 
 template <>
 struct version<ClassificationThresholdOptimizer<
-              uint8_t,
+              int,
               float,
               uint
 	  >> {

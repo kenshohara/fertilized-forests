@@ -59,4 +59,5 @@ BOOST_PYTHON_MODULE(pyfertilized_mf) {
   __export_module_function_15();
   __export_module_function_16();
   __export_module_function_17();
+  __export_module_function_18();
 };

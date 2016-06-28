@@ -8,9 +8,9 @@
 namespace pyfertilized {
   void __python_export_38() {
     export_IDecider<
-              float,
-              float,
-              int16_t
-                            >("_f_f_int16");
+              uint8_t,
+              int16_t,
+              uint
+                            >("_uint8_int16_uint");
   };
 }  // namespace pyfertilized

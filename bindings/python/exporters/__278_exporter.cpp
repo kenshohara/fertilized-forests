@@ -3,13 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__SubsamplingDataProvider_exporter.h"
+#include "./__RegressionThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_278() {
-    export_SubsamplingDataProvider<
-              uint8_t,
-              int16_t
-                            >("_uint8_int16");
+    export_RegressionThresholdOptimizer<
+              float,
+              float
+                            >("_f_f");
   };
 }  // namespace pyfertilized

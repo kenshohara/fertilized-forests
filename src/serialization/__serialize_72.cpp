@@ -28,11 +28,11 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<EqualDistBagging<
-              uint8_t,
+              float,
+              float,
               int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 	  >>();
     }
   };
@@ -46,25 +46,25 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const EqualDistBagging<
-              uint8_t,
+              float,
+              float,
               int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 	  > *, const bool &);
     TemplateFuncExport DllExport EqualDistBagging<
-              uint8_t,
+              float,
+              float,
               int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, EqualDistBagging<
-              uint8_t,
+              float,
+              float,
               int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 	  >*);
 }  // namespace fertilized
 
@@ -75,11 +75,11 @@ namespace serialization {
 
 template <>
 struct version<EqualDistBagging<
-              uint8_t,
+              float,
+              float,
               int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

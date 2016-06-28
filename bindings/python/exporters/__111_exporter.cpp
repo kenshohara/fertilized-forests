@@ -3,16 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ObjectTemplate_exporter.h"
+#include "./__ITraining_exporter.h"
 
 namespace pyfertilized {
   void __python_export_111() {
-    export_ObjectTemplate<
-              int,
-              int,
+    export_ITraining<
+              double,
+              double,
               uint,
               std::vector<float>,
               std::vector<float>
-                            >("_i_i_uint_fv_fv");
+                            >("_d_d_uint_fv_fv");
   };
 }  // namespace pyfertilized

@@ -28,9 +28,9 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<DirectPatchDifferenceSurfCalculator<
-              float,
-              float,
-              int16_t
+              double,
+              double,
+              uint
 	  >>();
     }
   };
@@ -44,19 +44,19 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const DirectPatchDifferenceSurfCalculator<
-              float,
-              float,
-              int16_t
+              double,
+              double,
+              uint
 	  > *, const bool &);
     TemplateFuncExport DllExport DirectPatchDifferenceSurfCalculator<
-              float,
-              float,
-              int16_t
+              double,
+              double,
+              uint
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, DirectPatchDifferenceSurfCalculator<
-              float,
-              float,
-              int16_t
+              double,
+              double,
+              uint
 	  >*);
 }  // namespace fertilized
 
@@ -67,9 +67,9 @@ namespace serialization {
 
 template <>
 struct version<DirectPatchDifferenceSurfCalculator<
-              float,
-              float,
-              int16_t
+              double,
+              double,
+              uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

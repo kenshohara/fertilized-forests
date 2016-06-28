@@ -21,6 +21,8 @@ extern "C"
     DllExport void delete_IExecutionStrategy_uint8_int16_uint_fv_fv(void *ptr);
     DllExport void delete_IExecutionStrategy_uint8_int16_int16_fv_fv(void *ptr);
     DllExport void delete_IExecutionStrategy_uint8_int16_int16_hp_vhp(void *ptr);
+    DllExport void delete_IExecutionStrategy_uint8_int16_int16_ht_vht(void *ptr);
+    DllExport void delete_IExecutionStrategy_f_f_int16_ht_vht(void *ptr);
     DllExport void delete_IExecutionStrategy_f_f_f_rpf_vprpff(void *ptr);
     DllExport void delete_IExecutionStrategy_d_d_d_rpd_vprpfd(void *ptr);
 
@@ -53,6 +55,14 @@ extern "C"
 
         int num_threads
 );
+    DllExport void * getLocalExecutionStrategy_uint8_int16_int16_ht_vht (
+
+        int num_threads
+);
+    DllExport void * getLocalExecutionStrategy_f_f_int16_ht_vht (
+
+        int num_threads
+);
     DllExport void * getLocalExecutionStrategy_f_f_f_rpf_vprpff (
 
         int num_threads
@@ -68,6 +78,8 @@ extern "C"
     DllExport void delete_LocalExecutionStrategy_uint8_int16_uint_fv_fv(void *ptr);
     DllExport void delete_LocalExecutionStrategy_uint8_int16_int16_fv_fv(void *ptr);
     DllExport void delete_LocalExecutionStrategy_uint8_int16_int16_hp_vhp(void *ptr);
+    DllExport void delete_LocalExecutionStrategy_uint8_int16_int16_ht_vht(void *ptr);
+    DllExport void delete_LocalExecutionStrategy_f_f_int16_ht_vht(void *ptr);
     DllExport void delete_LocalExecutionStrategy_f_f_f_rpf_vprpff(void *ptr);
     DllExport void delete_LocalExecutionStrategy_d_d_d_rpd_vprpfd(void *ptr);
 #ifdef __cplusplus

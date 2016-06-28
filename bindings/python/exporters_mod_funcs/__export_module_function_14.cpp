@@ -17,9 +17,9 @@ using namespace fertilized;
 
 namespace pyfertilized {
   void __export_module_function_14() {
-    py::def("construct_regression_forest_d",
+    py::def("construct_regression_forest_f",
             &fertilized::construct_regression_forest<
-              double
+              float
                          >);
   };
 }  // namespace pyfertilized

@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/boosting/adaboost.h"
+#include "fertilized/threshold_optimizers/twosideclassificationthresholdoptimizer.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -18,21 +18,19 @@ namespace fertilized {
   void __serialization_register_289(Archive &ar,
                                           const bool &always_register,
                                           const unsigned int &serialization_library_version) {
-    if (101 > FERTILIZED_LIB_VERSION()) {
+    if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "AdaBoost is higher than the current library version "
-          "(101 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
+          "TwoSideClassificationThresholdOptimizer is higher than the current library version "
+          "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
-          "'global.h' to at least 101!");
+          "'global.h' to at least 0!");
     }
     if (always_register ||
-        serialization_library_version >= 101) {
-      ar.template register_type<AdaBoost<
-              int,
-              int,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+        serialization_library_version >= 0) {
+      ar.template register_type<TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              float,
+              uint
 	  >>();
     }
   };
@@ -45,26 +43,20 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const AdaBoost<
-              int,
-              int,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport std::string serialize(const TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              float,
+              uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport AdaBoost<
-              int,
-              int,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              float,
+              uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, AdaBoost<
-              int,
-              int,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              float,
+              uint
 	  >*);
 }  // namespace fertilized
 
@@ -74,12 +66,10 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<AdaBoost<
-              int,
-              int,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+struct version<TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              float,
+              uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

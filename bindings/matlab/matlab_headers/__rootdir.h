@@ -66,6 +66,26 @@ extern "C"
         void * leaf_managers,
         void * training
 );
+    DllExport void * getForest_uint8_int16_int16_ht_vht (
+
+        unsigned int max_tree_depth,
+        unsigned int min_samples_at_leaf,
+        unsigned int min_samples_at_node,
+        unsigned int n_trees,
+        void * deciders,
+        void * leaf_managers,
+        void * training
+);
+    DllExport void * getForest_f_f_int16_ht_vht (
+
+        unsigned int max_tree_depth,
+        unsigned int min_samples_at_leaf,
+        unsigned int min_samples_at_node,
+        unsigned int n_trees,
+        void * deciders,
+        void * leaf_managers,
+        void * training
+);
     DllExport void * getForest_f_f_f_rpf_vprpff (
 
         unsigned int max_tree_depth,
@@ -113,6 +133,16 @@ extern "C"
         void * trees,
         void * training
 );
+    DllExport void * getForestFromTrees_uint8_int16_int16_ht_vht (
+
+        void * trees,
+        void * training
+);
+    DllExport void * getForestFromTrees_f_f_int16_ht_vht (
+
+        void * trees,
+        void * training
+);
     DllExport void * getForestFromTrees_f_f_f_rpf_vprpff (
 
         void * trees,
@@ -145,6 +175,14 @@ extern "C"
 
         void * trees
 );
+    DllExport void * getCombineTrees_uint8_int16_int16_ht_vht (
+
+        void * trees
+);
+    DllExport void * getCombineTrees_f_f_int16_ht_vht (
+
+        void * trees
+);
     DllExport void * getCombineTrees_f_f_f_rpf_vprpff (
 
         void * trees
@@ -172,6 +210,14 @@ extern "C"
         char* filename
 );
     DllExport void * getForestFromFile_uint8_int16_int16_hp_vhp (
+
+        char* filename
+);
+    DllExport void * getForestFromFile_uint8_int16_int16_ht_vht (
+
+        char* filename
+);
+    DllExport void * getForestFromFile_f_f_int16_ht_vht (
 
         char* filename
 );
@@ -215,6 +261,18 @@ extern "C"
         mxArray * annotations,
         unsigned int num_threads
 );
+    DllExport void fitForest_uint8_int16_int16_ht_vht (void *__instance,
+
+        mxArray * data,
+        mxArray * annotations,
+        unsigned int num_threads
+);
+    DllExport void fitForest_f_f_int16_ht_vht (void *__instance,
+
+        mxArray * data,
+        mxArray * annotations,
+        unsigned int num_threads
+);
     DllExport void fitForest_f_f_f_rpf_vprpff (void *__instance,
 
         mxArray * data,
@@ -242,6 +300,12 @@ extern "C"
 
 );
     DllExport mxArray * depthsForest_uint8_int16_int16_hp_vhp (void *__instance
+
+);
+    DllExport mxArray * depthsForest_uint8_int16_int16_ht_vht (void *__instance
+
+);
+    DllExport mxArray * depthsForest_f_f_int16_ht_vht (void *__instance
 
 );
     DllExport mxArray * depthsForest_f_f_f_rpf_vprpff (void *__instance
@@ -273,6 +337,16 @@ extern "C"
         void * execution_strategy
 );
     DllExport void fit_dprovForest_uint8_int16_int16_hp_vhp (void *__instance,
+
+        void * fdata_provider,
+        void * execution_strategy
+);
+    DllExport void fit_dprovForest_uint8_int16_int16_ht_vht (void *__instance,
+
+        void * fdata_provider,
+        void * execution_strategy
+);
+    DllExport void fit_dprovForest_f_f_int16_ht_vht (void *__instance,
 
         void * fdata_provider,
         void * execution_strategy
@@ -310,6 +384,16 @@ extern "C"
         int num_threads
 );
     DllExport mxArray * predictForest_uint8_int16_int16_hp_vhp (void *__instance,
+
+        mxArray * data,
+        int num_threads
+);
+    DllExport mxArray * predictForest_uint8_int16_int16_ht_vht (void *__instance,
+
+        mxArray * data,
+        int num_threads
+);
+    DllExport mxArray * predictForest_f_f_int16_ht_vht (void *__instance,
 
         mxArray * data,
         int num_threads
@@ -366,6 +450,22 @@ extern "C"
         float p1,
         float p2
 );
+    DllExport mxArray * predict_imageForest_uint8_int16_int16_ht_vht (void *__instance,
+
+        mxArray * image,
+        size_t step_size,
+        int reduce_to_patch_positions,
+        float p1,
+        float p2
+);
+    DllExport mxArray * predict_imageForest_f_f_int16_ht_vht (void *__instance,
+
+        mxArray * image,
+        size_t step_size,
+        int reduce_to_patch_positions,
+        float p1,
+        float p2
+);
     DllExport mxArray * predict_imageForest_f_f_f_rpf_vprpff (void *__instance,
 
         mxArray * image,
@@ -399,6 +499,12 @@ extern "C"
     DllExport size_t get_input_data_dimensionsForest_uint8_int16_int16_hp_vhp (void *__instance
 
 );
+    DllExport size_t get_input_data_dimensionsForest_uint8_int16_int16_ht_vht (void *__instance
+
+);
+    DllExport size_t get_input_data_dimensionsForest_f_f_int16_ht_vht (void *__instance
+
+);
     DllExport size_t get_input_data_dimensionsForest_f_f_f_rpf_vprpff (void *__instance
 
 );
@@ -422,6 +528,12 @@ extern "C"
     DllExport mxArray * compute_feature_importancesForest_uint8_int16_int16_hp_vhp (void *__instance
 
 );
+    DllExport mxArray * compute_feature_importancesForest_uint8_int16_int16_ht_vht (void *__instance
+
+);
+    DllExport mxArray * compute_feature_importancesForest_f_f_int16_ht_vht (void *__instance
+
+);
     DllExport mxArray * compute_feature_importancesForest_f_f_f_rpf_vprpff (void *__instance
 
 );
@@ -443,6 +555,12 @@ extern "C"
 
 );
     DllExport mxArray * get_tree_weightsForest_uint8_int16_int16_hp_vhp (void *__instance
+
+);
+    DllExport mxArray * get_tree_weightsForest_uint8_int16_int16_ht_vht (void *__instance
+
+);
+    DllExport mxArray * get_tree_weightsForest_f_f_int16_ht_vht (void *__instance
 
 );
     DllExport mxArray * get_tree_weightsForest_f_f_f_rpf_vprpff (void *__instance
@@ -470,6 +588,14 @@ extern "C"
         void * rhs
 );
     DllExport int eqForest_uint8_int16_int16_hp_vhp (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqForest_uint8_int16_int16_ht_vht (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqForest_f_f_int16_ht_vht (void *__instance,
 
         void * rhs
 );
@@ -503,6 +629,14 @@ extern "C"
 
         char* filename
 );
+    DllExport void saveForest_uint8_int16_int16_ht_vht (void *__instance,
+
+        char* filename
+);
+    DllExport void saveForest_f_f_int16_ht_vht (void *__instance,
+
+        char* filename
+);
     DllExport void saveForest_f_f_f_rpf_vprpff (void *__instance,
 
         char* filename
@@ -516,6 +650,8 @@ extern "C"
     DllExport void delete_Forest_d_d_uint_fv_fv(void *ptr);
     DllExport void delete_Forest_uint8_uint8_uint_fv_fv(void *ptr);
     DllExport void delete_Forest_uint8_int16_int16_hp_vhp(void *ptr);
+    DllExport void delete_Forest_uint8_int16_int16_ht_vht(void *ptr);
+    DllExport void delete_Forest_f_f_int16_ht_vht(void *ptr);
     DllExport void delete_Forest_f_f_f_rpf_vprpff(void *ptr);
     DllExport void delete_Forest_d_d_d_rpd_vprpfd(void *ptr);
 
@@ -588,6 +724,22 @@ extern "C"
         void * decider,
         void * leaf_manager
 );
+    DllExport void * getTree_uint8_int16_int16_ht_vht (
+
+        unsigned int max_depth,
+        unsigned int min_samples_at_leaf,
+        unsigned int min_samples_at_node,
+        void * decider,
+        void * leaf_manager
+);
+    DllExport void * getTree_f_f_int16_ht_vht (
+
+        unsigned int max_depth,
+        unsigned int min_samples_at_leaf,
+        unsigned int min_samples_at_node,
+        void * decider,
+        void * leaf_manager
+);
     DllExport void * getTree_f_f_f_rpf_vprpff (
 
         unsigned int max_depth,
@@ -631,6 +783,14 @@ extern "C"
         char* filename
 );
     DllExport void * getTreeFromFile_uint8_int16_int16_hp_vhp (
+
+        char* filename
+);
+    DllExport void * getTreeFromFile_uint8_int16_int16_ht_vht (
+
+        char* filename
+);
+    DllExport void * getTreeFromFile_f_f_int16_ht_vht (
 
         char* filename
 );
@@ -679,6 +839,16 @@ extern "C"
         void * data_provider,
         int append_on_different
 );
+    DllExport void make_nodeTree_uint8_int16_int16_ht_vht (void *__instance,
+
+        void * data_provider,
+        int append_on_different
+);
+    DllExport void make_nodeTree_f_f_int16_ht_vht (void *__instance,
+
+        void * data_provider,
+        int append_on_different
+);
     DllExport void make_nodeTree_f_f_f_rpf_vprpff (void *__instance,
 
         void * data_provider,
@@ -710,6 +880,12 @@ extern "C"
 
 );
     DllExport size_t depthTree_uint8_int16_int16_hp_vhp (void *__instance
+
+);
+    DllExport size_t depthTree_uint8_int16_int16_ht_vht (void *__instance
+
+);
+    DllExport size_t depthTree_f_f_int16_ht_vht (void *__instance
 
 );
     DllExport size_t depthTree_f_f_f_rpf_vprpff (void *__instance
@@ -757,6 +933,18 @@ extern "C"
         int complete_dfs
 );
     DllExport void fitTree_uint8_int16_int16_hp_vhp (void *__instance,
+
+        mxArray * data,
+        mxArray * annotations,
+        int complete_dfs
+);
+    DllExport void fitTree_uint8_int16_int16_ht_vht (void *__instance,
+
+        mxArray * data,
+        mxArray * annotations,
+        int complete_dfs
+);
+    DllExport void fitTree_f_f_int16_ht_vht (void *__instance,
 
         mxArray * data,
         mxArray * annotations,
@@ -811,6 +999,16 @@ extern "C"
         void * data_provider,
         int complete_dfs
 );
+    DllExport void fit_dprovTree_uint8_int16_int16_ht_vht (void *__instance,
+
+        void * data_provider,
+        int complete_dfs
+);
+    DllExport void fit_dprovTree_f_f_int16_ht_vht (void *__instance,
+
+        void * data_provider,
+        int complete_dfs
+);
     DllExport void fit_dprovTree_f_f_f_rpf_vprpff (void *__instance,
 
         void * data_provider,
@@ -854,6 +1052,16 @@ extern "C"
         int num_threads
 );
     DllExport mxArray * predictTree_uint8_int16_int16_hp_vhp (void *__instance,
+
+        mxArray * data,
+        int num_threads
+);
+    DllExport mxArray * predictTree_uint8_int16_int16_ht_vht (void *__instance,
+
+        mxArray * data,
+        int num_threads
+);
+    DllExport mxArray * predictTree_f_f_int16_ht_vht (void *__instance,
 
         mxArray * data,
         int num_threads
@@ -926,6 +1134,22 @@ extern "C"
         float p1,
         float p2
 );
+    DllExport mxArray * predict_imageTree_uint8_int16_int16_ht_vht (void *__instance,
+
+        mxArray * image,
+        size_t step_size,
+        int reduce_to_patch_positions,
+        float p1,
+        float p2
+);
+    DllExport mxArray * predict_imageTree_f_f_int16_ht_vht (void *__instance,
+
+        mxArray * image,
+        size_t step_size,
+        int reduce_to_patch_positions,
+        float p1,
+        float p2
+);
     DllExport mxArray * predict_imageTree_f_f_f_rpf_vprpff (void *__instance,
 
         mxArray * image,
@@ -965,6 +1189,12 @@ extern "C"
     DllExport float get_weightTree_uint8_int16_int16_hp_vhp (void *__instance
 
 );
+    DllExport float get_weightTree_uint8_int16_int16_ht_vht (void *__instance
+
+);
+    DllExport float get_weightTree_f_f_int16_ht_vht (void *__instance
+
+);
     DllExport float get_weightTree_f_f_f_rpf_vprpff (void *__instance
 
 );
@@ -992,6 +1222,12 @@ extern "C"
 
 );
     DllExport size_t get_n_nodesTree_uint8_int16_int16_hp_vhp (void *__instance
+
+);
+    DllExport size_t get_n_nodesTree_uint8_int16_int16_ht_vht (void *__instance
+
+);
+    DllExport size_t get_n_nodesTree_f_f_int16_ht_vht (void *__instance
 
 );
     DllExport size_t get_n_nodesTree_f_f_f_rpf_vprpff (void *__instance
@@ -1030,6 +1266,14 @@ extern "C"
 
         float new_weight
 );
+    DllExport void set_weightTree_uint8_int16_int16_ht_vht (void *__instance,
+
+        float new_weight
+);
+    DllExport void set_weightTree_f_f_int16_ht_vht (void *__instance,
+
+        float new_weight
+);
     DllExport void set_weightTree_f_f_f_rpf_vprpff (void *__instance,
 
         float new_weight
@@ -1061,6 +1305,12 @@ extern "C"
     DllExport size_t get_input_data_dimensionsTree_uint8_int16_int16_hp_vhp (void *__instance
 
 );
+    DllExport size_t get_input_data_dimensionsTree_uint8_int16_int16_ht_vht (void *__instance
+
+);
+    DllExport size_t get_input_data_dimensionsTree_f_f_int16_ht_vht (void *__instance
+
+);
     DllExport size_t get_input_data_dimensionsTree_f_f_f_rpf_vprpff (void *__instance
 
 );
@@ -1090,6 +1340,12 @@ extern "C"
     DllExport mxArray * compute_feature_importancesTree_uint8_int16_int16_hp_vhp (void *__instance
 
 );
+    DllExport mxArray * compute_feature_importancesTree_uint8_int16_int16_ht_vht (void *__instance
+
+);
+    DllExport mxArray * compute_feature_importancesTree_f_f_int16_ht_vht (void *__instance
+
+);
     DllExport mxArray * compute_feature_importancesTree_f_f_f_rpf_vprpff (void *__instance
 
 );
@@ -1117,6 +1373,12 @@ extern "C"
 
 );
     DllExport size_t get_samples_storedTree_uint8_int16_int16_hp_vhp (void *__instance
+
+);
+    DllExport size_t get_samples_storedTree_uint8_int16_int16_ht_vht (void *__instance
+
+);
+    DllExport size_t get_samples_storedTree_f_f_int16_ht_vht (void *__instance
 
 );
     DllExport size_t get_samples_storedTree_f_f_f_rpf_vprpff (void *__instance
@@ -1152,6 +1414,14 @@ extern "C"
         void * rhs
 );
     DllExport int eqTree_uint8_int16_int16_hp_vhp (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqTree_uint8_int16_int16_ht_vht (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqTree_f_f_int16_ht_vht (void *__instance,
 
         void * rhs
 );
@@ -1193,6 +1463,14 @@ extern "C"
 
         char* filename
 );
+    DllExport void saveTree_uint8_int16_int16_ht_vht (void *__instance,
+
+        char* filename
+);
+    DllExport void saveTree_f_f_int16_ht_vht (void *__instance,
+
+        char* filename
+);
     DllExport void saveTree_f_f_f_rpf_vprpff (void *__instance,
 
         char* filename
@@ -1208,6 +1486,8 @@ extern "C"
     DllExport void delete_Tree_uint8_int16_uint_fv_fv(void *ptr);
     DllExport void delete_Tree_uint8_int16_int16_fv_fv(void *ptr);
     DllExport void delete_Tree_uint8_int16_int16_hp_vhp(void *ptr);
+    DllExport void delete_Tree_uint8_int16_int16_ht_vht(void *ptr);
+    DllExport void delete_Tree_f_f_int16_ht_vht(void *ptr);
     DllExport void delete_Tree_f_f_f_rpf_vprpff(void *ptr);
     DllExport void delete_Tree_d_d_d_rpd_vprpfd(void *ptr);
 #ifdef __cplusplus

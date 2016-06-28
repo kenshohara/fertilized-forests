@@ -3,14 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__DirectPatchDifferenceSurfCalculator_exporter.h"
+#include "./__ConstantRegressionCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_192() {
-    export_DirectPatchDifferenceSurfCalculator<
-              uint8_t,
-              int16_t,
-              int16_t
-                            >("_uint8_int16_int16");
+    export_ConstantRegressionCalculator<
+              float
+                            >("_f");
   };
 }  // namespace pyfertilized

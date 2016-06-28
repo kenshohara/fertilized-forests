@@ -3,12 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__LinearRegressionCalculator_exporter.h"
+#include "./__EntropyGain_exporter.h"
 
 namespace pyfertilized {
   void __python_export_213() {
-    export_LinearRegressionCalculator<
-              float
-                            >("_f");
+    export_EntropyGain<
+              uint
+                            >("_uint");
   };
 }  // namespace pyfertilized

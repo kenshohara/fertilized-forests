@@ -28,8 +28,8 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<EqualDistBagging<
-              uint8_t,
-              int16_t,
+              int,
+              int,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -46,22 +46,22 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const EqualDistBagging<
-              uint8_t,
-              int16_t,
+              int,
+              int,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
     TemplateFuncExport DllExport EqualDistBagging<
-              uint8_t,
-              int16_t,
+              int,
+              int,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, EqualDistBagging<
-              uint8_t,
-              int16_t,
+              int,
+              int,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -75,8 +75,8 @@ namespace serialization {
 
 template <>
 struct version<EqualDistBagging<
-              uint8_t,
-              int16_t,
+              int,
+              int,
               uint,
               std::vector<float>,
               std::vector<float>

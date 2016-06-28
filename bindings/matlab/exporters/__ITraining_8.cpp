@@ -11,7 +11,7 @@ using namespace fertilized;
 
 
 // Destructor.
-void delete_ITraining_d_d_d_rpd_vprpfd(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<ITraining<double,double,double,std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>>>*>(ptr);
+void delete_ITraining_f_f_int16_ht_vht(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<ITraining<float,float,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(ptr);
   delete storage;
 }

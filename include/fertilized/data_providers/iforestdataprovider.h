@@ -28,11 +28,12 @@ namespace fertilized {
    * - int; uint
    * - uint8_t; uint
    * - uint8_t; int16_t
+   * - float; int16_t
    * - double; uint
    * - double; double
    * - float; float
    * .
-   * 
+   *
    * -----
    */
   template<typename input_dtype, typename annotation_dtype>
@@ -83,7 +84,7 @@ namespace fertilized {
 #endif
 
     /**
-     * \brief A vector of data providers. 
+     * \brief A vector of data providers.
      *
      * Initialized after \ref create_tree_providers has been used.
      */

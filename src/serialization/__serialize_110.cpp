@@ -39,19 +39,19 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const IDecider<
-              uint8_t,
-              uint8_t,
-              uint
+              double,
+              double,
+              double
 	  > *, const bool &);
     TemplateFuncExport DllExport IDecider<
-              uint8_t,
-              uint8_t,
-              uint
+              double,
+              double,
+              double
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, IDecider<
-              uint8_t,
-              uint8_t,
-              uint
+              double,
+              double,
+              double
 	  >*);
 }  // namespace fertilized
 
@@ -62,9 +62,9 @@ namespace serialization {
 
 template <>
 struct version<IDecider<
-              uint8_t,
-              uint8_t,
-              uint
+              double,
+              double,
+              double
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

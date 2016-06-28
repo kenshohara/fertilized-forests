@@ -3,13 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ClassificationLeafManager_exporter.h"
+#include "./__ClassicTraining_exporter.h"
 
 namespace pyfertilized {
   void __python_export_167() {
-    export_ClassificationLeafManager<
+    export_ClassicTraining<
               uint8_t,
-              uint
-                            >("_uint8_uint");
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
+                            >("_uint8_uint8_uint_fv_fv");
   };
 }  // namespace pyfertilized

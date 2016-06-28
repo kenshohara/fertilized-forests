@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/leafs/classificationleafmanager.h"
+#include "fertilized/impurities/classificationerror.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,15 +20,14 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "ClassificationLeafManager is higher than the current library version "
+          "ClassificationError is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<ClassificationLeafManager<
-              float,
+      ar.template register_type<ClassificationError<
               uint
 	  >>();
     }
@@ -42,16 +41,13 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const ClassificationLeafManager<
-              float,
+    TemplateFuncExport DllExport std::string serialize(const ClassificationError<
               uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport ClassificationLeafManager<
-              float,
+    TemplateFuncExport DllExport ClassificationError<
               uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, ClassificationLeafManager<
-              float,
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, ClassificationError<
               uint
 	  >*);
 }  // namespace fertilized
@@ -62,8 +58,7 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<ClassificationLeafManager<
-              float,
+struct version<ClassificationError<
               uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;

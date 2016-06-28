@@ -38,6 +38,12 @@ namespace pyfertilized {
   void __export_vectors_24();
   void __export_vectors_25();
   void __export_vectors_26();
+  void __export_vectors_27();
+  void __export_vectors_28();
+  void __export_vectors_29();
+  void __export_vectors_30();
+  void __export_vectors_31();
+  void __export_vectors_32();
 }  // namespace fertilized
 
 #endif  // PYFERTILIZED_EXPORTERS_VEC_TYPES_VEC_EXPORTER_H_

@@ -68,4 +68,10 @@ BOOST_PYTHON_MODULE(pyfertilized_vec) {
   __export_vectors_24();
   __export_vectors_25();
   __export_vectors_26();
+  __export_vectors_27();
+  __export_vectors_28();
+  __export_vectors_29();
+  __export_vectors_30();
+  __export_vectors_31();
+  __export_vectors_32();
 };

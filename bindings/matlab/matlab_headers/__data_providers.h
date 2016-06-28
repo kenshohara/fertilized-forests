@@ -26,6 +26,7 @@ extern "C"
     DllExport void delete_IForestDataProvider_i_uint(void *ptr);
     DllExport void delete_IForestDataProvider_uint8_uint(void *ptr);
     DllExport void delete_IForestDataProvider_uint8_int16(void *ptr);
+    DllExport void delete_IForestDataProvider_f_int16(void *ptr);
     DllExport void delete_IForestDataProvider_d_uint(void *ptr);
     DllExport void delete_IForestDataProvider_d_d(void *ptr);
     DllExport void delete_IForestDataProvider_f_f(void *ptr);
@@ -165,6 +166,11 @@ extern "C"
         mxArray * data_array,
         mxArray * annotation_array
 );
+    DllExport void * getUnchangedFDataProvider_f_int16 (
+
+        mxArray * data_array,
+        mxArray * annotation_array
+);
     DllExport void * getUnchangedFDataProvider_d_uint (
 
         mxArray * data_array,
@@ -184,6 +190,7 @@ extern "C"
     DllExport void delete_UnchangedFDataProvider_i_uint(void *ptr);
     DllExport void delete_UnchangedFDataProvider_uint8_uint(void *ptr);
     DllExport void delete_UnchangedFDataProvider_uint8_int16(void *ptr);
+    DllExport void delete_UnchangedFDataProvider_f_int16(void *ptr);
     DllExport void delete_UnchangedFDataProvider_d_uint(void *ptr);
     DllExport void delete_UnchangedFDataProvider_d_d(void *ptr);
     DllExport void delete_UnchangedFDataProvider_f_f(void *ptr);

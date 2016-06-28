@@ -37,6 +37,12 @@ extern "C"
     DllExport void * getEqualDistBagging_uint8_int16_int16_hp_vhp (
 
 );
+    DllExport void * getEqualDistBagging_uint8_int16_int16_ht_vht (
+
+);
+    DllExport void * getEqualDistBagging_f_f_int16_ht_vht (
+
+);
     DllExport void * getEqualDistBagging_f_f_f_rpf_vprpff (
 
 );
@@ -73,6 +79,14 @@ extern "C"
 
         void * rhs
 );
+    DllExport int eqEqualDistBagging_uint8_int16_int16_ht_vht (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqEqualDistBagging_f_f_int16_ht_vht (void *__instance,
+
+        void * rhs
+);
     DllExport int eqEqualDistBagging_f_f_f_rpf_vprpff (void *__instance,
 
         void * rhs
@@ -88,6 +102,8 @@ extern "C"
     DllExport void delete_EqualDistBagging_uint8_int16_uint_fv_fv(void *ptr);
     DllExport void delete_EqualDistBagging_uint8_int16_int16_fv_fv(void *ptr);
     DllExport void delete_EqualDistBagging_uint8_int16_int16_hp_vhp(void *ptr);
+    DllExport void delete_EqualDistBagging_uint8_int16_int16_ht_vht(void *ptr);
+    DllExport void delete_EqualDistBagging_f_f_int16_ht_vht(void *ptr);
     DllExport void delete_EqualDistBagging_f_f_f_rpf_vprpff(void *ptr);
     DllExport void delete_EqualDistBagging_d_d_d_rpd_vprpfd(void *ptr);
     DllExport void delete_IBaggingStrategy_i_i_uint_fv_fv(void *ptr);
@@ -97,6 +113,8 @@ extern "C"
     DllExport void delete_IBaggingStrategy_uint8_int16_uint_fv_fv(void *ptr);
     DllExport void delete_IBaggingStrategy_uint8_int16_int16_fv_fv(void *ptr);
     DllExport void delete_IBaggingStrategy_uint8_int16_int16_hp_vhp(void *ptr);
+    DllExport void delete_IBaggingStrategy_uint8_int16_int16_ht_vht(void *ptr);
+    DllExport void delete_IBaggingStrategy_f_f_int16_ht_vht(void *ptr);
     DllExport void delete_IBaggingStrategy_f_f_f_rpf_vprpff(void *ptr);
     DllExport void delete_IBaggingStrategy_d_d_d_rpd_vprpfd(void *ptr);
 
@@ -120,6 +138,12 @@ extern "C"
 
 );
     DllExport void * getNoBagging_uint8_int16_int16_hp_vhp (
+
+);
+    DllExport void * getNoBagging_uint8_int16_int16_ht_vht (
+
+);
+    DllExport void * getNoBagging_f_f_int16_ht_vht (
 
 );
     DllExport void * getNoBagging_f_f_f_rpf_vprpff (
@@ -158,6 +182,14 @@ extern "C"
 
         void * rhs
 );
+    DllExport int eqNoBagging_uint8_int16_int16_ht_vht (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqNoBagging_f_f_int16_ht_vht (void *__instance,
+
+        void * rhs
+);
     DllExport int eqNoBagging_f_f_f_rpf_vprpff (void *__instance,
 
         void * rhs
@@ -173,6 +205,8 @@ extern "C"
     DllExport void delete_NoBagging_uint8_int16_uint_fv_fv(void *ptr);
     DllExport void delete_NoBagging_uint8_int16_int16_fv_fv(void *ptr);
     DllExport void delete_NoBagging_uint8_int16_int16_hp_vhp(void *ptr);
+    DllExport void delete_NoBagging_uint8_int16_int16_ht_vht(void *ptr);
+    DllExport void delete_NoBagging_f_f_int16_ht_vht(void *ptr);
     DllExport void delete_NoBagging_f_f_f_rpf_vprpff(void *ptr);
     DllExport void delete_NoBagging_d_d_d_rpd_vprpfd(void *ptr);
 #ifdef __cplusplus

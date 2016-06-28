@@ -3,14 +3,10 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__TwoSideClassificationThresholdOptimizer_exporter.h"
+#include "./__StandardFeatureSelectionProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_296() {
-    export_TwoSideClassificationThresholdOptimizer<
-              uint8_t,
-              int16_t,
-              uint
-                            >("_uint8_int16_uint");
+    export_StandardFeatureSelectionProvider("");
   };
 }  // namespace pyfertilized

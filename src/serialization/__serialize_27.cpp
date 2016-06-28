@@ -29,10 +29,10 @@ namespace fertilized {
         serialization_library_version >= 0) {
       ar.template register_type<ClassicTraining<
               uint8_t,
-              uint8_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              int16_t,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 	  >>();
     }
   };
@@ -47,24 +47,24 @@ namespace fertilized {
 
     TemplateFuncExport DllExport std::string serialize(const ClassicTraining<
               uint8_t,
-              uint8_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              int16_t,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 	  > *, const bool &);
     TemplateFuncExport DllExport ClassicTraining<
               uint8_t,
-              uint8_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              int16_t,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, ClassicTraining<
               uint8_t,
-              uint8_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              int16_t,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 	  >*);
 }  // namespace fertilized
 
@@ -76,10 +76,10 @@ namespace serialization {
 template <>
 struct version<ClassicTraining<
               uint8_t,
-              uint8_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              int16_t,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

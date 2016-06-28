@@ -3,14 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__IDecider_exporter.h"
+#include "./__IDataProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_32() {
-    export_IDecider<
-              int,
-              int,
+    export_IDataProvider<
+              double,
               uint
-                            >("_i_i_uint");
+                            >("_d_uint");
   };
 }  // namespace pyfertilized

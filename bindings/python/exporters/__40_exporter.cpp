@@ -10,7 +10,7 @@ namespace pyfertilized {
     export_IDecider<
               double,
               double,
-              double
-                            >("_d_d_d");
+              uint
+                            >("_d_d_uint");
   };
 }  // namespace pyfertilized

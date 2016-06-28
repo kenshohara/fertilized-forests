@@ -3,13 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__QuadraticSurfaceCalculator_exporter.h"
+#include "./__LocalExecutionStrategy_exporter.h"
 
 namespace pyfertilized {
   void __python_export_244() {
-    export_QuadraticSurfaceCalculator<
+    export_LocalExecutionStrategy<
               float,
-              float
-                            >("_f_f");
+              float,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+                            >("_f_f_int16_ht_vht");
   };
 }  // namespace pyfertilized

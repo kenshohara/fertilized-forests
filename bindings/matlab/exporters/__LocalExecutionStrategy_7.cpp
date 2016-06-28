@@ -12,7 +12,7 @@ using namespace fertilized;
 
 
 
-          void * getLocalExecutionStrategy_f_f_f_rpf_vprpff (
+          void * getLocalExecutionStrategy_uint8_int16_int16_ht_vht (
 
         int num_threads
 ) {
@@ -21,13 +21,13 @@ using namespace fertilized;
 #pragma warning( push )
 #pragma warning( disable : 4800 )
   // Get the libraries' result.
-  auto *libfunc_result = new std::shared_ptr<LocalExecutionStrategy<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>(
+  auto *libfunc_result = new std::shared_ptr<LocalExecutionStrategy<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>(
     new LocalExecutionStrategy<
-              float,
-              float,
-              float,
-              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+              uint8_t,
+              int16_t,
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
 >(
           num_threads
           ));
@@ -37,7 +37,7 @@ using namespace fertilized;
   return __converted_return_value;
 }		
 // Destructor.
-void delete_LocalExecutionStrategy_f_f_f_rpf_vprpff(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<LocalExecutionStrategy<float,float,float,std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>>>*>(ptr);
+void delete_LocalExecutionStrategy_uint8_int16_int16_ht_vht(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<LocalExecutionStrategy<uint8_t,int16_t,int16_t,std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>>>*>(ptr);
   delete storage;
 }

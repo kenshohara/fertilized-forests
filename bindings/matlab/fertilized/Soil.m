@@ -520,6 +520,8 @@ classdef Soil
             % - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+            % - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+            % - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
             % - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
             % - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
             % 
@@ -1138,6 +1140,8 @@ classdef Soil
             % - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+            % - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+            % - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
             % - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
             % - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
             % 
@@ -1188,6 +1192,8 @@ classdef Soil
             % - double; double; uint; std::vector<float>; std::vector<float>
             % - uint8_t; uint8_t; uint; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+            % - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+            % - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
             % - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
             % - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
             % 
@@ -1272,6 +1278,8 @@ classdef Soil
             % - double; double; uint; std::vector<float>; std::vector<float>
             % - uint8_t; uint8_t; uint; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+            % - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+            % - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
             % - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
             % - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
             % 
@@ -1339,6 +1347,8 @@ classdef Soil
             % - double; double; uint; std::vector<float>; std::vector<float>
             % - uint8_t; uint8_t; uint; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+            % - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+            % - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
             % - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
             % - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
             % 
@@ -1403,6 +1413,8 @@ classdef Soil
             % - double; double; uint; std::vector<float>; std::vector<float>
             % - uint8_t; uint8_t; uint; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+            % - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+            % - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
             % - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
             % - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
             % 
@@ -1758,6 +1770,8 @@ classdef Soil
             % - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+            % - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+            % - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
             % - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
             % - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
             % 
@@ -1822,6 +1836,8 @@ classdef Soil
             % - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+            % - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+            % - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
             % - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
             % - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
             % 
@@ -2927,6 +2943,7 @@ classdef Soil
             % - float; float; uint
             % - double; double; uint
             % - uint8_t; int16_t; int16_t
+            % - float; float; int16_t
             % - float; float; float
             % - double; double; double
             % 
@@ -3056,6 +3073,8 @@ classdef Soil
             % - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+            % - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+            % - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
             % - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
             % - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
             % 
@@ -3133,6 +3152,8 @@ classdef Soil
             % - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
             % - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+            % - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+            % - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
             % - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
             % - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
             % 
@@ -3448,6 +3469,7 @@ classdef Soil
             % - int; uint
             % - uint8_t; uint
             % - uint8_t; int16_t
+            % - float; int16_t
             % - double; uint
             % - double; double
             % - float; float
@@ -4310,6 +4332,122 @@ classdef Soil
             suffix = strcat('_', this.inp_str, '_', this.feat_str, '_', this.ann_str);
             getter = sprintf('%s%s', 'StandardHoughTree', suffix);
             ptr = calllib(this.LibName, getter, patch_dimensions, n_thresholds_per_split, n_splits_per_node, max_depth, min_sample_counts, random_seed, min_gain_thresholds, patch_annot_luc, allow_redraw, num_threads, entropy_names, entropy_p1, use_hough_heuristic, hough_heuristic_ratio, hough_heuristic_maxd);
+
+            res = Tree(this.getDataTypes(), this.LibName, ptr, '%s%s');    
+        end
+        function [res] = StandardHoughTree (this, n_channels, n_features, n_thresholds_per_split, n_splits_per_node, max_depth, min_sample_counts, random_seed, min_gain_thresholds, allow_redraw, num_threads, entropy_names, entropy_p1, use_hough_heuristic, hough_heuristic_ratio, hough_heuristic_maxd)
+            % Constructs a Hough tree without using the patch representation.
+            % 
+            % -----
+            % 
+            % Available in:
+            % 
+            % - C++
+            % - Python
+            % - Matlab
+            % 
+            % Instantiations:
+            % 
+            % - uint8_t; int16_t; int16_t
+            % 
+            % Exported name: StandardHoughTree
+            % 
+            % -----
+            % 
+            % 
+            % Parameters
+            % ==========
+            % 
+            % n_channels : uint>1
+            %   The number of feature channels.
+            % 
+            % n_features : size_t>0
+            %   The number of features for each feature channel.
+            % 
+            % n_thresholds_per_split : size_t>=0
+            %   The number of thresholds to evaluate per feature.
+            % 
+            % n_splits_per_node : size_t>0
+            %   The number of features to evaluate as split criteria at each tree
+            %   node.
+            % 
+            % max_depth : uint>=0
+            %   The maximum tree depth. If 0, it is set to UINT_MAX to allow for
+            %   maximally large trees.
+            % 
+            % min_sample_counts : vector<uint>0>, two elements.
+            %   The min samples per leaf, and min samples per split. The second value
+            %   must be >= 2 * the first value.
+            % 
+            % random_seed : uint>=1
+            %   The random seed to initialize the RNG.
+            % 
+            % min_gain_thresholds : vector<float>=0.f>, two elements.
+            %   The minimum gains for classification and regression.
+            % 
+            % allow_redraw : bool
+            %   If set to true, allows to try a new feature when optimizing for a
+            %   split, when for a feature no split could be found that satisfied
+            %   the minimum number of samples per leaf for each subgroup. This may be
+            %   done until all features have been checked. Default: true.
+            % 
+            % num_threads : uint>0
+            %   The number of threads to use for optimizing the split nodes.
+            %   Default: 1.
+            % 
+            % entropy_names : vector<string in ["induced", "classification_error", "renyi", "tsallis", "shannon"]>, two elements.
+            %   The entropy type to use for classification and regression.
+            %   Default: ["shannon", "shannon"]
+            % 
+            % entropy_p1 : vector<float>0.f>, two elements.
+            %   The entropy parameters. Might be unused (e.g. for the Shannon entropy).
+            %   Default: [2, 2]
+            % 
+            % use_hough_heuristic : bool
+            %   Whether or not to use a heuristic for hough
+            %   forests introduced by Juergen Gall
+            %   (http://www.vision.ee.ethz.ch/~gallju/projects/houghforest/houghforest.html)
+            %   Can be used only with an AlternatingThresholdOptimizer.
+            %   If used, the AlternatingThresholdOptimizer will guaranteed
+            %   use opt2 if the ratio of negative samples is < hough_heuristic_ratio or
+            %   depth >= hough_heuristic_maxd. opt2 must be a
+            %   VarianceClassificationThresholdOptimizer (check this
+            %   manually!). Default: true.
+            % 
+            % hough_heuristic_ratio : float>=0.f
+            %   Default: 0.05f.
+            % 
+            % hough_heuristic_maxd : uint
+            %   Default: 0.
+            if ~exist('allow_redraw', 'var') || allow_redraw == -1
+                allow_redraw = 1;
+            end    
+            if ~exist('num_threads', 'var') || num_threads == -1
+                num_threads = 1;
+            end    
+            if ~exist('entropy_names', 'var') || entropy_names == -1
+                entropy_names = Soil.DEFAULT_ENTROPY_VEC_2;
+            end    
+            tmp_entropy_names = StringVector();
+            for tmp_entropy_names_idx = 1:length(entropy_names)
+              tmp_entropy_names.append(entropy_names{tmp_entropy_names_idx});
+            end
+            entropy_names = tmp_entropy_names.ClassifierPtr;
+            if ~exist('entropy_p1', 'var') || entropy_p1 == -1
+                entropy_p1 = Soil.DEFAULT_ENTROPY_P1_2;
+            end    
+            if ~exist('use_hough_heuristic', 'var') || use_hough_heuristic == -1
+                use_hough_heuristic = 1;
+            end    
+            if ~exist('hough_heuristic_ratio', 'var') || hough_heuristic_ratio == -1
+                hough_heuristic_ratio = 0.05;
+            end    
+            if ~exist('hough_heuristic_maxd', 'var') || hough_heuristic_maxd == -1
+                hough_heuristic_maxd = 0;
+            end    
+            suffix = strcat('_', this.inp_str, '_', this.feat_str, '_', this.ann_str);
+            getter = sprintf('%s%s', 'StandardHoughTree', suffix);
+            ptr = calllib(this.LibName, getter, n_channels, n_features, n_thresholds_per_split, n_splits_per_node, max_depth, min_sample_counts, random_seed, min_gain_thresholds, allow_redraw, num_threads, entropy_names, entropy_p1, use_hough_heuristic, hough_heuristic_ratio, hough_heuristic_maxd);
 
             res = Tree(this.getDataTypes(), this.LibName, ptr, '%s%s');    
         end

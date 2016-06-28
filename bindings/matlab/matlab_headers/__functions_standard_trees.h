@@ -141,6 +141,26 @@ extern "C"
 );
 
 
+  DllExport void * StandardHoughTree_uint8_int16_int16 (
+
+        size_t n_channels,
+        mxArray * n_features,
+        size_t n_thresholds_per_split,
+        size_t n_splits_per_node,
+        unsigned int max_depth,
+        mxArray * min_sample_counts,
+        unsigned int random_seed,
+        mxArray * min_gain_thresholds,
+        int allow_redraw,
+        unsigned int num_threads,
+        void * entropy_names,
+        mxArray * entropy_p1,
+        int use_hough_heuristic,
+        float hough_heuristic_ratio,
+        unsigned int hough_heuristic_maxd
+);
+
+
   DllExport void * StandardRegressionTree_f (
 
         size_t n_features,

@@ -39,22 +39,22 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const IBaggingStrategy<
-              uint8_t,
-              int16_t,
+              double,
+              double,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
     TemplateFuncExport DllExport IBaggingStrategy<
-              uint8_t,
-              int16_t,
+              double,
+              double,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, IBaggingStrategy<
-              uint8_t,
-              int16_t,
+              double,
+              double,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -68,8 +68,8 @@ namespace serialization {
 
 template <>
 struct version<IBaggingStrategy<
-              uint8_t,
-              int16_t,
+              double,
+              double,
               uint,
               std::vector<float>,
               std::vector<float>

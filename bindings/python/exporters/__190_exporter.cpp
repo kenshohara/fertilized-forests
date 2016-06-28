@@ -3,14 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__DirectPatchDifferenceSurfCalculator_exporter.h"
+#include "./__ClassificationThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_190() {
-    export_DirectPatchDifferenceSurfCalculator<
-              int,
-              int,
+    export_ClassificationThresholdOptimizer<
+              double,
+              double,
               uint
-                            >("_i_i_uint");
+                            >("_d_d_uint");
   };
 }  // namespace pyfertilized

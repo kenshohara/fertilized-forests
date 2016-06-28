@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/boosting/iboostingstrategy.h"
+#include "fertilized/objecttemplate.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -18,15 +18,22 @@ namespace fertilized {
   void __serialization_register_306(Archive &ar,
                                           const bool &always_register,
                                           const unsigned int &serialization_library_version) {
-    if (101 > FERTILIZED_LIB_VERSION()) {
+    if (100 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "IBoostingStrategy is higher than the current library version "
-          "(101 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
+          "ObjectTemplate is higher than the current library version "
+          "(100 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
-          "'global.h' to at least 101!");
+          "'global.h' to at least 100!");
     }
     if (always_register ||
-        serialization_library_version >= 101) {
+        serialization_library_version >= 100) {
+      ar.template register_type<ObjectTemplate<
+              int,
+              int,
+              uint,
+              std::vector<float>,
+              std::vector<float>
+	  >>();
     }
   };
   TemplateFuncExport DllExport void __serialization_register_306(
@@ -38,21 +45,21 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const IBoostingStrategy<
+    TemplateFuncExport DllExport std::string serialize(const ObjectTemplate<
               int,
               int,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
-    TemplateFuncExport DllExport IBoostingStrategy<
+    TemplateFuncExport DllExport ObjectTemplate<
               int,
               int,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, IBoostingStrategy<
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, ObjectTemplate<
               int,
               int,
               uint,
@@ -67,7 +74,7 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<IBoostingStrategy<
+struct version<ObjectTemplate<
               int,
               int,
               uint,

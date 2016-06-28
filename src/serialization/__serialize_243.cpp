@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/impurities/shannonentropy.h"
+#include "fertilized/threshold_optimizers/randomizedclassificationthresholdoptimizer.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,14 +20,16 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "ShannonEntropy is higher than the current library version "
+          "RandomizedClassificationThresholdOptimizer is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<ShannonEntropy<
+      ar.template register_type<RandomizedClassificationThresholdOptimizer<
+              double,
+              double,
               uint
 	  >>();
     }
@@ -41,13 +43,19 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const ShannonEntropy<
+    TemplateFuncExport DllExport std::string serialize(const RandomizedClassificationThresholdOptimizer<
+              double,
+              double,
               uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport ShannonEntropy<
+    TemplateFuncExport DllExport RandomizedClassificationThresholdOptimizer<
+              double,
+              double,
               uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, ShannonEntropy<
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, RandomizedClassificationThresholdOptimizer<
+              double,
+              double,
               uint
 	  >*);
 }  // namespace fertilized
@@ -58,7 +66,9 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<ShannonEntropy<
+struct version<RandomizedClassificationThresholdOptimizer<
+              double,
+              double,
               uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;

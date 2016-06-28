@@ -3,12 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__IEntropyFunction_exporter.h"
+#include "./__IDecider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_41() {
-    export_IEntropyFunction<
-              float
-                            >("_f");
+    export_IDecider<
+              uint8_t,
+              int16_t,
+              int16_t
+                            >("_uint8_int16_int16");
   };
 }  // namespace pyfertilized

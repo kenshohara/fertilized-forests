@@ -3,12 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__RenyiEntropy_exporter.h"
+#include "./__QuadraticSurfaceCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_261() {
-    export_RenyiEntropy<
-              float
-                            >("_f");
+    export_QuadraticSurfaceCalculator<
+              uint8_t,
+              uint
+                            >("_uint8_uint");
   };
 }  // namespace pyfertilized

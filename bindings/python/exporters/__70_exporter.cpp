@@ -9,9 +9,9 @@ namespace pyfertilized {
   void __python_export_70() {
     export_ILeafManager<
               float,
-              float,
-              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
-                            >("_f_f_rpf_vprpff");
+              uint,
+              std::vector<float>,
+              std::vector<float>
+                            >("_f_uint_fv_fv");
   };
 }  // namespace pyfertilized

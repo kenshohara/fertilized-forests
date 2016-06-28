@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/threshold_optimizers/ithresholdoptimizer.h"
+#include "fertilized/features/isurfacecalculator.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,7 +20,7 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "IThresholdOptimizer is higher than the current library version "
+          "ISurfaceCalculator is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
@@ -38,17 +38,17 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const IThresholdOptimizer<
+    TemplateFuncExport DllExport std::string serialize(const ISurfaceCalculator<
               float,
               float,
               uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport IThresholdOptimizer<
+    TemplateFuncExport DllExport ISurfaceCalculator<
               float,
               float,
               uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, IThresholdOptimizer<
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, ISurfaceCalculator<
               float,
               float,
               uint
@@ -61,7 +61,7 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<IThresholdOptimizer<
+struct version<ISurfaceCalculator<
               float,
               float,
               uint
