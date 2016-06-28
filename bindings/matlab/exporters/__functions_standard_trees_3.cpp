@@ -16,7 +16,7 @@
 using namespace fertilized;
 
 
-void * StandardHoughTree_uint8_int16_int16 (
+void * StandardHoughTreeWithoutPatch_uint8_int16_int16 (
 
         size_t n_channels,
         mxArray * n_features,

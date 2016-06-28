@@ -4335,7 +4335,7 @@ classdef Soil
 
             res = Tree(this.getDataTypes(), this.LibName, ptr, '%s%s');    
         end
-        function [res] = StandardHoughTree (this, n_channels, n_features, n_thresholds_per_split, n_splits_per_node, max_depth, min_sample_counts, random_seed, min_gain_thresholds, allow_redraw, num_threads, entropy_names, entropy_p1, use_hough_heuristic, hough_heuristic_ratio, hough_heuristic_maxd)
+        function [res] = StandardHoughTreeWithoutPatch (this, n_channels, n_features, n_thresholds_per_split, n_splits_per_node, max_depth, min_sample_counts, random_seed, min_gain_thresholds, allow_redraw, num_threads, entropy_names, entropy_p1, use_hough_heuristic, hough_heuristic_ratio, hough_heuristic_maxd)
             % Constructs a Hough tree without using the patch representation.
             % 
             % -----
@@ -4350,7 +4350,7 @@ classdef Soil
             % 
             % - uint8_t; int16_t; int16_t
             % 
-            % Exported name: StandardHoughTree
+            % Exported name: StandardHoughTreeWithoutPatch
             % 
             % -----
             % 
@@ -4446,7 +4446,7 @@ classdef Soil
                 hough_heuristic_maxd = 0;
             end    
             suffix = strcat('_', this.inp_str, '_', this.feat_str, '_', this.ann_str);
-            getter = sprintf('%s%s', 'StandardHoughTree', suffix);
+            getter = sprintf('%s%s', 'StandardHoughTreeWithoutPatch', suffix);
             ptr = calllib(this.LibName, getter, n_channels, n_features, n_thresholds_per_split, n_splits_per_node, max_depth, min_sample_counts, random_seed, min_gain_thresholds, allow_redraw, num_threads, entropy_names, entropy_p1, use_hough_heuristic, hough_heuristic_ratio, hough_heuristic_maxd);
 
             res = Tree(this.getDataTypes(), this.LibName, ptr, '%s%s');    

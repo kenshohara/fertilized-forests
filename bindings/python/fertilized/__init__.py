@@ -4771,7 +4771,7 @@ class Soil:
         hough_heuristic_maxd
           )
 
-  def StandardHoughTree(self,
+  def StandardHoughTreeWithoutPatch(self,
       
         n_channels,
         n_features,
@@ -4803,7 +4803,7 @@ class Soil:
     
     - uint8_t; int16_t; int16_t
     
-    Exported name: StandardHoughTree
+    Exported name: StandardHoughTreeWithoutPatch
     
     -----
 

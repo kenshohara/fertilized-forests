@@ -177,7 +177,7 @@ namespace fertilized {
 * - uint8_t; uint8_t; uint
 * - uint8_t; float; uint
 * - uint8_t; int16_t; uint
-* - float; float; uint   
+* - float; float; uint
 * - float; float; int16_t
 * - double; double; uint
 * - uint8_t; int16_t; int16_t
@@ -2909,7 +2909,7 @@ namespace fertilized {
 * Instantiations:
 * - uint8_t; int16_t; int16_t
 * .
-* Exported name: StandardHoughTree
+* Exported name: StandardHoughTreeWithoutPatch
 *
 * -----
 *
@@ -2961,7 +2961,7 @@ namespace fertilized {
 * \param hough_heuristic_maxd uint
 *   Default: 0.
 */
-  std::shared_ptr<fertilized::Tree<input_dtype , feature_dtype , annotation_dtype , std::pair<float , std::shared_ptr<std::vector<annotation_dtype> >> , std::vector<std::pair<float , std::shared_ptr<std::vector<annotation_dtype> >> >>> StandardHoughTree(
+  std::shared_ptr<fertilized::Tree<input_dtype , feature_dtype , annotation_dtype , std::pair<float , std::shared_ptr<std::vector<annotation_dtype> >> , std::vector<std::pair<float , std::shared_ptr<std::vector<annotation_dtype> >> >>> StandardHoughTreeWithoutPatch(
 
         const size_t & n_channels,
         const std::vector<size_t> & n_features,
