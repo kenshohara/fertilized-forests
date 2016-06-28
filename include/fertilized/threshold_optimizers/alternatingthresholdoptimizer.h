@@ -43,7 +43,7 @@ namespace fertilized {
    * - uint8_t; uint8_t; uint
    * - uint8_t; float; uint
    * - uint8_t; int16_t; uint
-   * - float; float; uint   
+   * - float; float; uint
    * - float; float; int16_t
    * - double; double; uint
    * - uint8_t; int16_t; int16_t
@@ -193,6 +193,18 @@ namespace fertilized {
       else
         return opt2 -> needs_negatives(node_id);
     };
+
+    /**
+     * -----
+     * Available in:
+     * - C++
+     * .
+     *
+     * -----
+     */
+    void set_opt_sel_map(node_id_t node_id, bool opt_sel) {
+      opt_sel_map[node_id] = opt_sel;
+    }
 
     /**
      * -----
