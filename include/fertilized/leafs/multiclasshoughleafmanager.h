@@ -108,7 +108,7 @@ namespace fertilized {
       // class, normalize the probability also by the number of classes
       // (see code by Juergen Gall).
       auto ret_val = distribution_map.emplace(node_id,
-                                              std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>, std::shared_ptr<std::vector<annotation_dtype>>>(
+                                              std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>(
                                                         1.0/total,
                                                         class_labels,
                                                         offset_coordinates));
@@ -160,7 +160,7 @@ namespace fertilized {
     bool operator==(const ILeafManager<input_dtype,
                                  annotation_dtype,
                                  std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>,
-                                 std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> &rhs) const {
+                                 std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>>> &rhs) const {
       const auto *rhs_c = dynamic_cast<MultiClassHoughLeafManager<input_dtype,
                                                                   annotation_dtype> const*>(&rhs);
       if (rhs_c == nullptr)

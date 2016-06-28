@@ -202,7 +202,7 @@ namespace fertilized {
      *
      * -----
      */
-    void set_opt_sel_map(node_id_t node_id, bool opt_sel) {
+    void set_opt_sel(node_id_t node_id, bool opt_sel) {
       opt_sel_map[node_id] = opt_sel;
     }
 

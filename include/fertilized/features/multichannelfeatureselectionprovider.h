@@ -83,7 +83,7 @@ namespace fertilized {
       if (dimension == 0)
         throw Fertilized_Exception("The number of selected dimensions per "
          "proposal by the features selector must be greater 0!");
-      n_available = std::accumulate(std::begin(n_features), std::end(n_features), 0)
+      n_available = std::accumulate(std::begin(n_features), std::end(n_features), 0);
       if (dimension > n_available)
         throw Fertilized_Exception("The number of available features must "
          "be greater than the number of features to select for one proposal!");
@@ -224,7 +224,7 @@ namespace fertilized {
 
    protected:
     // cppcheck-suppress uninitVar
-    VolumeFeatureSelectionProvider() {}
+    MultiChannelFeatureSelectionProvider() {}
 
    private:
     size_t dimension;
@@ -233,7 +233,7 @@ namespace fertilized {
     size_t n_available;
     std::shared_ptr<std::mt19937> random_engine;
 
-    DISALLOW_COPY_AND_ASSIGN(VolumeFeatureSelectionProvider);
+    DISALLOW_COPY_AND_ASSIGN(MultiChannelFeatureSelectionProvider);
   };
 }  // namespace fertilized
 #endif  // FERTILIZED_FEATURES_VOLUMEFEATURESELECTIONPROVIDER_H_

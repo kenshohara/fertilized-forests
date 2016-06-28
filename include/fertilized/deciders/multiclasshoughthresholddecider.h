@@ -1,7 +1,7 @@
 /* Author: Christoph Lassner. */
 #pragma once
-#ifndef FERTILIZED_DECIDERS_THRESHOLDDECIDER_H_
-#define FERTILIZED_DECIDERS_THRESHOLDDECIDER_H_
+#ifndef FERTILIZED_DECIDERS_MULTICLASSHOUGHTHRESHOLDDECIDER_H_
+#define FERTILIZED_DECIDERS_MULTICLASSHOUGHTHRESHOLDDECIDER_H_
 
 #ifdef SERIALIZATION_ENABLED
 #include <boost/serialization/serialization.hpp>
@@ -316,7 +316,7 @@ namespace fertilized {
                                                            feature_dtype,
                                                            annotation_dtype>*>(
                   threshold_optimizer.get());
-          ato -> opt_sel_map[node_id] = false;
+          ato -> set_opt_sel(node_id, false);
         }
       }
       // TODO(Christoph): Remove locks in non-parallel mode to improve perf.?
