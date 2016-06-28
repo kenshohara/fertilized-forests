@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/threshold_optimizers/twosideclassificationthresholdoptimizer.h"
+#include "fertilized/leafs/regressionleafmanager.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,17 +20,15 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "TwoSideClassificationThresholdOptimizer is higher than the current library version "
+          "RegressionLeafManager is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<TwoSideClassificationThresholdOptimizer<
-              float,
-              float,
-              uint
+      ar.template register_type<RegressionLeafManager<
+              double
 	  >>();
     }
   };
@@ -43,20 +41,14 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const TwoSideClassificationThresholdOptimizer<
-              float,
-              float,
-              uint
+    TemplateFuncExport DllExport std::string serialize(const RegressionLeafManager<
+              double
 	  > *, const bool &);
-    TemplateFuncExport DllExport TwoSideClassificationThresholdOptimizer<
-              float,
-              float,
-              uint
+    TemplateFuncExport DllExport RegressionLeafManager<
+              double
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, TwoSideClassificationThresholdOptimizer<
-              float,
-              float,
-              uint
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, RegressionLeafManager<
+              double
 	  >*);
 }  // namespace fertilized
 
@@ -66,10 +58,8 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<TwoSideClassificationThresholdOptimizer<
-              float,
-              float,
-              uint
+struct version<RegressionLeafManager<
+              double
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

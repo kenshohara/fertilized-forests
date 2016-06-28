@@ -3,12 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ShannonEntropy_exporter.h"
+#include "./__RegressionThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_259() {
-    export_ShannonEntropy<
-              uint
-                            >("_uint");
+    export_RegressionThresholdOptimizer<
+              float,
+              float
+                            >("_f_f");
   };
 }  // namespace pyfertilized

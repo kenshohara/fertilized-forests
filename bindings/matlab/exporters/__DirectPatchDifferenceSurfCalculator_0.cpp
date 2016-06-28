@@ -5,14 +5,14 @@
  */
 #include "../global.h"
 #include "../matlab_headers/__features.h"
-#include <../../include/fertilized/features/directpatchdifferencesurfcalculator.h>
+#include <../../include/fertilized\features/directpatchdifferencesurfcalculator.h>
 
 using namespace fertilized;
 
 
 
 
-          void * getDirectPatchDifferenceSurfCalculator_uint8_int16_uint (
+          void * getDirectPatchDifferenceSurfCalculator_i_i_uint (
 
         size_t psx,
         size_t psy,
@@ -24,10 +24,10 @@ using namespace fertilized;
 #pragma warning( push )
 #pragma warning( disable : 4800 )
   // Get the libraries' result.
-  auto *libfunc_result = new std::shared_ptr<DirectPatchDifferenceSurfCalculator<uint8_t,int16_t,uint>>(
+  auto *libfunc_result = new std::shared_ptr<DirectPatchDifferenceSurfCalculator<int,int,uint>>(
     new DirectPatchDifferenceSurfCalculator<
-              uint8_t,
-              int16_t,
+              int,
+              int,
               uint
 >(
           psx,
@@ -42,15 +42,15 @@ using namespace fertilized;
 }		
 
 
-          int eqDirectPatchDifferenceSurfCalculator_uint8_int16_uint (void *__instance,
+          int eqDirectPatchDifferenceSurfCalculator_i_i_uint (void *__instance,
 
         void * rhs
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<DirectPatchDifferenceSurfCalculator<uint8_t,int16_t,uint>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<DirectPatchDifferenceSurfCalculator<int,int,uint>>*>(__instance);
   // From C types conversions.
 
-    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::ISurfaceCalculator<uint8_t, int16_t, uint>>*>(rhs);
+    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::ISurfaceCalculator<int, int, uint>>*>(rhs);
     auto &__converted_rhs = *(__shptr_rhs.get());
             
 
@@ -65,7 +65,7 @@ using namespace fertilized;
   return libfunc_result;
 }		
 // Destructor.
-void delete_DirectPatchDifferenceSurfCalculator_uint8_int16_uint(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<DirectPatchDifferenceSurfCalculator<uint8_t,int16_t,uint>>*>(ptr);
+void delete_DirectPatchDifferenceSurfCalculator_i_i_uint(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<DirectPatchDifferenceSurfCalculator<int,int,uint>>*>(ptr);
   delete storage;
 }

@@ -18,8 +18,15 @@ classdef DirectPatchDifferenceSurfCalculator < FertilizedObject
     % 
     % Instantiations:
     % 
+    % - int; int; uint
     % - uint8_t; int16_t; uint
     % - uint8_t; int16_t; int16_t
+    % - uint8_t; uint8_t; uint
+    % - float; float; int16_t
+    % - float; float; uint
+    % - double; double; uint
+    % - float; float; float
+    % - double; double; double
     % 
     % 
     % -----

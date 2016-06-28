@@ -5,14 +5,14 @@
  */
 #include "../global.h"
 #include "../matlab_headers/__threshold_optimizers.h"
-#include <../../include/fertilized/threshold_optimizers/alternatingthresholdoptimizer.h>
+#include <../../include/fertilized\threshold_optimizers/alternatingthresholdoptimizer.h>
 
 using namespace fertilized;
 
 
 
 
-          void * getAlternatingThresholdOptimizer_d_d_uint (
+          void * getAlternatingThresholdOptimizer_f_f_int16 (
 
         void * opt1,
         void * opt2,
@@ -20,20 +20,20 @@ using namespace fertilized;
 ) {
   // From C types conversions.
 
-    auto __converted_opt1 = *reinterpret_cast<std::shared_ptr<fertilized::AlternatingThresholdOptimizer<double, double, uint>::IThresholdOptimizer_t>*>(opt1);
+    auto __converted_opt1 = *reinterpret_cast<std::shared_ptr<fertilized::AlternatingThresholdOptimizer<float, float, int16_t>::IThresholdOptimizer_t>*>(opt1);
               
 
-    auto __converted_opt2 = *reinterpret_cast<std::shared_ptr<fertilized::AlternatingThresholdOptimizer<double, double, uint>::IThresholdOptimizer_t>*>(opt2);
+    auto __converted_opt2 = *reinterpret_cast<std::shared_ptr<fertilized::AlternatingThresholdOptimizer<float, float, int16_t>::IThresholdOptimizer_t>*>(opt2);
               
 
 #pragma warning( push )
 #pragma warning( disable : 4800 )
   // Get the libraries' result.
-  auto *libfunc_result = new std::shared_ptr<AlternatingThresholdOptimizer<double,double,uint>>(
+  auto *libfunc_result = new std::shared_ptr<AlternatingThresholdOptimizer<float,float,int16_t>>(
     new AlternatingThresholdOptimizer<
-              double,
-              double,
-              uint
+              float,
+              float,
+              int16_t
 >(
           __converted_opt1,
           __converted_opt2,
@@ -46,15 +46,15 @@ using namespace fertilized;
 }		
 
 
-          int eqAlternatingThresholdOptimizer_d_d_uint (void *__instance,
+          int eqAlternatingThresholdOptimizer_f_f_int16 (void *__instance,
 
         void * rhs
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<AlternatingThresholdOptimizer<double,double,uint>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<AlternatingThresholdOptimizer<float,float,int16_t>>*>(__instance);
   // From C types conversions.
 
-    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::IThresholdOptimizer<double, double, uint>>*>(rhs);
+    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::IThresholdOptimizer<float, float, int16_t>>*>(rhs);
     auto &__converted_rhs = *(__shptr_rhs.get());
             
 
@@ -69,7 +69,7 @@ using namespace fertilized;
   return libfunc_result;
 }		
 // Destructor.
-void delete_AlternatingThresholdOptimizer_d_d_uint(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<AlternatingThresholdOptimizer<double,double,uint>>*>(ptr);
+void delete_AlternatingThresholdOptimizer_f_f_int16(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<AlternatingThresholdOptimizer<float,float,int16_t>>*>(ptr);
   delete storage;
 }

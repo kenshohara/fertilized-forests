@@ -16,119 +16,119 @@ extern "C"
 #endif
 
 
-     void * getBoostingLeafManager_i_uint (
+    DllExport void * getBoostingLeafManager_i_uint (
 
         unsigned int n_classes
 );
-     void * getBoostingLeafManager_f_uint (
+    DllExport void * getBoostingLeafManager_f_uint (
 
         unsigned int n_classes
 );
-     void * getBoostingLeafManager_d_uint (
+    DllExport void * getBoostingLeafManager_d_uint (
 
         unsigned int n_classes
 );
-     void * getBoostingLeafManager_uint8_uint (
+    DllExport void * getBoostingLeafManager_uint8_uint (
 
         unsigned int n_classes
 );
-     void * getBoostingLeafManager_uint8_int16 (
-
-        unsigned int n_classes
-);
-
-
-     int eqBoostingLeafManager_i_uint (void *__instance,
-
-        void * rhs
-);
-     int eqBoostingLeafManager_f_uint (void *__instance,
-
-        void * rhs
-);
-     int eqBoostingLeafManager_d_uint (void *__instance,
-
-        void * rhs
-);
-     int eqBoostingLeafManager_uint8_uint (void *__instance,
-
-        void * rhs
-);
-     int eqBoostingLeafManager_uint8_int16 (void *__instance,
-
-        void * rhs
-);
-     void delete_BoostingLeafManager_i_uint(void *ptr);
-     void delete_BoostingLeafManager_f_uint(void *ptr);
-     void delete_BoostingLeafManager_d_uint(void *ptr);
-     void delete_BoostingLeafManager_uint8_uint(void *ptr);
-     void delete_BoostingLeafManager_uint8_int16(void *ptr);
-
-
-     void * getClassificationLeafManager_i_uint (
-
-        unsigned int n_classes
-);
-     void * getClassificationLeafManager_f_uint (
-
-        unsigned int n_classes
-);
-     void * getClassificationLeafManager_d_uint (
-
-        unsigned int n_classes
-);
-     void * getClassificationLeafManager_uint8_uint (
-
-        unsigned int n_classes
-);
-     void * getClassificationLeafManager_uint8_int16 (
+    DllExport void * getBoostingLeafManager_uint8_int16 (
 
         unsigned int n_classes
 );
 
 
-     int eqClassificationLeafManager_i_uint (void *__instance,
+    DllExport int eqBoostingLeafManager_i_uint (void *__instance,
 
         void * rhs
 );
-     int eqClassificationLeafManager_f_uint (void *__instance,
+    DllExport int eqBoostingLeafManager_f_uint (void *__instance,
 
         void * rhs
 );
-     int eqClassificationLeafManager_d_uint (void *__instance,
+    DllExport int eqBoostingLeafManager_d_uint (void *__instance,
 
         void * rhs
 );
-     int eqClassificationLeafManager_uint8_uint (void *__instance,
+    DllExport int eqBoostingLeafManager_uint8_uint (void *__instance,
 
         void * rhs
 );
-     int eqClassificationLeafManager_uint8_int16 (void *__instance,
+    DllExport int eqBoostingLeafManager_uint8_int16 (void *__instance,
 
         void * rhs
 );
-     void delete_ClassificationLeafManager_i_uint(void *ptr);
-     void delete_ClassificationLeafManager_f_uint(void *ptr);
-     void delete_ClassificationLeafManager_d_uint(void *ptr);
-     void delete_ClassificationLeafManager_uint8_uint(void *ptr);
-     void delete_ClassificationLeafManager_uint8_int16(void *ptr);
+    DllExport void delete_BoostingLeafManager_i_uint(void *ptr);
+    DllExport void delete_BoostingLeafManager_f_uint(void *ptr);
+    DllExport void delete_BoostingLeafManager_d_uint(void *ptr);
+    DllExport void delete_BoostingLeafManager_uint8_uint(void *ptr);
+    DllExport void delete_BoostingLeafManager_uint8_int16(void *ptr);
 
 
-     void * getHoughLeafManager_uint8_int16 (
+    DllExport void * getClassificationLeafManager_i_uint (
+
+        unsigned int n_classes
+);
+    DllExport void * getClassificationLeafManager_f_uint (
+
+        unsigned int n_classes
+);
+    DllExport void * getClassificationLeafManager_d_uint (
+
+        unsigned int n_classes
+);
+    DllExport void * getClassificationLeafManager_uint8_uint (
+
+        unsigned int n_classes
+);
+    DllExport void * getClassificationLeafManager_uint8_int16 (
+
+        unsigned int n_classes
+);
+
+
+    DllExport int eqClassificationLeafManager_i_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqClassificationLeafManager_f_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqClassificationLeafManager_d_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqClassificationLeafManager_uint8_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqClassificationLeafManager_uint8_int16 (void *__instance,
+
+        void * rhs
+);
+    DllExport void delete_ClassificationLeafManager_i_uint(void *ptr);
+    DllExport void delete_ClassificationLeafManager_f_uint(void *ptr);
+    DllExport void delete_ClassificationLeafManager_d_uint(void *ptr);
+    DllExport void delete_ClassificationLeafManager_uint8_uint(void *ptr);
+    DllExport void delete_ClassificationLeafManager_uint8_int16(void *ptr);
+
+
+    DllExport void * getHoughLeafManager_uint8_int16 (
 
         unsigned int n_classes,
         size_t annot_dim
 );
 
 
-     int eqHoughLeafManager_uint8_int16 (void *__instance,
+    DllExport int eqHoughLeafManager_uint8_int16 (void *__instance,
 
         void * rhs
 );
-     void delete_HoughLeafManager_uint8_int16(void *ptr);
+    DllExport void delete_HoughLeafManager_uint8_int16(void *ptr);
 
 
-     void * getRegressionLeafManager_f (
+    DllExport void * getRegressionLeafManager_f (
 
         void * selection_provider,
         size_t n_valids_to_use,
@@ -138,7 +138,7 @@ extern "C"
         int num_threads,
         unsigned int summary_mode
 );
-     void * getRegressionLeafManager_d (
+    DllExport void * getRegressionLeafManager_d (
 
         void * selection_provider,
         size_t n_valids_to_use,
@@ -150,16 +150,16 @@ extern "C"
 );
 
 
-     int eqRegressionLeafManager_f (void *__instance,
+    DllExport int eqRegressionLeafManager_f (void *__instance,
 
         void * rhs
 );
-     int eqRegressionLeafManager_d (void *__instance,
+    DllExport int eqRegressionLeafManager_d (void *__instance,
 
         void * rhs
 );
-     void delete_RegressionLeafManager_f(void *ptr);
-     void delete_RegressionLeafManager_d(void *ptr);
+    DllExport void delete_RegressionLeafManager_f(void *ptr);
+    DllExport void delete_RegressionLeafManager_d(void *ptr);
 #ifdef __cplusplus
 }
 #endif 

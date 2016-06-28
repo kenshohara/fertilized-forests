@@ -9,7 +9,7 @@
 
 #include "../global.h"
 #include "../util.h"
-#include <fertilized/feature_extraction/dnnfeatureextractor.h>
+#include <../../include/fertilized\feature_extraction/dnnfeatureextractor.h>
 
 using namespace fertilized;
 

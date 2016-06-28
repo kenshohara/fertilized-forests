@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/execution_strategies/iexecutionstrategy.h"
+#include "fertilized/data_providers/idataprovider.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,7 +20,7 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "IExecutionStrategy is higher than the current library version "
+          "IDataProvider is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
@@ -38,26 +38,17 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const IExecutionStrategy<
-              double,
-              double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport std::string serialize(const IDataProvider<
+              uint8_t,
+              uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport IExecutionStrategy<
-              double,
-              double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport IDataProvider<
+              uint8_t,
+              uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, IExecutionStrategy<
-              double,
-              double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, IDataProvider<
+              uint8_t,
+              uint
 	  >*);
 }  // namespace fertilized
 
@@ -67,12 +58,9 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<IExecutionStrategy<
-              double,
-              double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+struct version<IDataProvider<
+              uint8_t,
+              uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

@@ -39,9 +39,10 @@ namespace fertilized {
    * - uint8_t; int16_t
    * - double; uint
    * - double; double
+   * - float; int16_t
    * - float; float
    * .
-   * 
+   *
    * -----
    */
   template <typename input_dtype, typename annotation_dtype>
@@ -64,7 +65,7 @@ namespace fertilized {
       * \param node_predictor A function that takes a sample and returns the
       *                       node id of the node in the current tree at which
       *                       the sample would arrive.
-      *                       
+      *
       */
     virtual void optimize_set_for_node(
       const node_id_t &node_id,
@@ -162,7 +163,7 @@ namespace fertilized {
      */
     const size_t get_annot_vec_dim() const {return annot_vec_dim; }
 
-    /** 
+    /**
      * \brief Returns a coordinate transformation function for the dimension
      * selectors.
      *

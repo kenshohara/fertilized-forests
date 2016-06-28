@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/trainings/itraining.h"
+#include "fertilized/threshold_optimizers/ithresholdoptimizer.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,7 +20,7 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "ITraining is higher than the current library version "
+          "IThresholdOptimizer is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
@@ -38,26 +38,20 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const ITraining<
-              uint8_t,
-              int16_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport std::string serialize(const IThresholdOptimizer<
+              float,
+              float,
+              int16_t
 	  > *, const bool &);
-    TemplateFuncExport DllExport ITraining<
-              uint8_t,
-              int16_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport IThresholdOptimizer<
+              float,
+              float,
+              int16_t
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, ITraining<
-              uint8_t,
-              int16_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, IThresholdOptimizer<
+              float,
+              float,
+              int16_t
 	  >*);
 }  // namespace fertilized
 
@@ -67,12 +61,10 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<ITraining<
-              uint8_t,
-              int16_t,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+struct version<IThresholdOptimizer<
+              float,
+              float,
+              int16_t
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

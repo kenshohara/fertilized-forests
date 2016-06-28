@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/forest.h"
+#include "fertilized/bagging/equaldistbagging.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,19 +20,19 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "Forest is higher than the current library version "
+          "EqualDistBagging is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<Forest<
+      ar.template register_type<EqualDistBagging<
               double,
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 	  >>();
     }
   };
@@ -45,26 +45,26 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const Forest<
+    TemplateFuncExport DllExport std::string serialize(const EqualDistBagging<
               double,
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 	  > *, const bool &);
-    TemplateFuncExport DllExport Forest<
+    TemplateFuncExport DllExport EqualDistBagging<
               double,
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, Forest<
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, EqualDistBagging<
               double,
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 	  >*);
 }  // namespace fertilized
 
@@ -74,12 +74,12 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<Forest<
+struct version<EqualDistBagging<
               double,
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

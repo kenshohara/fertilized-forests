@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/threshold_optimizers/ithresholdoptimizer.h"
+#include "fertilized/features/isurfacecalculator.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,7 +20,7 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "IThresholdOptimizer is higher than the current library version "
+          "ISurfaceCalculator is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
@@ -38,20 +38,20 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const IThresholdOptimizer<
-              uint8_t,
+    TemplateFuncExport DllExport std::string serialize(const ISurfaceCalculator<
               float,
-              uint
+              float,
+              float
 	  > *, const bool &);
-    TemplateFuncExport DllExport IThresholdOptimizer<
-              uint8_t,
+    TemplateFuncExport DllExport ISurfaceCalculator<
               float,
-              uint
+              float,
+              float
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, IThresholdOptimizer<
-              uint8_t,
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, ISurfaceCalculator<
               float,
-              uint
+              float,
+              float
 	  >*);
 }  // namespace fertilized
 
@@ -61,10 +61,10 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<IThresholdOptimizer<
-              uint8_t,
+struct version<ISurfaceCalculator<
               float,
-              uint
+              float,
+              float
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

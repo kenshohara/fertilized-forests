@@ -3,16 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__LocalExecutionStrategy_exporter.h"
+#include "./__HoughLeafManager_exporter.h"
 
 namespace pyfertilized {
   void __python_export_210() {
-    export_LocalExecutionStrategy<
+    export_HoughLeafManager<
               uint8_t,
-              int16_t,
-              int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
-                            >("_uint8_int16_int16_hp_vhp");
+              int16_t
+                            >("_uint8_int16");
   };
 }  // namespace pyfertilized

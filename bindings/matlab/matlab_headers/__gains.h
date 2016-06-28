@@ -16,28 +16,28 @@ extern "C"
 #endif
 
 
-     void * getEntropyGain_f (
+    DllExport void * getEntropyGain_f (
 
         void * entropy_function
 );
-     void * getEntropyGain_uint (
+    DllExport void * getEntropyGain_uint (
 
         void * entropy_function
 );
 
 
-     int eqEntropyGain_f (void *__instance,
+    DllExport int eqEntropyGain_f (void *__instance,
 
         void * rhs
 );
-     int eqEntropyGain_uint (void *__instance,
+    DllExport int eqEntropyGain_uint (void *__instance,
 
         void * rhs
 );
-     void delete_EntropyGain_f(void *ptr);
-     void delete_EntropyGain_uint(void *ptr);
-     void delete_IGainCalculator_f(void *ptr);
-     void delete_IGainCalculator_uint(void *ptr);
+    DllExport void delete_EntropyGain_f(void *ptr);
+    DllExport void delete_EntropyGain_uint(void *ptr);
+    DllExport void delete_IGainCalculator_f(void *ptr);
+    DllExport void delete_IGainCalculator_uint(void *ptr);
 #ifdef __cplusplus
 }
 #endif 

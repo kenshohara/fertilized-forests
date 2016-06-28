@@ -52,6 +52,7 @@ Instantiations:\n\
 - uint8_t; int16_t; int16_t\n\
 - uint8_t; float; uint\n\
 - float; float; uint\n\
+- float; float; int16_t\n\
 - float; float; float\n\
 - double; double; uint\n\
 - double; float; uint\n\

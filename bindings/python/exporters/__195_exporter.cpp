@@ -3,12 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__InducedEntropy_exporter.h"
+#include "./__DirectPatchDifferenceSurfCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_195() {
-    export_InducedEntropy<
+    export_DirectPatchDifferenceSurfCalculator<
+              float,
+              float,
               uint
-                            >("_uint");
+                            >("_f_f_uint");
   };
 }  // namespace pyfertilized

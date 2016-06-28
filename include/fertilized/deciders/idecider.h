@@ -44,10 +44,11 @@ namespace fertilized {
    * - float; float; uint
    * - double; double; uint
    * - uint8_t; int16_t; int16_t
+   * - float; float; int16_t
    * - float; float; float
    * - double; double; double
    * .
-   * 
+   *
    * -----
    */
   template <typename input_dtype, typename feature_dtype, typename annotation_dtype>
@@ -126,10 +127,10 @@ namespace fertilized {
 
     /** Gets the input dimension of the feature selection provider. */
     virtual size_t get_required_num_data_dim() const VIRTUAL(size_t);
-    
+
     /**
      * \brief Computes a feature importance vector.
-     * 
+     *
      * The vector is normalized to sum to 1.0. It contains the relative
      * frequencies of the feature occurences. Its length is the number
      * of available features.
@@ -145,7 +146,7 @@ namespace fertilized {
 #endif
 
    protected:
-    /** 
+    /**
      * \brief Empty constructor to allow inheritance though
      * DISALLOW_COPY_AND_ASSIGN is applied.
      */

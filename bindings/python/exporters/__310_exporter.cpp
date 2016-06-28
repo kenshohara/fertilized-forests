@@ -3,13 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__BoostingLeafManager_exporter.h"
+#include "./__UnchangedFDataProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_310() {
-    export_BoostingLeafManager<
-              double,
+    export_UnchangedFDataProvider<
+              uint8_t,
               uint
-                            >("_d_uint");
+                            >("_uint8_uint");
   };
 }  // namespace pyfertilized

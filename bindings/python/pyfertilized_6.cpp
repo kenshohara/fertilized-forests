@@ -42,6 +42,24 @@ namespace pyfertilized {
   void __python_export_312();
   void __python_export_313();
   void __python_export_314();
+  void __python_export_315();
+  void __python_export_316();
+  void __python_export_317();
+  void __python_export_318();
+  void __python_export_319();
+  void __python_export_320();
+  void __python_export_321();
+  void __python_export_322();
+  void __python_export_323();
+  void __python_export_324();
+  void __python_export_325();
+  void __python_export_326();
+  void __python_export_327();
+  void __python_export_328();
+  void __python_export_329();
+  void __python_export_330();
+  void __python_export_331();
+  void __python_export_332();
 };
 
 BOOST_PYTHON_MODULE(pyfertilized_6) {
@@ -75,4 +93,22 @@ BOOST_PYTHON_MODULE(pyfertilized_6) {
   __python_export_312();
   __python_export_313();
   __python_export_314();
+  __python_export_315();
+  __python_export_316();
+  __python_export_317();
+  __python_export_318();
+  __python_export_319();
+  __python_export_320();
+  __python_export_321();
+  __python_export_322();
+  __python_export_323();
+  __python_export_324();
+  __python_export_325();
+  __python_export_326();
+  __python_export_327();
+  __python_export_328();
+  __python_export_329();
+  __python_export_330();
+  __python_export_331();
+  __python_export_332();
 };

@@ -33,7 +33,7 @@ classdef Soil
     properties (SetAccess = private)
         LibName = 'matfertilized';
         MainHeader = 'matlab.h';
-        AdditionalHeaders = { 'objectvector-nonmsvc.h', 'stringvector-nonmsvc.h', '__bagging.h', '__boosting.h', '__data_providers.h', '__deciders.h', '__execution_strategies.h', '__feature_extraction.h', '__features.h', '__gains.h', '__impurities.h', '__leafs.h', '__regression.h', '__rootdir.h', '__threshold_optimizers.h', '__trainings.h', '__functions_standard_forests.h', '__functions_standard_trees.h', '__functions_feature_extraction.h' };
+        AdditionalHeaders = { 'objectvector.h', 'stringvector.h', '__bagging.h', '__boosting.h', '__data_providers.h', '__deciders.h', '__execution_strategies.h', '__feature_extraction.h', '__features.h', '__gains.h', '__impurities.h', '__leafs.h', '__regression.h', '__rootdir.h', '__threshold_optimizers.h', '__trainings.h', '__functions_standard_forests.h', '__functions_standard_trees.h', '__functions_feature_extraction.h' };
         
         % DataTypes order: input_dtype, feature_dtype, annotation_dtype, leaf_return_dtype, forest_return_dtype 
         inp_str = 'f';
@@ -75,11 +75,13 @@ classdef Soil
             this.dtype_str_translation('std::pair<float,std::shared_ptr<std::vector<int16_t>>>') = 'hp';
             this.dtype_str_translation('std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>') = 'rpd';
             this.dtype_str_translation('std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>') = 'rpf';
+            this.dtype_str_translation('std::tuple<float,std::shared_ptr<std::vector<int16_t>>,std::shared_ptr<std::vector<int16_t>>>') = 'ht';
             this.dtype_str_translation('std::vector<double>') = 'dv';
             this.dtype_str_translation('std::vector<float>') = 'fv';
             this.dtype_str_translation('std::vector<std::pair<float,std::shared_ptr<std::vector<int16_t>>>>') = 'vhp';
             this.dtype_str_translation('std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>') = 'vprpfd';
             this.dtype_str_translation('std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>') = 'vprpff';
+            this.dtype_str_translation('std::vector<std::tuple<float,std::shared_ptr<std::vector<int16_t>>,std::shared_ptr<std::vector<int16_t>>>>') = 'vht';
             this.dtype_str_translation('uc') = 'uint8';
             this.dtype_str_translation('uchar') = 'uint8';
             this.dtype_str_translation('ui') = 'uint';
@@ -324,6 +326,7 @@ classdef Soil
             % - uint8_t; float; uint
             % - uint8_t; int16_t; uint
             % - float; float; uint
+            % - float; float; int16_t
             % - double; double; uint
             % - uint8_t; int16_t; int16_t
             % 
@@ -935,8 +938,11 @@ classdef Soil
             % Instantiations:
             % 
             % - int; int; uint
+            % - uint8_t; uint8_t; uint
             % - uint8_t; int16_t; uint
+            % - uint8_t; int16_t; int16_t
             % - float; float; uint
+            % - float; float; int16_t
             % - float; float; float
             % - double; double; uint
             % - double; double; double
@@ -990,8 +996,15 @@ classdef Soil
             % 
             % Instantiations:
             % 
+            % - int; int; uint
             % - uint8_t; int16_t; uint
             % - uint8_t; int16_t; int16_t
+            % - uint8_t; uint8_t; uint
+            % - float; float; int16_t
+            % - float; float; uint
+            % - double; double; uint
+            % - float; float; float
+            % - double; double; double
             % 
             % 
             % -----
@@ -3365,6 +3378,7 @@ classdef Soil
             % - uint8_t; int16_t
             % - double; uint
             % - double; double
+            % - float; int16_t
             % - float; float
             % 
             % 

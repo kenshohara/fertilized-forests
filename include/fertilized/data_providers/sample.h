@@ -11,7 +11,7 @@ namespace fertilized {
    * \brief Stores information about one data sample.
    *
    * This form of storage is mainly important since samples may be generated
-   * by data providers on the fly, so it cannot be assumed that data has a 
+   * by data providers on the fly, so it cannot be assumed that data has a
    * contiguous memory layout.
    *
    * The data vectors can have a \ref data_step, but the annotations cannot and
@@ -28,9 +28,10 @@ namespace fertilized {
    * - uint8_t; int16_t
    * - double; uint
    * - double; double
+   * - float; int16_t
    * - float; float
    * .
-   * 
+   *
    * -----
    */
   template <typename input_dtype, typename annotation_dtype>

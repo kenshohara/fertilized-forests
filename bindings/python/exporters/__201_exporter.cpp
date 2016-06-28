@@ -3,13 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__LinearSurfaceCalculator_exporter.h"
+#include "./__EqualDistBagging_exporter.h"
 
 namespace pyfertilized {
   void __python_export_201() {
-    export_LinearSurfaceCalculator<
-              float,
-              float
-                            >("_f_f");
+    export_EqualDistBagging<
+              int,
+              int,
+              uint,
+              std::vector<float>,
+              std::vector<float>
+                            >("_i_i_uint_fv_fv");
   };
 }  // namespace pyfertilized

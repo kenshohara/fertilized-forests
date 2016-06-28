@@ -3,16 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__BoostedTraining_exporter.h"
+#include "./__AlternatingThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_145() {
-    export_BoostedTraining<
-              uint8_t,
-              int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
-                            >("_uint8_int16_int16_fv_fv");
+    export_AlternatingThresholdOptimizer<
+              double,
+              double,
+              uint
+                            >("_d_d_uint");
   };
 }  // namespace pyfertilized

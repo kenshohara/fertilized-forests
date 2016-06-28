@@ -31,8 +31,8 @@ namespace fertilized {
               uint8_t,
               int16_t,
               int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+              std::vector<float>,
+              std::vector<float>
 	  >>();
     }
   };
@@ -49,22 +49,22 @@ namespace fertilized {
               uint8_t,
               int16_t,
               int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+              std::vector<float>,
+              std::vector<float>
 	  > *, const bool &);
     TemplateFuncExport DllExport ClassicTraining<
               uint8_t,
               int16_t,
               int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+              std::vector<float>,
+              std::vector<float>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, ClassicTraining<
               uint8_t,
               int16_t,
               int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+              std::vector<float>,
+              std::vector<float>
 	  >*);
 }  // namespace fertilized
 
@@ -78,8 +78,8 @@ struct version<ClassicTraining<
               uint8_t,
               int16_t,
               int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+              std::vector<float>,
+              std::vector<float>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

@@ -3,16 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__LocalExecutionStrategy_exporter.h"
+#include "./__EqualDistBagging_exporter.h"
 
 namespace pyfertilized {
   void __python_export_205() {
-    export_LocalExecutionStrategy<
-              float,
-              float,
+    export_EqualDistBagging<
+              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>
-                            >("_f_f_uint_fv_fv");
+                            >("_uint8_int16_uint_fv_fv");
   };
 }  // namespace pyfertilized

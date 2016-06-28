@@ -5,14 +5,14 @@
  */
 #include "../global.h"
 #include "../matlab_headers/__features.h"
-#include <../../include/fertilized/features/differencesurfacecalculator.h>
+#include <../../include/fertilized\features/differencesurfacecalculator.h>
 
 using namespace fertilized;
 
 
 
 
-          void * getDifferenceSurfaceCalculator_d_d_d (
+          void * getDifferenceSurfaceCalculator_f_f_int16 (
 
 ) {
   // From C types conversions.
@@ -20,11 +20,11 @@ using namespace fertilized;
 #pragma warning( push )
 #pragma warning( disable : 4800 )
   // Get the libraries' result.
-  auto *libfunc_result = new std::shared_ptr<DifferenceSurfaceCalculator<double,double,double>>(
+  auto *libfunc_result = new std::shared_ptr<DifferenceSurfaceCalculator<float,float,int16_t>>(
     new DifferenceSurfaceCalculator<
-              double,
-              double,
-              double
+              float,
+              float,
+              int16_t
 >(
           ));
 #pragma warning( pop )
@@ -34,15 +34,15 @@ using namespace fertilized;
 }		
 
 
-          int eqDifferenceSurfaceCalculator_d_d_d (void *__instance,
+          int eqDifferenceSurfaceCalculator_f_f_int16 (void *__instance,
 
         void * rhs
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<DifferenceSurfaceCalculator<double,double,double>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<DifferenceSurfaceCalculator<float,float,int16_t>>*>(__instance);
   // From C types conversions.
 
-    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::ISurfaceCalculator<double, double, double>>*>(rhs);
+    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::ISurfaceCalculator<float, float, int16_t>>*>(rhs);
     auto &__converted_rhs = *(__shptr_rhs.get());
             
 
@@ -57,7 +57,7 @@ using namespace fertilized;
   return libfunc_result;
 }		
 // Destructor.
-void delete_DifferenceSurfaceCalculator_d_d_d(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<DifferenceSurfaceCalculator<double,double,double>>*>(ptr);
+void delete_DifferenceSurfaceCalculator_f_f_int16(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<DifferenceSurfaceCalculator<float,float,int16_t>>*>(ptr);
   delete storage;
 }

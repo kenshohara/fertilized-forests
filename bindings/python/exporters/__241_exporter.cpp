@@ -3,12 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__RegressionLeafManager_exporter.h"
+#include "./__QuadraticSurfaceCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_241() {
-    export_RegressionLeafManager<
-              double
-                            >("_d");
+    export_QuadraticSurfaceCalculator<
+              int,
+              uint
+                            >("_i_uint");
   };
 }  // namespace pyfertilized

@@ -3,13 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__LinearSurfaceCalculator_exporter.h"
+#include "./__DirectPatchDifferenceSurfCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_198() {
-    export_LinearSurfaceCalculator<
-              int,
-              uint
-                            >("_i_uint");
+    export_DirectPatchDifferenceSurfCalculator<
+              double,
+              double,
+              double
+                            >("_d_d_d");
   };
 }  // namespace pyfertilized

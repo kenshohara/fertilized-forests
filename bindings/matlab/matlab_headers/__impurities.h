@@ -16,136 +16,136 @@ extern "C"
 #endif
 
 
-     void * getClassificationError_f (
+    DllExport void * getClassificationError_f (
 
 );
-     void * getClassificationError_uint (
+    DllExport void * getClassificationError_uint (
 
 );
 
 
-     int eqClassificationError_f (void *__instance,
+    DllExport int eqClassificationError_f (void *__instance,
 
         void * rhs
 );
-     int eqClassificationError_uint (void *__instance,
+    DllExport int eqClassificationError_uint (void *__instance,
 
         void * rhs
 );
-     void delete_ClassificationError_f(void *ptr);
-     void delete_ClassificationError_uint(void *ptr);
-     void delete_IEntropyFunction_f(void *ptr);
-     void delete_IEntropyFunction_uint(void *ptr);
+    DllExport void delete_ClassificationError_f(void *ptr);
+    DllExport void delete_ClassificationError_uint(void *ptr);
+    DllExport void delete_IEntropyFunction_f(void *ptr);
+    DllExport void delete_IEntropyFunction_uint(void *ptr);
 
 
-     void * getInducedEntropy_f (
+    DllExport void * getInducedEntropy_f (
 
         float p
 );
-     void * getInducedEntropy_uint (
+    DllExport void * getInducedEntropy_uint (
 
         float p
 );
 
 
-     float applyInducedEntropy_f (void *__instance,
+    DllExport float applyInducedEntropy_f (void *__instance,
 
         mxArray * class_members_numbers,
         float fsum
 );
-     float applyInducedEntropy_uint (void *__instance,
+    DllExport float applyInducedEntropy_uint (void *__instance,
 
         mxArray * class_members_numbers,
         float fsum
 );
 
 
-     int eqInducedEntropy_f (void *__instance,
+    DllExport int eqInducedEntropy_f (void *__instance,
 
         void * rhs
 );
-     int eqInducedEntropy_uint (void *__instance,
+    DllExport int eqInducedEntropy_uint (void *__instance,
 
         void * rhs
 );
-     void delete_InducedEntropy_f(void *ptr);
-     void delete_InducedEntropy_uint(void *ptr);
+    DllExport void delete_InducedEntropy_f(void *ptr);
+    DllExport void delete_InducedEntropy_uint(void *ptr);
 
 
-     void * getRenyiEntropy_f (
+    DllExport void * getRenyiEntropy_f (
 
         float alpha
 );
-     void * getRenyiEntropy_uint (
+    DllExport void * getRenyiEntropy_uint (
 
         float alpha
 );
 
 
-     int eqRenyiEntropy_f (void *__instance,
+    DllExport int eqRenyiEntropy_f (void *__instance,
 
         void * rhs
 );
-     int eqRenyiEntropy_uint (void *__instance,
+    DllExport int eqRenyiEntropy_uint (void *__instance,
 
         void * rhs
 );
-     void delete_RenyiEntropy_f(void *ptr);
-     void delete_RenyiEntropy_uint(void *ptr);
+    DllExport void delete_RenyiEntropy_f(void *ptr);
+    DllExport void delete_RenyiEntropy_uint(void *ptr);
 
 
-     void * getShannonEntropy_f (
-
-);
-     void * getShannonEntropy_uint (
+    DllExport void * getShannonEntropy_f (
 
 );
+    DllExport void * getShannonEntropy_uint (
+
+);
 
 
-     float applyShannonEntropy_f (void *__instance,
+    DllExport float applyShannonEntropy_f (void *__instance,
 
         mxArray * class_members_numbers,
         float fsum
 );
-     float applyShannonEntropy_uint (void *__instance,
+    DllExport float applyShannonEntropy_uint (void *__instance,
 
         mxArray * class_members_numbers,
         float fsum
 );
 
 
-     int eqShannonEntropy_f (void *__instance,
+    DllExport int eqShannonEntropy_f (void *__instance,
 
         void * rhs
 );
-     int eqShannonEntropy_uint (void *__instance,
+    DllExport int eqShannonEntropy_uint (void *__instance,
 
         void * rhs
 );
-     void delete_ShannonEntropy_f(void *ptr);
-     void delete_ShannonEntropy_uint(void *ptr);
+    DllExport void delete_ShannonEntropy_f(void *ptr);
+    DllExport void delete_ShannonEntropy_uint(void *ptr);
 
 
-     void * getTsallisEntropy_f (
+    DllExport void * getTsallisEntropy_f (
 
         float q
 );
-     void * getTsallisEntropy_uint (
+    DllExport void * getTsallisEntropy_uint (
 
         float q
 );
 
 
-     int eqTsallisEntropy_f (void *__instance,
+    DllExport int eqTsallisEntropy_f (void *__instance,
 
         void * rhs
 );
-     int eqTsallisEntropy_uint (void *__instance,
+    DllExport int eqTsallisEntropy_uint (void *__instance,
 
         void * rhs
 );
-     void delete_TsallisEntropy_f(void *ptr);
-     void delete_TsallisEntropy_uint(void *ptr);
+    DllExport void delete_TsallisEntropy_f(void *ptr);
+    DllExport void delete_TsallisEntropy_uint(void *ptr);
 #ifdef __cplusplus
 }
 #endif 

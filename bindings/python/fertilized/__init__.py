@@ -967,6 +967,7 @@ class Soil:
     - uint8_t; float; uint
     - uint8_t; int16_t; uint
     - float; float; uint
+    - float; float; int16_t
     - double; double; uint
     - uint8_t; int16_t; int16_t
     
@@ -1473,8 +1474,11 @@ class Soil:
     Instantiations:
     
     - int; int; uint
+    - uint8_t; uint8_t; uint
     - uint8_t; int16_t; uint
+    - uint8_t; int16_t; int16_t
     - float; float; uint
+    - float; float; int16_t
     - float; float; float
     - double; double; uint
     - double; double; double
@@ -1538,8 +1542,15 @@ class Soil:
     
     Instantiations:
     
+    - int; int; uint
     - uint8_t; int16_t; uint
     - uint8_t; int16_t; int16_t
+    - uint8_t; uint8_t; uint
+    - float; float; int16_t
+    - float; float; uint
+    - double; double; uint
+    - float; float; float
+    - double; double; double
     
     
     -----
@@ -3506,6 +3517,7 @@ class Soil:
     - uint8_t; int16_t
     - double; uint
     - double; double
+    - float; int16_t
     - float; float
     
     

@@ -80,6 +80,7 @@ Instantiations:\n\
 - uint8_t; float; uint\n\
 - uint8_t; int16_t; uint\n\
 - float; float; uint\n\
+- float; float; int16_t\n\
 - double; double; uint\n\
 - uint8_t; int16_t; int16_t\n\
 \n\

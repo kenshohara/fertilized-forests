@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/bagging/ibaggingstrategy.h"
+#include "fertilized/forest.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,13 +20,20 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "IBaggingStrategy is higher than the current library version "
+          "Forest is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
+      ar.template register_type<Forest<
+              float,
+              float,
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+	  >>();
     }
   };
   TemplateFuncExport DllExport void __serialization_register_79(
@@ -38,26 +45,26 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const IBaggingStrategy<
-              uint8_t,
-              int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport std::string serialize(const Forest<
+              float,
+              float,
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 	  > *, const bool &);
-    TemplateFuncExport DllExport IBaggingStrategy<
-              uint8_t,
-              int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport Forest<
+              float,
+              float,
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, IBaggingStrategy<
-              uint8_t,
-              int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, Forest<
+              float,
+              float,
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 	  >*);
 }  // namespace fertilized
 
@@ -67,12 +74,12 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<IBaggingStrategy<
-              uint8_t,
-              int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+struct version<Forest<
+              float,
+              float,
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

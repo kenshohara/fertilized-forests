@@ -56,6 +56,7 @@ Instantiations:\n\
 - uint8_t; int16_t\n\
 - double; uint\n\
 - double; double\n\
+- float; int16_t\n\
 - float; float\n\
 \n\
 \n\

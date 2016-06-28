@@ -17,7 +17,7 @@ namespace fertilized {
   namespace Result_Types {
     /**
      * \brief Classification result types.
-     *
+     * 
      * They are always defined as std::vector<float>.
      */
     struct probabilities {
@@ -32,7 +32,7 @@ namespace fertilized {
     };
     /**
      * \brief Regression result types.
-     *
+     * 
      * They depend on the input_dtype. See the documentation of the
      * \ref RegressionLeafManager.
      */
@@ -48,7 +48,7 @@ namespace fertilized {
     };
     /**
      * \brief Hough Forest result types.
-     *
+     * 
      * They consist of a pair of float (foreground prob.) and a pointer to
      * a vector of int16_t (offsets). For a forest, contains a vector of these
      * pairs.
@@ -61,17 +61,6 @@ namespace fertilized {
       template <typename input_dtype, typename feature_dtype, typename annotation_dtype>
       struct forest_return_dtype {
         typedef std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>> type;
-      };
-    };
-
-    struct multi_class_hough_map {
-      template <typename input_dtype, typename feature_dtype, typename annotation_dtype>
-      struct leaf_return_dtype {
-        typedef std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>> type;
-      };
-      template <typename input_dtype, typename feature_dtype, typename annotation_dtype>
-      struct forest_return_dtype {
-        typedef std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>> type;
       };
     };
   };
@@ -188,7 +177,8 @@ namespace fertilized {
 * - uint8_t; uint8_t; uint
 * - uint8_t; float; uint
 * - uint8_t; int16_t; uint
-* - float; float; uint
+* - float; float; uint   
+* - float; float; int16_t
 * - double; double; uint
 * - uint8_t; int16_t; int16_t
 * .
@@ -383,7 +373,7 @@ namespace fertilized {
 * - uint8_t; uint
 * - uint8_t; int16_t
 * .
-*
+* 
 * -----
 */
   std::shared_ptr<fertilized::ClassificationLeafManager<input_dtype,annotation_dtype>>
@@ -549,8 +539,11 @@ namespace fertilized {
 * .
 * Instantiations:
 * - int; int; uint
+* - uint8_t; uint8_t; uint
 * - uint8_t; int16_t; uint
+* - uint8_t; int16_t; int16_t
 * - float; float; uint
+* - float; float; int16_t
 * - float; float; float
 * - double; double; uint
 * - double; double; double
@@ -587,8 +580,15 @@ namespace fertilized {
 * - Matlab
 * .
 * Instantiations:
+* - int; int; uint
 * - uint8_t; int16_t; uint
 * - uint8_t; int16_t; int16_t
+* - uint8_t; uint8_t; uint
+* - float; float; int16_t
+* - float; float; uint
+* - double; double; uint
+* - float; float; float
+* - double; double; double
 * .
 *
 * -----
@@ -1058,6 +1058,144 @@ namespace fertilized {
 	   ));
   };
 
+  auto multichannelfeatureselectionprovider_vec_t() -> std::vector<std::shared_ptr<fertilized::MultiChannelFeatureSelectionProvider>>;
+  /**
+* \brief This selection provider generates random selection combinations
+* from a multi-channel feature vector.
+*
+* It may be seeded for reproducible results.
+*
+*
+* \ingroup fertilizedfeaturesGroup
+*
+* -----
+* Available in:
+* - C++
+* .
+*
+* -----
+*/
+  std::shared_ptr<fertilized::MultiChannelFeatureSelectionProvider>
+  MultiChannelFeatureSelectionProvider(
+
+        const size_t & selection_dimension,
+        const std::vector<size_t> & n_features,
+        const size_t & how_many_per_node,
+        const unsigned int & random_seed=1
+    ) {
+   return std::shared_ptr<fertilized::MultiChannelFeatureSelectionProvider>(
+     new fertilized::MultiChannelFeatureSelectionProvider(
+
+         selection_dimension,
+         n_features,
+         how_many_per_node,
+         random_seed
+	   ));
+  };
+
+  auto multiclasshoughleafmanager_vec_t() -> std::vector<std::shared_ptr<fertilized::MultiClassHoughLeafManager<input_dtype,annotation_dtype>>>;
+  /**
+* \brief Stores the class labels, the offset vectors for positive samples, and
+* their probabilities in the leafs.
+*
+* \ingroup fertilizedleafsGroup
+*
+* -----
+* Available in:
+* - C++
+* .
+* Instantiations:
+* - uint8_t; int16_t
+* - float; int16_t
+* .
+*
+* -----
+*/
+  std::shared_ptr<fertilized::MultiClassHoughLeafManager<input_dtype,annotation_dtype>>
+  MultiClassHoughLeafManager(
+
+        const unsigned int & n_classes=2,
+        const size_t & annot_dim=2
+    ) {
+   return std::shared_ptr<fertilized::MultiClassHoughLeafManager<input_dtype,annotation_dtype>>(
+     new fertilized::MultiClassHoughLeafManager<input_dtype,annotation_dtype>(
+
+         n_classes,
+         annot_dim
+	   ));
+  };
+
+  auto multiclasshoughthresholddecider_vec_t() -> std::vector<std::shared_ptr<fertilized::MultiClassHoughThresholdDecider<input_dtype,feature_dtype,annotation_dtype>>>;
+  /**
+* \brief Extended version of Threshold Decider for multi-class hough forests.
+*
+* This class implements hough_heuristic for multi-class problems.
+*
+* A classifier manager for weak classifiers with a filter function,
+* a feature calculation function and a thresholding.
+* The classifier design is heavily inspired by "Decision Forests for
+* Classification, Regression, Density Estimation, Manifold Learning and
+* Semi-Supervised Learning" (Criminisi, Shotton and Konukoglu, 2011).
+* With their definition, node classifier parameters \f$\theta\f$ can
+* be split into three parts:
+*  - \f$\phi\f$: a filter function that selects relevant features,
+*  - \f$\psi\f$: parameters of a function that combines the feature values
+*                to a single scalar,
+*  - \f$\tau\f$: thresholding parameters for the calculated scalar.
+*
+* With this model, a decision can be made at each node based on whether the
+* calculated scalar lies withing the thresholding bounds.
+*
+* \ingroup fertilizeddecidersGroup
+*
+* -----
+* Available in:
+* - C++
+* .
+* Instantiations:
+* - int; int; uint
+* - uint8_t; uint8_t; uint
+* - uint8_t; int16_t; uint
+* - float; float; uint
+* - double; double; uint
+* - uint8_t; int16_t; int16_t
+* - float; float; int16_t
+* - float; float; float
+* - double; double; double
+* .
+*
+* -----
+*/
+  std::shared_ptr<fertilized::MultiClassHoughThresholdDecider<input_dtype,feature_dtype,annotation_dtype>>
+  MultiClassHoughThresholdDecider(
+
+        const std::shared_ptr<fertilized::IFeatureSelectionProvider> & selection_provider,
+        const std::shared_ptr<typename fertilized::MultiClassHoughThresholdDecider<input_dtype, feature_dtype, annotation_dtype>::feat_calc_t> & feature_calculator,
+        const std::shared_ptr<typename fertilized::MultiClassHoughThresholdDecider<input_dtype, feature_dtype, annotation_dtype>::thresh_opt_t> & threshold_optimizer,
+        const size_t & n_valid_features_to_use=0,
+        const int & num_threads=1,
+        const bool & use_hough_heuristic=0,
+        const float & hough_heuristic_ratio=0.05,
+        const unsigned int & hough_heuristic_maxd=0,
+        const unsigned int & n_classes=2,
+        const bool & allow_early_stopping=0
+    ) {
+   return std::shared_ptr<fertilized::MultiClassHoughThresholdDecider<input_dtype,feature_dtype,annotation_dtype>>(
+     new fertilized::MultiClassHoughThresholdDecider<input_dtype,feature_dtype,annotation_dtype>(
+
+         selection_provider,
+         feature_calculator,
+         threshold_optimizer,
+         n_valid_features_to_use,
+         num_threads,
+         use_hough_heuristic,
+         hough_heuristic_ratio,
+         hough_heuristic_maxd,
+         n_classes,
+         allow_early_stopping
+	   ));
+  };
+
   auto nobagging_vec_t() -> std::vector<std::shared_ptr<fertilized::NoBagging<input_dtype,feature_dtype,annotation_dtype,leaf_return_dtype,forest_return_dtype>>>;
   /**
 * As the name suggests, performs no bagging and uses all samples for all trees.
@@ -1156,7 +1294,7 @@ namespace fertilized {
 *
 * Use exactly the library template names `input_dtype`, `feature_dtype`,
 * `annotation_dtype`, `leaf_return_dtype`, `forest_dtype` for your
-* objects as necessary (you may omit unnecessary ones). If your class is
+* objects as necessary (you may omit unnecessary ones). If your class is 
 * templated differently, only one possible
 * template instantiation can be used for the interfaces. In that case, you
 * have to specify this with a parser list "Soil type always:". You can find
@@ -1604,7 +1742,7 @@ namespace fertilized {
 * Soil type always:
 * - float
 * .
-*
+* 
 * -----
 */
   std::shared_ptr<fertilized::ShannonEntropy<float>>
@@ -2009,6 +2147,7 @@ namespace fertilized {
 * - uint8_t; int16_t
 * - double; uint
 * - double; double
+* - float; int16_t
 * - float; float
 * .
 *
@@ -2050,7 +2189,7 @@ namespace fertilized {
 * - double; double
 * - float; float
 * .
-*
+* 
 * -----
 */
   std::shared_ptr<fertilized::UnchangedFDataProvider<input_dtype,annotation_dtype>>
@@ -2189,7 +2328,7 @@ namespace fertilized {
 *
 *
 * \ingroup fertilizedfeaturesGroup
-*
+*   
 * -----
 * Available in:
 * - C++
@@ -2736,6 +2875,112 @@ namespace fertilized {
     };
 
   /**
+* Constructs a multi-class 3D Hough tree.
+*
+* -----
+* Available in:
+* - C++
+* .
+* Instantiations:
+* - uint8_t; int16_t; int16_t
+* - float; float; int16_t
+* .
+* Exported name: MultiClass3DHoughTree
+*
+* -----
+*
+* \param n_classes uint>1
+*     The number of classes. All annotation labels must be in
+*     [0, ..., n_classes[.
+* \param n_channels uint>1
+*     The number of feature channels.
+* \param n_features size_t>0
+*     The number of features for each feature channel.
+* \param n_thresholds_per_split size_t>=0
+*     The number of thresholds to evaluate per feature.
+* \param n_splits_per_node size_t>0
+*     The number of features to evaluate as split criteria at each tree
+*     node.
+* \param max_depth uint>=0
+*     The maximum tree depth. If 0, it is set to UINT_MAX to allow for
+*     maximally large trees.
+* \param min_sample_counts vector<uint>0>, two elements.
+*     The min samples per leaf, and min samples per split. The second value
+*     must be >= 2 * the first value.
+* \param random_seed uint>=1
+*     The random seed to initialize the RNG.
+* \param min_gain_thresholds vector<float>=0.f>, two elements.
+*     The minimum gains for classification and regression.
+* \param allow_redraw bool
+*     If set to true, allows to try a new feature when optimizing for a
+*     split, when for a feature no split could be found that satisfied
+*     the minimum number of samples per leaf for each subgroup. This may be
+*     done until all features have been checked. Default: true.
+* \param num_threads uint>0
+*     The number of threads to use for optimizing the split nodes.
+*     Default: 1.
+* \param entropy_names vector<string in ["induced", "classification_error", "renyi", "tsallis", "shannon"]>, two elements.
+*     The entropy type to use for classification and regression.
+*     Default: ["shannon", "shannon"]
+* \param entropy_p1 vector<float>0.f>, two elements.
+*     The entropy parameters. Might be unused (e.g. for the Shannon entropy).
+*     Default: [2, 2]
+* \param use_hough_heuristic bool
+*   Whether or not to use a heuristic for hough
+*   forests introduced by Juergen Gall
+*   (http://www.vision.ee.ethz.ch/~gallju/projects/houghforest/houghforest.html)
+*   Can be used only with an \ref AlternatingThresholdOptimizer.
+*   If used, the AlternatingThresholdOptimizer will guaranteed
+*   use opt2 if the ratio of negative samples is < \ref hough_heuristic_ratio or
+*   depth >= \ref hough_heuristic_maxd. opt2 must be a
+*   \ref VarianceClassificationThresholdOptimizer (check this
+*   manually!). Default: true.
+* \param hough_heuristic_ratio float>=0.f
+*   Default: 0.05f.
+* \param hough_heuristic_maxd uint
+*   Default: 0.
+*/
+  std::shared_ptr<fertilized::Tree<input_dtype , feature_dtype , annotation_dtype , std::tuple<float , std::shared_ptr<std::vector<annotation_dtype> > , std::shared_ptr<std::vector<annotation_dtype> >> , std::vector<std::tuple<float , std::shared_ptr<std::vector<annotation_dtype> > , std::shared_ptr<std::vector<annotation_dtype> >> >>> MultiClass3DHoughTree(
+
+        const unsigned int & n_classes,
+        const size_t & n_channels,
+        const std::vector<size_t> & n_features,
+        const size_t & n_thresholds_per_split,
+        const size_t & n_splits_per_node,
+        unsigned int max_depth,
+        const std::vector<fertilized::uint> & min_sample_counts,
+        const unsigned int & random_seed,
+        const std::vector<float> & min_gain_thresholds,
+        const bool & allow_redraw=1,
+        const unsigned int & num_threads=1,
+        const std::vector<std::string> & entropy_names=_DEFAULT_ENTROPY_VEC_2,
+        const std::vector<float> & entropy_p1=_DEFAULT_ENTROPY_P1_2,
+        const bool & use_hough_heuristic=1,
+        const float & hough_heuristic_ratio=0.05,
+        unsigned int hough_heuristic_maxd=0
+    ) {
+    return fertilized::construct_multi_class_3d_hough_tree<input_dtype,feature_dtype,annotation_dtype>(
+
+         n_classes,
+         n_channels,
+         n_features,
+         n_thresholds_per_split,
+         n_splits_per_node,
+         max_depth,
+         min_sample_counts,
+         random_seed,
+         min_gain_thresholds,
+         allow_redraw,
+         num_threads,
+         entropy_names,
+         entropy_p1,
+         use_hough_heuristic,
+         hough_heuristic_ratio,
+         hough_heuristic_maxd
+       );
+    };
+
+  /**
 * \brief Constructs a default decision forest for regression.
 *
 * It uses an axis aligned decider and uses linear regression at split
@@ -2958,7 +3203,7 @@ namespace fertilized {
     };
 
   /**
-* Extract the Hough forest features. If `full` is set, uses the
+* Extract the Hough forest features. If `full` is set, uses the 
 * 32 feature channels used by Juergen Gall in his original publications,
 * else use 15 feature channels as used by Matthias Dantone.
 *
@@ -2970,7 +3215,7 @@ namespace fertilized {
 * - Python
 * - Matlab
 * .
-*
+* 
 * -----
 *
 * \param image Array<uint8_t>, row-major contiguous

@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/leafs/boostingleafmanager.h"
+#include "fertilized/threshold_optimizers/twosideclassificationthresholdoptimizer.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -18,17 +18,18 @@ namespace fertilized {
   void __serialization_register_272(Archive &ar,
                                           const bool &always_register,
                                           const unsigned int &serialization_library_version) {
-    if (101 > FERTILIZED_LIB_VERSION()) {
+    if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "BoostingLeafManager is higher than the current library version "
-          "(101 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
+          "TwoSideClassificationThresholdOptimizer is higher than the current library version "
+          "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
-          "'global.h' to at least 101!");
+          "'global.h' to at least 0!");
     }
     if (always_register ||
-        serialization_library_version >= 101) {
-      ar.template register_type<BoostingLeafManager<
-              int,
+        serialization_library_version >= 0) {
+      ar.template register_type<TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              int16_t,
               uint
 	  >>();
     }
@@ -42,16 +43,19 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const BoostingLeafManager<
-              int,
+    TemplateFuncExport DllExport std::string serialize(const TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              int16_t,
               uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport BoostingLeafManager<
-              int,
+    TemplateFuncExport DllExport TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              int16_t,
               uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, BoostingLeafManager<
-              int,
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              int16_t,
               uint
 	  >*);
 }  // namespace fertilized
@@ -62,8 +66,9 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<BoostingLeafManager<
-              int,
+struct version<TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              int16_t,
               uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;

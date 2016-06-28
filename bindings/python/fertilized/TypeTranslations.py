@@ -30,7 +30,9 @@ _dtype_str_translation = { 'int': 'i',
                            'std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>': 'rpf',
                            'std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>': 'vprpff',
                            'std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>': 'rpd',
-                           'std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>': 'vprpfd'  }
+                           'std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>': 'vprpfd',
+                           'std::tuple<float,std::shared_ptr<std::vector<int16_t>>,std::shared_ptr<std::vector<int16_t>>>': 'ht',
+                           'std::vector<std::tuple<float,std::shared_ptr<std::vector<int16_t>>,std::shared_ptr<std::vector<int16_t>>>>': 'vht'}
 
 # Translations from C++ to C types.
 # #include <stdint.h> is required!

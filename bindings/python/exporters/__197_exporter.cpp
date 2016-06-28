@@ -3,12 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__LinearRegressionCalculator_exporter.h"
+#include "./__DirectPatchDifferenceSurfCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_197() {
-    export_LinearRegressionCalculator<
-              double
-                            >("_d");
+    export_DirectPatchDifferenceSurfCalculator<
+              float,
+              float,
+              float
+                            >("_f_f_f");
   };
 }  // namespace pyfertilized

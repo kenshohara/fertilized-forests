@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/leafs/ileafmanager.h"
+#include "fertilized/data_providers/iforestdataprovider.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,7 +20,7 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "ILeafManager is higher than the current library version "
+          "IForestDataProvider is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
@@ -38,23 +38,17 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const ILeafManager<
-              uint8_t,
-              int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+    TemplateFuncExport DllExport std::string serialize(const IForestDataProvider<
+              float,
+              float
 	  > *, const bool &);
-    TemplateFuncExport DllExport ILeafManager<
-              uint8_t,
-              int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+    TemplateFuncExport DllExport IForestDataProvider<
+              float,
+              float
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, ILeafManager<
-              uint8_t,
-              int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, IForestDataProvider<
+              float,
+              float
 	  >*);
 }  // namespace fertilized
 
@@ -64,11 +58,9 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<ILeafManager<
-              uint8_t,
-              int16_t,
-              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+struct version<IForestDataProvider<
+              float,
+              float
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

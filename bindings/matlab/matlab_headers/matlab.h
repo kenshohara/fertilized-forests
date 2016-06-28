@@ -6,8 +6,8 @@
 #ifndef MATFERTILIZED_MATLAB_HEADERS_MATLAB_H_
 #define MATFERTILIZED_MATLAB_HEADERS_MATLAB_H_
 
-#include "objectvector-nonmsvc.h"
-#include "stringvector-nonmsvc.h"
+#include "objectvector.h"
+#include "stringvector.h"
 #include "__bagging.h"
 #include "__boosting.h"
 #include "__data_providers.h"

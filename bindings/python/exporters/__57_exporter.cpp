@@ -8,8 +8,8 @@
 namespace pyfertilized {
   void __python_export_57() {
     export_IForestDataProvider<
-              float,
-              float
-                            >("_f_f");
+              double,
+              uint
+                            >("_d_uint");
   };
 }  // namespace pyfertilized

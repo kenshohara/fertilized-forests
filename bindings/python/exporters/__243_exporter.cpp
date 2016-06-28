@@ -3,13 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__RegressionThresholdOptimizer_exporter.h"
+#include "./__QuadraticSurfaceCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_243() {
-    export_RegressionThresholdOptimizer<
-              double,
-              double
-                            >("_d_d");
+    export_QuadraticSurfaceCalculator<
+              float,
+              uint
+                            >("_f_uint");
   };
 }  // namespace pyfertilized

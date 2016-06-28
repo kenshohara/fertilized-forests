@@ -76,8 +76,15 @@ Available in:\n\
 \n\
 Instantiations:\n\
 \n\
+- int; int; uint\n\
 - uint8_t; int16_t; uint\n\
 - uint8_t; int16_t; int16_t\n\
+- uint8_t; uint8_t; uint\n\
+- float; float; int16_t\n\
+- float; float; uint\n\
+- double; double; uint\n\
+- float; float; float\n\
+- double; double; double\n\
 \n\
 \n\
 -----\n\

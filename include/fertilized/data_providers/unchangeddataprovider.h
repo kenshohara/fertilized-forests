@@ -21,7 +21,7 @@ namespace fertilized {
    * It builds its sample database from two pointer on memory arrays with
    * data and annotations. Both must be provided in contiguous layout. The
    * data (but not the annotations!) can be provided row- or column-wise.
-   * Column-wise layout is to be preferred, since it has more locality for 
+   * Column-wise layout is to be preferred, since it has more locality for
    * most optimization processes.
    *
    * The annotations MUST always be provided in row major order, independent
@@ -43,9 +43,10 @@ namespace fertilized {
    * - uint8_t; int16_t
    * - double; uint
    * - double; double
+   * - float; int16_t
    * - float; float
    * .
-   * 
+   *
    * -----
    */
   template<typename input_dtype, typename annotation_dtype>
@@ -73,7 +74,7 @@ namespace fertilized {
      * - double; double
      * - float; float
      * .
-     * 
+     *
      * -----
      *
      * \param data_array Array<input_dtype>, 2D, row-major contiguous.
@@ -82,7 +83,7 @@ namespace fertilized {
      *   The annotations to use, with one annotation per row.
      */
     UnchangedDataProvider(const Array<const input_dtype, 2, 2> &data,
-                          const Array<const annotation_dtype, 2, 2> &annotations) 
+                          const Array<const annotation_dtype, 2, 2> &annotations)
       : data_array(data),
         annotation_array(annotations),
         data_prov_t(data.TPLMETH getSize<1>(), annotations.TPLMETH getSize<1>()) {
@@ -131,7 +132,7 @@ namespace fertilized {
       const std::shared_ptr<std::vector<element_id_t>> &training_ids,
       const std::shared_ptr<std::vector<element_id_t>> &validation_ids)
       : data(data_array.getData()),
-        annotations(annotation_array.getData()),  
+        annotations(annotation_array.getData()),
         data_array(data_array),
         annotation_array(annotation_array),
         samples(loaded_samples),

@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/threshold_optimizers/varianceclassificationthresholdoptimizer.h"
+#include "fertilized/deciders/thresholddecider.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,17 +20,17 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "VarianceClassificationThresholdOptimizer is higher than the current library version "
+          "ThresholdDecider is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<VarianceClassificationThresholdOptimizer<
+      ar.template register_type<ThresholdDecider<
               float,
-              int,
-              uint
+              float,
+              float
 	  >>();
     }
   };
@@ -43,20 +43,20 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const VarianceClassificationThresholdOptimizer<
+    TemplateFuncExport DllExport std::string serialize(const ThresholdDecider<
               float,
-              int,
-              uint
+              float,
+              float
 	  > *, const bool &);
-    TemplateFuncExport DllExport VarianceClassificationThresholdOptimizer<
+    TemplateFuncExport DllExport ThresholdDecider<
               float,
-              int,
-              uint
+              float,
+              float
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, VarianceClassificationThresholdOptimizer<
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, ThresholdDecider<
               float,
-              int,
-              uint
+              float,
+              float
 	  >*);
 }  // namespace fertilized
 
@@ -66,10 +66,10 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<VarianceClassificationThresholdOptimizer<
+struct version<ThresholdDecider<
               float,
-              int,
-              uint
+              float,
+              float
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

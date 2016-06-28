@@ -9,7 +9,7 @@
 
 #include "../global.h"
 #include "../util.h"
-#include <fertilized/data_providers/patchsamplemanager.h>
+#include <../../include/fertilized\data_providers/patchsamplemanager.h>
 
 using namespace fertilized;
 

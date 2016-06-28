@@ -16,118 +16,191 @@ extern "C"
 #endif
 
 
-     void * getAlignedSurfaceCalculator_i_uint (
+    DllExport void * getAlignedSurfaceCalculator_i_uint (
 
 );
-     void * getAlignedSurfaceCalculator_uint8_uint (
+    DllExport void * getAlignedSurfaceCalculator_uint8_uint (
 
 );
-     void * getAlignedSurfaceCalculator_f_uint (
+    DllExport void * getAlignedSurfaceCalculator_f_uint (
 
 );
-     void * getAlignedSurfaceCalculator_f_f (
+    DllExport void * getAlignedSurfaceCalculator_f_f (
 
 );
-     void * getAlignedSurfaceCalculator_d_uint (
+    DllExport void * getAlignedSurfaceCalculator_d_uint (
 
 );
-     void * getAlignedSurfaceCalculator_d_d (
+    DllExport void * getAlignedSurfaceCalculator_d_d (
 
 );
 
 
-     int eqAlignedSurfaceCalculator_i_uint (void *__instance,
+    DllExport int eqAlignedSurfaceCalculator_i_uint (void *__instance,
 
         void * rhs
 );
-     int eqAlignedSurfaceCalculator_uint8_uint (void *__instance,
+    DllExport int eqAlignedSurfaceCalculator_uint8_uint (void *__instance,
 
         void * rhs
 );
-     int eqAlignedSurfaceCalculator_f_uint (void *__instance,
+    DllExport int eqAlignedSurfaceCalculator_f_uint (void *__instance,
 
         void * rhs
 );
-     int eqAlignedSurfaceCalculator_f_f (void *__instance,
+    DllExport int eqAlignedSurfaceCalculator_f_f (void *__instance,
 
         void * rhs
 );
-     int eqAlignedSurfaceCalculator_d_uint (void *__instance,
+    DllExport int eqAlignedSurfaceCalculator_d_uint (void *__instance,
 
         void * rhs
 );
-     int eqAlignedSurfaceCalculator_d_d (void *__instance,
+    DllExport int eqAlignedSurfaceCalculator_d_d (void *__instance,
 
         void * rhs
 );
-     void delete_AlignedSurfaceCalculator_i_uint(void *ptr);
-     void delete_AlignedSurfaceCalculator_uint8_uint(void *ptr);
-     void delete_AlignedSurfaceCalculator_f_uint(void *ptr);
-     void delete_AlignedSurfaceCalculator_f_f(void *ptr);
-     void delete_AlignedSurfaceCalculator_d_uint(void *ptr);
-     void delete_AlignedSurfaceCalculator_d_d(void *ptr);
+    DllExport void delete_AlignedSurfaceCalculator_i_uint(void *ptr);
+    DllExport void delete_AlignedSurfaceCalculator_uint8_uint(void *ptr);
+    DllExport void delete_AlignedSurfaceCalculator_f_uint(void *ptr);
+    DllExport void delete_AlignedSurfaceCalculator_f_f(void *ptr);
+    DllExport void delete_AlignedSurfaceCalculator_d_uint(void *ptr);
+    DllExport void delete_AlignedSurfaceCalculator_d_d(void *ptr);
 
 
-     void * getDifferenceSurfaceCalculator_i_i_uint (
-
-);
-     void * getDifferenceSurfaceCalculator_uint8_int16_uint (
+    DllExport void * getDifferenceSurfaceCalculator_i_i_uint (
 
 );
-     void * getDifferenceSurfaceCalculator_f_f_uint (
+    DllExport void * getDifferenceSurfaceCalculator_uint8_uint8_uint (
 
 );
-     void * getDifferenceSurfaceCalculator_f_f_f (
+    DllExport void * getDifferenceSurfaceCalculator_uint8_int16_uint (
 
 );
-     void * getDifferenceSurfaceCalculator_d_d_uint (
+    DllExport void * getDifferenceSurfaceCalculator_uint8_int16_int16 (
 
 );
-     void * getDifferenceSurfaceCalculator_d_d_d (
+    DllExport void * getDifferenceSurfaceCalculator_f_f_uint (
+
+);
+    DllExport void * getDifferenceSurfaceCalculator_f_f_int16 (
+
+);
+    DllExport void * getDifferenceSurfaceCalculator_f_f_f (
+
+);
+    DllExport void * getDifferenceSurfaceCalculator_d_d_uint (
+
+);
+    DllExport void * getDifferenceSurfaceCalculator_d_d_d (
 
 );
 
 
-     int eqDifferenceSurfaceCalculator_i_i_uint (void *__instance,
+    DllExport int eqDifferenceSurfaceCalculator_i_i_uint (void *__instance,
 
         void * rhs
 );
-     int eqDifferenceSurfaceCalculator_uint8_int16_uint (void *__instance,
+    DllExport int eqDifferenceSurfaceCalculator_uint8_uint8_uint (void *__instance,
 
         void * rhs
 );
-     int eqDifferenceSurfaceCalculator_f_f_uint (void *__instance,
+    DllExport int eqDifferenceSurfaceCalculator_uint8_int16_uint (void *__instance,
 
         void * rhs
 );
-     int eqDifferenceSurfaceCalculator_f_f_f (void *__instance,
+    DllExport int eqDifferenceSurfaceCalculator_uint8_int16_int16 (void *__instance,
 
         void * rhs
 );
-     int eqDifferenceSurfaceCalculator_d_d_uint (void *__instance,
+    DllExport int eqDifferenceSurfaceCalculator_f_f_uint (void *__instance,
 
         void * rhs
 );
-     int eqDifferenceSurfaceCalculator_d_d_d (void *__instance,
+    DllExport int eqDifferenceSurfaceCalculator_f_f_int16 (void *__instance,
 
         void * rhs
 );
-     void delete_DifferenceSurfaceCalculator_i_i_uint(void *ptr);
-     void delete_DifferenceSurfaceCalculator_uint8_int16_uint(void *ptr);
-     void delete_DifferenceSurfaceCalculator_f_f_uint(void *ptr);
-     void delete_DifferenceSurfaceCalculator_f_f_f(void *ptr);
-     void delete_DifferenceSurfaceCalculator_d_d_uint(void *ptr);
-     void delete_DifferenceSurfaceCalculator_d_d_d(void *ptr);
+    DllExport int eqDifferenceSurfaceCalculator_f_f_f (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqDifferenceSurfaceCalculator_d_d_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqDifferenceSurfaceCalculator_d_d_d (void *__instance,
+
+        void * rhs
+);
+    DllExport void delete_DifferenceSurfaceCalculator_i_i_uint(void *ptr);
+    DllExport void delete_DifferenceSurfaceCalculator_uint8_uint8_uint(void *ptr);
+    DllExport void delete_DifferenceSurfaceCalculator_uint8_int16_uint(void *ptr);
+    DllExport void delete_DifferenceSurfaceCalculator_uint8_int16_int16(void *ptr);
+    DllExport void delete_DifferenceSurfaceCalculator_f_f_uint(void *ptr);
+    DllExport void delete_DifferenceSurfaceCalculator_f_f_int16(void *ptr);
+    DllExport void delete_DifferenceSurfaceCalculator_f_f_f(void *ptr);
+    DllExport void delete_DifferenceSurfaceCalculator_d_d_uint(void *ptr);
+    DllExport void delete_DifferenceSurfaceCalculator_d_d_d(void *ptr);
 
 
-     void * getDirectPatchDifferenceSurfCalculator_uint8_int16_uint (
+    DllExport void * getDirectPatchDifferenceSurfCalculator_i_i_uint (
 
         size_t psx,
         size_t psy,
         size_t psz,
         int luc
 );
-     void * getDirectPatchDifferenceSurfCalculator_uint8_int16_int16 (
+    DllExport void * getDirectPatchDifferenceSurfCalculator_uint8_int16_uint (
+
+        size_t psx,
+        size_t psy,
+        size_t psz,
+        int luc
+);
+    DllExport void * getDirectPatchDifferenceSurfCalculator_uint8_int16_int16 (
+
+        size_t psx,
+        size_t psy,
+        size_t psz,
+        int luc
+);
+    DllExport void * getDirectPatchDifferenceSurfCalculator_uint8_uint8_uint (
+
+        size_t psx,
+        size_t psy,
+        size_t psz,
+        int luc
+);
+    DllExport void * getDirectPatchDifferenceSurfCalculator_f_f_int16 (
+
+        size_t psx,
+        size_t psy,
+        size_t psz,
+        int luc
+);
+    DllExport void * getDirectPatchDifferenceSurfCalculator_f_f_uint (
+
+        size_t psx,
+        size_t psy,
+        size_t psz,
+        int luc
+);
+    DllExport void * getDirectPatchDifferenceSurfCalculator_d_d_uint (
+
+        size_t psx,
+        size_t psy,
+        size_t psz,
+        int luc
+);
+    DllExport void * getDirectPatchDifferenceSurfCalculator_f_f_f (
+
+        size_t psx,
+        size_t psy,
+        size_t psz,
+        int luc
+);
+    DllExport void * getDirectPatchDifferenceSurfCalculator_d_d_d (
 
         size_t psx,
         size_t psy,
@@ -136,50 +209,85 @@ extern "C"
 );
 
 
-     int eqDirectPatchDifferenceSurfCalculator_uint8_int16_uint (void *__instance,
+    DllExport int eqDirectPatchDifferenceSurfCalculator_i_i_uint (void *__instance,
 
         void * rhs
 );
-     int eqDirectPatchDifferenceSurfCalculator_uint8_int16_int16 (void *__instance,
+    DllExport int eqDirectPatchDifferenceSurfCalculator_uint8_int16_uint (void *__instance,
 
         void * rhs
 );
-     void delete_DirectPatchDifferenceSurfCalculator_uint8_int16_uint(void *ptr);
-     void delete_DirectPatchDifferenceSurfCalculator_uint8_int16_int16(void *ptr);
-     void delete_FeatCalcParamSet(void *ptr);
+    DllExport int eqDirectPatchDifferenceSurfCalculator_uint8_int16_int16 (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqDirectPatchDifferenceSurfCalculator_uint8_uint8_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqDirectPatchDifferenceSurfCalculator_f_f_int16 (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqDirectPatchDifferenceSurfCalculator_f_f_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqDirectPatchDifferenceSurfCalculator_d_d_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqDirectPatchDifferenceSurfCalculator_f_f_f (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqDirectPatchDifferenceSurfCalculator_d_d_d (void *__instance,
+
+        void * rhs
+);
+    DllExport void delete_DirectPatchDifferenceSurfCalculator_i_i_uint(void *ptr);
+    DllExport void delete_DirectPatchDifferenceSurfCalculator_uint8_int16_uint(void *ptr);
+    DllExport void delete_DirectPatchDifferenceSurfCalculator_uint8_int16_int16(void *ptr);
+    DllExport void delete_DirectPatchDifferenceSurfCalculator_uint8_uint8_uint(void *ptr);
+    DllExport void delete_DirectPatchDifferenceSurfCalculator_f_f_int16(void *ptr);
+    DllExport void delete_DirectPatchDifferenceSurfCalculator_f_f_uint(void *ptr);
+    DllExport void delete_DirectPatchDifferenceSurfCalculator_d_d_uint(void *ptr);
+    DllExport void delete_DirectPatchDifferenceSurfCalculator_f_f_f(void *ptr);
+    DllExport void delete_DirectPatchDifferenceSurfCalculator_d_d_d(void *ptr);
+    DllExport void delete_FeatCalcParamSet(void *ptr);
 
 
-     void * getLinearSurfaceCalculator_i_uint (
+    DllExport void * getLinearSurfaceCalculator_i_uint (
 
         size_t n_params_per_feat_sel,
         size_t n_comb_dims,
         unsigned int random_seed
 );
-     void * getLinearSurfaceCalculator_uint8_uint (
+    DllExport void * getLinearSurfaceCalculator_uint8_uint (
 
         size_t n_params_per_feat_sel,
         size_t n_comb_dims,
         unsigned int random_seed
 );
-     void * getLinearSurfaceCalculator_f_uint (
+    DllExport void * getLinearSurfaceCalculator_f_uint (
 
         size_t n_params_per_feat_sel,
         size_t n_comb_dims,
         unsigned int random_seed
 );
-     void * getLinearSurfaceCalculator_f_f (
+    DllExport void * getLinearSurfaceCalculator_f_f (
 
         size_t n_params_per_feat_sel,
         size_t n_comb_dims,
         unsigned int random_seed
 );
-     void * getLinearSurfaceCalculator_d_d (
+    DllExport void * getLinearSurfaceCalculator_d_d (
 
         size_t n_params_per_feat_sel,
         size_t n_comb_dims,
         unsigned int random_seed
 );
-     void * getLinearSurfaceCalculator_d_uint (
+    DllExport void * getLinearSurfaceCalculator_d_uint (
 
         size_t n_params_per_feat_sel,
         size_t n_comb_dims,
@@ -187,69 +295,69 @@ extern "C"
 );
 
 
-     int eqLinearSurfaceCalculator_i_uint (void *__instance,
+    DllExport int eqLinearSurfaceCalculator_i_uint (void *__instance,
 
         void * rhs
 );
-     int eqLinearSurfaceCalculator_uint8_uint (void *__instance,
+    DllExport int eqLinearSurfaceCalculator_uint8_uint (void *__instance,
 
         void * rhs
 );
-     int eqLinearSurfaceCalculator_f_uint (void *__instance,
+    DllExport int eqLinearSurfaceCalculator_f_uint (void *__instance,
 
         void * rhs
 );
-     int eqLinearSurfaceCalculator_f_f (void *__instance,
+    DllExport int eqLinearSurfaceCalculator_f_f (void *__instance,
 
         void * rhs
 );
-     int eqLinearSurfaceCalculator_d_d (void *__instance,
+    DllExport int eqLinearSurfaceCalculator_d_d (void *__instance,
 
         void * rhs
 );
-     int eqLinearSurfaceCalculator_d_uint (void *__instance,
+    DllExport int eqLinearSurfaceCalculator_d_uint (void *__instance,
 
         void * rhs
 );
-     void delete_LinearSurfaceCalculator_i_uint(void *ptr);
-     void delete_LinearSurfaceCalculator_uint8_uint(void *ptr);
-     void delete_LinearSurfaceCalculator_f_uint(void *ptr);
-     void delete_LinearSurfaceCalculator_f_f(void *ptr);
-     void delete_LinearSurfaceCalculator_d_d(void *ptr);
-     void delete_LinearSurfaceCalculator_d_uint(void *ptr);
+    DllExport void delete_LinearSurfaceCalculator_i_uint(void *ptr);
+    DllExport void delete_LinearSurfaceCalculator_uint8_uint(void *ptr);
+    DllExport void delete_LinearSurfaceCalculator_f_uint(void *ptr);
+    DllExport void delete_LinearSurfaceCalculator_f_f(void *ptr);
+    DllExport void delete_LinearSurfaceCalculator_d_d(void *ptr);
+    DllExport void delete_LinearSurfaceCalculator_d_uint(void *ptr);
 
 
-     void * getQuadraticSurfaceCalculator_i_uint (
+    DllExport void * getQuadraticSurfaceCalculator_i_uint (
 
         size_t n_params_per_feat_sel,
         mxArray * min_max_vals,
         unsigned int random_seed
 );
-     void * getQuadraticSurfaceCalculator_uint8_uint (
+    DllExport void * getQuadraticSurfaceCalculator_uint8_uint (
 
         size_t n_params_per_feat_sel,
         mxArray * min_max_vals,
         unsigned int random_seed
 );
-     void * getQuadraticSurfaceCalculator_f_uint (
+    DllExport void * getQuadraticSurfaceCalculator_f_uint (
 
         size_t n_params_per_feat_sel,
         mxArray * min_max_vals,
         unsigned int random_seed
 );
-     void * getQuadraticSurfaceCalculator_f_f (
+    DllExport void * getQuadraticSurfaceCalculator_f_f (
 
         size_t n_params_per_feat_sel,
         mxArray * min_max_vals,
         unsigned int random_seed
 );
-     void * getQuadraticSurfaceCalculator_d_uint (
+    DllExport void * getQuadraticSurfaceCalculator_d_uint (
 
         size_t n_params_per_feat_sel,
         mxArray * min_max_vals,
         unsigned int random_seed
 );
-     void * getQuadraticSurfaceCalculator_d_d (
+    DllExport void * getQuadraticSurfaceCalculator_d_d (
 
         size_t n_params_per_feat_sel,
         mxArray * min_max_vals,
@@ -257,39 +365,39 @@ extern "C"
 );
 
 
-     int eqQuadraticSurfaceCalculator_i_uint (void *__instance,
+    DllExport int eqQuadraticSurfaceCalculator_i_uint (void *__instance,
 
         void * rhs
 );
-     int eqQuadraticSurfaceCalculator_uint8_uint (void *__instance,
+    DllExport int eqQuadraticSurfaceCalculator_uint8_uint (void *__instance,
 
         void * rhs
 );
-     int eqQuadraticSurfaceCalculator_f_uint (void *__instance,
+    DllExport int eqQuadraticSurfaceCalculator_f_uint (void *__instance,
 
         void * rhs
 );
-     int eqQuadraticSurfaceCalculator_f_f (void *__instance,
+    DllExport int eqQuadraticSurfaceCalculator_f_f (void *__instance,
 
         void * rhs
 );
-     int eqQuadraticSurfaceCalculator_d_uint (void *__instance,
+    DllExport int eqQuadraticSurfaceCalculator_d_uint (void *__instance,
 
         void * rhs
 );
-     int eqQuadraticSurfaceCalculator_d_d (void *__instance,
+    DllExport int eqQuadraticSurfaceCalculator_d_d (void *__instance,
 
         void * rhs
 );
-     void delete_QuadraticSurfaceCalculator_i_uint(void *ptr);
-     void delete_QuadraticSurfaceCalculator_uint8_uint(void *ptr);
-     void delete_QuadraticSurfaceCalculator_f_uint(void *ptr);
-     void delete_QuadraticSurfaceCalculator_f_f(void *ptr);
-     void delete_QuadraticSurfaceCalculator_d_uint(void *ptr);
-     void delete_QuadraticSurfaceCalculator_d_d(void *ptr);
+    DllExport void delete_QuadraticSurfaceCalculator_i_uint(void *ptr);
+    DllExport void delete_QuadraticSurfaceCalculator_uint8_uint(void *ptr);
+    DllExport void delete_QuadraticSurfaceCalculator_f_uint(void *ptr);
+    DllExport void delete_QuadraticSurfaceCalculator_f_f(void *ptr);
+    DllExport void delete_QuadraticSurfaceCalculator_d_uint(void *ptr);
+    DllExport void delete_QuadraticSurfaceCalculator_d_d(void *ptr);
 
 
-     void * getStandardFeatureSelectionProvider (
+    DllExport void * getStandardFeatureSelectionProvider (
 
         size_t n_selections_per_node,
         size_t selection_dimension,
@@ -299,19 +407,19 @@ extern "C"
 );
 
 
-     int eqStandardFeatureSelectionProvider (void *__instance,
+    DllExport int eqStandardFeatureSelectionProvider (void *__instance,
 
         void * rhs
 );
 
 
-     size_t get_n_available_featuresStandardFeatureSelectionProvider (void *__instance
+    DllExport size_t get_n_available_featuresStandardFeatureSelectionProvider (void *__instance
 
 );
-     void delete_StandardFeatureSelectionProvider(void *ptr);
+    DllExport void delete_StandardFeatureSelectionProvider(void *ptr);
 
 
-     void * getVolumeFeatureSelectionProvider (
+    DllExport void * getVolumeFeatureSelectionProvider (
 
         size_t selection_dimension,
         size_t size_x,
@@ -322,31 +430,31 @@ extern "C"
 );
 
 
-     int eqVolumeFeatureSelectionProvider (void *__instance,
+    DllExport int eqVolumeFeatureSelectionProvider (void *__instance,
 
         void * rhs
 );
 
 
-     size_t get_size_xVolumeFeatureSelectionProvider (void *__instance
+    DllExport size_t get_size_xVolumeFeatureSelectionProvider (void *__instance
 
 );
 
 
-     size_t get_size_yVolumeFeatureSelectionProvider (void *__instance
+    DllExport size_t get_size_yVolumeFeatureSelectionProvider (void *__instance
 
 );
 
 
-     size_t get_size_zVolumeFeatureSelectionProvider (void *__instance
+    DllExport size_t get_size_zVolumeFeatureSelectionProvider (void *__instance
 
 );
 
 
-     size_t get_n_available_featuresVolumeFeatureSelectionProvider (void *__instance
+    DllExport size_t get_n_available_featuresVolumeFeatureSelectionProvider (void *__instance
 
 );
-     void delete_VolumeFeatureSelectionProvider(void *ptr);
+    DllExport void delete_VolumeFeatureSelectionProvider(void *ptr);
 #ifdef __cplusplus
 }
 #endif 

@@ -31,6 +31,7 @@ namespace fertilized {
    * .
    * Instantiations:
    * - uint8_t; int16_t
+   * - float; int16_t
    * .
    *
    * -----

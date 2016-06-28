@@ -15,7 +15,7 @@ extern "C"
 #endif
 
 
-   void * StandardClassificationTree_i (
+  DllExport void * StandardClassificationTree_i (
 
         unsigned int n_classes,
         size_t n_features,
@@ -32,7 +32,7 @@ extern "C"
         unsigned int threshold_optimization_threads
 );
 
-   void * StandardClassificationTree_f (
+  DllExport void * StandardClassificationTree_f (
 
         unsigned int n_classes,
         size_t n_features,
@@ -49,7 +49,7 @@ extern "C"
         unsigned int threshold_optimization_threads
 );
 
-   void * StandardClassificationTree_d (
+  DllExport void * StandardClassificationTree_d (
 
         unsigned int n_classes,
         size_t n_features,
@@ -66,7 +66,7 @@ extern "C"
         unsigned int threshold_optimization_threads
 );
 
-   void * StandardClassificationTree_uint8 (
+  DllExport void * StandardClassificationTree_uint8 (
 
         unsigned int n_classes,
         size_t n_features,
@@ -84,7 +84,7 @@ extern "C"
 );
 
 
-   void * FastRegressionTree_f (
+  DllExport void * FastRegressionTree_f (
 
         size_t n_features,
         unsigned int max_depth,
@@ -102,7 +102,7 @@ extern "C"
         unsigned int summary_mode
 );
 
-   void * FastRegressionTree_d (
+  DllExport void * FastRegressionTree_d (
 
         size_t n_features,
         unsigned int max_depth,
@@ -121,7 +121,7 @@ extern "C"
 );
 
 
-   void * StandardHoughTree_uint8_int16_int16 (
+  DllExport void * StandardHoughTree_uint8_int16_int16 (
 
         mxArray * patch_dimensions,
         size_t n_thresholds_per_split,
@@ -141,7 +141,7 @@ extern "C"
 );
 
 
-   void * StandardRegressionTree_f (
+  DllExport void * StandardRegressionTree_f (
 
         size_t n_features,
         unsigned int max_depth,
@@ -159,7 +159,7 @@ extern "C"
         unsigned int summary_mode
 );
 
-   void * StandardRegressionTree_d (
+  DllExport void * StandardRegressionTree_d (
 
         size_t n_features,
         unsigned int max_depth,

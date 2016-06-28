@@ -15,7 +15,7 @@ extern "C"
 #endif
 
 
-   void * StandardClassificationForest_i (
+  DllExport void * StandardClassificationForest_i (
 
         unsigned int n_classes,
         size_t n_features,
@@ -33,7 +33,7 @@ extern "C"
         unsigned int threshold_optimization_threads
 );
 
-   void * StandardClassificationForest_f (
+  DllExport void * StandardClassificationForest_f (
 
         unsigned int n_classes,
         size_t n_features,
@@ -51,7 +51,7 @@ extern "C"
         unsigned int threshold_optimization_threads
 );
 
-   void * StandardClassificationForest_d (
+  DllExport void * StandardClassificationForest_d (
 
         unsigned int n_classes,
         size_t n_features,
@@ -69,7 +69,7 @@ extern "C"
         unsigned int threshold_optimization_threads
 );
 
-   void * StandardClassificationForest_uint8 (
+  DllExport void * StandardClassificationForest_uint8 (
 
         unsigned int n_classes,
         size_t n_features,
@@ -88,7 +88,7 @@ extern "C"
 );
 
 
-   void * FastRegressionForest_f (
+  DllExport void * FastRegressionForest_f (
 
         size_t n_features,
         unsigned int max_depth,
@@ -107,7 +107,7 @@ extern "C"
         unsigned int summary_mode
 );
 
-   void * FastRegressionForest_d (
+  DllExport void * FastRegressionForest_d (
 
         size_t n_features,
         unsigned int max_depth,
@@ -127,7 +127,7 @@ extern "C"
 );
 
 
-   void * StandardRegressionForest_f (
+  DllExport void * StandardRegressionForest_f (
 
         size_t n_features,
         unsigned int max_depth,
@@ -146,7 +146,7 @@ extern "C"
         unsigned int summary_mode
 );
 
-   void * StandardRegressionForest_d (
+  DllExport void * StandardRegressionForest_d (
 
         size_t n_features,
         unsigned int max_depth,

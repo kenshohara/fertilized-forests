@@ -60,6 +60,7 @@ Instantiations:\n\
 - float; float; uint\n\
 - double; double; uint\n\
 - uint8_t; int16_t; int16_t\n\
+- float; float; int16_t\n\
 - float; float; float\n\
 - double; double; double\n\
 \n\

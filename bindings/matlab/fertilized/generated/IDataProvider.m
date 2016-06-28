@@ -24,6 +24,7 @@ classdef IDataProvider < FertilizedObject
     % - uint8_t; int16_t
     % - double; uint
     % - double; double
+    % - float; int16_t
     % - float; float
     % 
     % 

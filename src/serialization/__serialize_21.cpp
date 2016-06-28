@@ -30,9 +30,9 @@ namespace fertilized {
       ar.template register_type<ClassicTraining<
               float,
               float,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 	  >>();
     }
   };
@@ -48,23 +48,23 @@ namespace fertilized {
     TemplateFuncExport DllExport std::string serialize(const ClassicTraining<
               float,
               float,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 	  > *, const bool &);
     TemplateFuncExport DllExport ClassicTraining<
               float,
               float,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, ClassicTraining<
               float,
               float,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 	  >*);
 }  // namespace fertilized
 
@@ -77,9 +77,9 @@ template <>
 struct version<ClassicTraining<
               float,
               float,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

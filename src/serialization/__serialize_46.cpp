@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/features/differencesurfacecalculator.h"
+#include "fertilized/regression/constantregressioncalculator.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,17 +20,15 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "DifferenceSurfaceCalculator is higher than the current library version "
+          "ConstantRegressionCalculator is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<DifferenceSurfaceCalculator<
-              double,
-              double,
-              double
+      ar.template register_type<ConstantRegressionCalculator<
+              float
 	  >>();
     }
   };
@@ -43,20 +41,14 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const DifferenceSurfaceCalculator<
-              double,
-              double,
-              double
+    TemplateFuncExport DllExport std::string serialize(const ConstantRegressionCalculator<
+              float
 	  > *, const bool &);
-    TemplateFuncExport DllExport DifferenceSurfaceCalculator<
-              double,
-              double,
-              double
+    TemplateFuncExport DllExport ConstantRegressionCalculator<
+              float
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, DifferenceSurfaceCalculator<
-              double,
-              double,
-              double
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, ConstantRegressionCalculator<
+              float
 	  >*);
 }  // namespace fertilized
 
@@ -66,10 +58,8 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<DifferenceSurfaceCalculator<
-              double,
-              double,
-              double
+struct version<ConstantRegressionCalculator<
+              float
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

@@ -3,13 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__AlignedSurfaceCalculator_exporter.h"
+#include "./__AdaBoost_exporter.h"
 
 namespace pyfertilized {
   void __python_export_125() {
-    export_AlignedSurfaceCalculator<
-              float,
-              float
-                            >("_f_f");
+    export_AdaBoost<
+              uint8_t,
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
+                            >("_uint8_uint8_uint_fv_fv");
   };
 }  // namespace pyfertilized

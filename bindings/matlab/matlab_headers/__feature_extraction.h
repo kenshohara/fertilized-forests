@@ -16,7 +16,7 @@ extern "C"
 #endif
 
 
-     void * getDNNFeatureExtractor (
+    DllExport void * getDNNFeatureExtractor (
 
         char* net_layout_file,
         char* net_weights_file,
@@ -27,12 +27,12 @@ extern "C"
 );
 
 
-     mxArray * extractDNNFeatureExtractor (void *__instance,
+    DllExport mxArray * extractDNNFeatureExtractor (void *__instance,
 
         mxArray * images,
         int subtract_mean
 );
-     void delete_DNNFeatureExtractor(void *ptr);
+    DllExport void delete_DNNFeatureExtractor(void *ptr);
 #ifdef __cplusplus
 }
 #endif 

@@ -3,14 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__TwoSideClassificationThresholdOptimizer_exporter.h"
+#include "./__SubsamplingDataProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_278() {
-    export_TwoSideClassificationThresholdOptimizer<
+    export_SubsamplingDataProvider<
               uint8_t,
-              float,
-              uint
-                            >("_uint8_f_uint");
+              int16_t
+                            >("_uint8_int16");
   };
 }  // namespace pyfertilized

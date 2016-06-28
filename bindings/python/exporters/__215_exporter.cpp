@@ -3,16 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__NoBagging_exporter.h"
+#include "./__LinearSurfaceCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_215() {
-    export_NoBagging<
-              double,
-              double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
-                            >("_d_d_uint_fv_fv");
+    export_LinearSurfaceCalculator<
+              int,
+              uint
+                            >("_i_uint");
   };
 }  // namespace pyfertilized

@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/features/quadraticsurfacecalculator.h"
+#include "fertilized/execution_strategies/localexecutionstrategy.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,16 +20,19 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "QuadraticSurfaceCalculator is higher than the current library version "
+          "LocalExecutionStrategy is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<QuadraticSurfaceCalculator<
-              double,
-              uint
+      ar.template register_type<LocalExecutionStrategy<
+              float,
+              float,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >>();
     }
   };
@@ -42,17 +45,26 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const QuadraticSurfaceCalculator<
-              double,
-              uint
+    TemplateFuncExport DllExport std::string serialize(const LocalExecutionStrategy<
+              float,
+              float,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  > *, const bool &);
-    TemplateFuncExport DllExport QuadraticSurfaceCalculator<
-              double,
-              uint
+    TemplateFuncExport DllExport LocalExecutionStrategy<
+              float,
+              float,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, QuadraticSurfaceCalculator<
-              double,
-              uint
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, LocalExecutionStrategy<
+              float,
+              float,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >*);
 }  // namespace fertilized
 
@@ -62,9 +74,12 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<QuadraticSurfaceCalculator<
-              double,
-              uint
+struct version<LocalExecutionStrategy<
+              float,
+              float,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

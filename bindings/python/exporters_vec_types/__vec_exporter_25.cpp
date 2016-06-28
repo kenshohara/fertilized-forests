@@ -9,7 +9,7 @@
 
 #include "../global.h"
 #include "../util.h"
-#include <fertilized/forest.h>
+#include <../../include/fertilized\./forest.h>
 
 using namespace fertilized;
 

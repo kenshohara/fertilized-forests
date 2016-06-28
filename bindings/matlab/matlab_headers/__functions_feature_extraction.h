@@ -15,7 +15,7 @@ extern "C"
 #endif
 
 
-   mxArray * extract_hough_forest_features (
+  DllExport mxArray * extract_hough_forest_features (
 
         mxArray * image,
         int full

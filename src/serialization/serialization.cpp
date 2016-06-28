@@ -1186,6 +1186,122 @@ namespace fertilized {
     void __serialization_register_292(T &,
       const bool &always_register,
       const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_293(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_294(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_295(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_296(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_297(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_298(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_299(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_300(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_301(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_302(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_303(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_304(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_305(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_306(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_307(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_308(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_309(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_310(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_311(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_312(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_313(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_314(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_315(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_316(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_317(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_318(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_319(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_320(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_321(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
   /**
    * \brief Template helper function for all archive types to register
    * derived classes with boost serialization.
@@ -2071,6 +2187,93 @@ namespace fertilized {
         always_register,
         serialization_library_version);
     __serialization_register_292(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_293(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_294(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_295(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_296(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_297(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_298(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_299(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_300(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_301(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_302(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_303(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_304(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_305(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_306(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_307(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_308(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_309(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_310(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_311(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_312(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_313(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_314(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_315(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_316(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_317(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_318(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_319(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_320(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_321(ar,
         always_register,
         serialization_library_version);
   };

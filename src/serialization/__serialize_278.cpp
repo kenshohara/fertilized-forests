@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/boosting/iboostingstrategy.h"
+#include "fertilized/threshold_optimizers/varianceclassificationthresholdoptimizer.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -18,15 +18,20 @@ namespace fertilized {
   void __serialization_register_278(Archive &ar,
                                           const bool &always_register,
                                           const unsigned int &serialization_library_version) {
-    if (101 > FERTILIZED_LIB_VERSION()) {
+    if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "IBoostingStrategy is higher than the current library version "
-          "(101 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
+          "VarianceClassificationThresholdOptimizer is higher than the current library version "
+          "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
-          "'global.h' to at least 101!");
+          "'global.h' to at least 0!");
     }
     if (always_register ||
-        serialization_library_version >= 101) {
+        serialization_library_version >= 0) {
+      ar.template register_type<VarianceClassificationThresholdOptimizer<
+              int,
+              int,
+              uint
+	  >>();
     }
   };
   TemplateFuncExport DllExport void __serialization_register_278(
@@ -38,26 +43,20 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const IBoostingStrategy<
-              uint8_t,
-              int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport std::string serialize(const VarianceClassificationThresholdOptimizer<
+              int,
+              int,
+              uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport IBoostingStrategy<
-              uint8_t,
-              int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport VarianceClassificationThresholdOptimizer<
+              int,
+              int,
+              uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, IBoostingStrategy<
-              uint8_t,
-              int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, VarianceClassificationThresholdOptimizer<
+              int,
+              int,
+              uint
 	  >*);
 }  // namespace fertilized
 
@@ -67,12 +66,10 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<IBoostingStrategy<
-              uint8_t,
-              int16_t,
-              int16_t,
-              std::vector<float>,
-              std::vector<float>
+struct version<VarianceClassificationThresholdOptimizer<
+              int,
+              int,
+              uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

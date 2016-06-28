@@ -3,13 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__LinearSurfaceCalculator_exporter.h"
+#include "./__EntropyGain_exporter.h"
 
 namespace pyfertilized {
   void __python_export_200() {
-    export_LinearSurfaceCalculator<
-              float,
+    export_EntropyGain<
               uint
-                            >("_f_uint");
+                            >("_uint");
   };
 }  // namespace pyfertilized

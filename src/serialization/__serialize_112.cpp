@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/data_providers/iforestdataprovider.h"
+#include "fertilized/impurities/ientropyfunction.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,7 +20,7 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "IForestDataProvider is higher than the current library version "
+          "IEntropyFunction is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
@@ -38,17 +38,14 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const IForestDataProvider<
-              float,
-              float
+    TemplateFuncExport DllExport std::string serialize(const IEntropyFunction<
+              uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport IForestDataProvider<
-              float,
-              float
+    TemplateFuncExport DllExport IEntropyFunction<
+              uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, IForestDataProvider<
-              float,
-              float
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, IEntropyFunction<
+              uint
 	  >*);
 }  // namespace fertilized
 
@@ -58,9 +55,8 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<IForestDataProvider<
-              float,
-              float
+struct version<IEntropyFunction<
+              uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

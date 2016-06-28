@@ -43,7 +43,8 @@ namespace fertilized {
    * - uint8_t; uint8_t; uint
    * - uint8_t; float; uint
    * - uint8_t; int16_t; uint
-   * - float; float; uint
+   * - float; float; uint   
+   * - float; float; int16_t
    * - double; double; uint
    * - uint8_t; int16_t; int16_t
    * .
@@ -117,9 +118,9 @@ namespace fertilized {
         return opt2 -> check_for_early_stop(annotations, annot_dim, node_id);
     };
 
-    /** 
-     * Gets the gain threshold of the threshold optimizer selected for the node. 
-     * 
+    /**
+     * Gets the gain threshold of the threshold optimizer selected for the node.
+     *
      * This is only valid if the node has been processed already!
      */
     float get_gain_threshold_for(const size_t &node_id) {

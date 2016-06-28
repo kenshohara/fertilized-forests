@@ -5,14 +5,14 @@
  */
 #include "../global.h"
 #include "../matlab_headers/__data_providers.h"
-#include <../../include/fertilized/data_providers/unchangeddataprovider.h>
+#include <../../include/fertilized\data_providers/unchangeddataprovider.h>
 
 using namespace fertilized;
 
 
 
 
-          void * getUnchangedDataProvider_f_f (
+          void * getUnchangedDataProvider_f_int16 (
 
         mxArray * data,
         mxArray * annotations
@@ -56,7 +56,7 @@ using namespace fertilized;
       }
     }
 
-    fertilized::Array<float, 2, 2> __converted_annotations;
+    fertilized::Array<int16_t, 2, 2> __converted_annotations;
     {
       const mwSize _matlab_ndim = mxGetNumberOfDimensions(annotations);
       const mxClassID _matlab_dtid = mxGetClassID(annotations);
@@ -67,7 +67,7 @@ using namespace fertilized;
           std::to_string(_matlab_ndim)).c_str());
       }
       // Dtype check.
-      if (_matlab_dtid != mxSINGLE_CLASS) {
+      if (_matlab_dtid != mxINT16_CLASS) {
         mexErrMsgTxt("Wrong MATLAB datatype of argument annotations!");
       }
       Vector<std::size_t, 2> shape;
@@ -80,8 +80,8 @@ using namespace fertilized;
         _idx[i] = 0;
       }
       int dimidx;
-      float *_dptr = __converted_annotations.getData();
-      float *_iptr = reinterpret_cast<float*>(mxGetData(annotations));
+      int16_t *_dptr = __converted_annotations.getData();
+      int16_t *_iptr = reinterpret_cast<int16_t*>(mxGetData(annotations));
       for (std::size_t i = 0; i < shape.product(); ++i) {
         _dptr[i] = _iptr[mxCalcSingleSubscript(annotations, _matlab_ndim, _idx)];
         dimidx = 2-1;
@@ -96,10 +96,10 @@ using namespace fertilized;
 #pragma warning( push )
 #pragma warning( disable : 4800 )
   // Get the libraries' result.
-  auto *libfunc_result = new std::shared_ptr<UnchangedDataProvider<float,float>>(
+  auto *libfunc_result = new std::shared_ptr<UnchangedDataProvider<float,int16_t>>(
     new UnchangedDataProvider<
               float,
-              float
+              int16_t
 >(
           __converted_data,
           __converted_annotations
@@ -110,7 +110,7 @@ using namespace fertilized;
   return __converted_return_value;
 }		
 // Destructor.
-void delete_UnchangedDataProvider_f_f(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<UnchangedDataProvider<float,float>>*>(ptr);
+void delete_UnchangedDataProvider_f_int16(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<UnchangedDataProvider<float,int16_t>>*>(ptr);
   delete storage;
 }

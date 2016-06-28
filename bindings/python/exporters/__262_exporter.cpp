@@ -3,13 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__SubsamplingDataProvider_exporter.h"
+#include "./__RenyiEntropy_exporter.h"
 
 namespace pyfertilized {
   void __python_export_262() {
-    export_SubsamplingDataProvider<
-              uint8_t,
+    export_RenyiEntropy<
               uint
-                            >("_uint8_uint");
+                            >("_uint");
   };
 }  // namespace pyfertilized

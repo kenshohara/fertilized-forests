@@ -3,12 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ConstantRegressionCalculator_exporter.h"
+#include "./__ClassificationThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_172() {
-    export_ConstantRegressionCalculator<
-              float
-                            >("_f");
+    export_ClassificationThresholdOptimizer<
+              uint8_t,
+              int,
+              uint
+                            >("_uint8_i_uint");
   };
 }  // namespace pyfertilized

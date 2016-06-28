@@ -543,7 +543,7 @@ namespace fertilized {
      * -----
      * Available in:
      * - C++
-     * - Python  
+     * - Python
      * - Matlab
      * .
      *
@@ -600,7 +600,7 @@ namespace fertilized {
      *
      * This method will iterate pixel per pixel over the image and tries to
      * predict it. This method is only supported for certain setups:
-     * 
+     *
      * - Leaf Manager: \ref ClassificationLeafManager or \ref HoughLeafManager.
      * - Decider: \ref ThresholdDecider.
      * - Feature Selection Provider: \ref VolumeFeatureSelectionProvider.
@@ -857,21 +857,21 @@ namespace fertilized {
     std::shared_ptr<const dec_t> get_decider() const {
       return decider;
     };
-    
+
     /**
      * \brief Computes a feature importance vector.
-     * 
+     *
      * The vector is normalized to sum to 1.0. It contains the relative
      * frequencies of the feature occurences. Its length is the number
      * of available features.
-     * 
+     *
      * -----
      * Available in:
      * - C++
      * - Python
      * - Matlab
      * .
-     * 
+     *
      * -----
      */
     Array<double, 1, 1> compute_feature_importances() const {

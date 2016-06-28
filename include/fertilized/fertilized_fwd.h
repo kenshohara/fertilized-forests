@@ -124,6 +124,18 @@ namespace fertilized {
   template <typename input_dtype, typename feature_dtype, typename annotation_dtype, typename leaf_return_dtype, typename forest_return_dtype>
   class LocalExecutionStrategy;
 
+  
+  class MultiChannelFeatureSelectionGenerator;
+
+  
+  class MultiChannelFeatureSelectionProvider;
+
+  template<typename input_dtype, typename annotation_dtype>
+  class MultiClassHoughLeafManager;
+
+  template<typename input_dtype, typename feature_dtype, typename annotation_dtype>
+  class MultiClassHoughThresholdDecider;
+
   template <typename input_dtype, typename feature_dtype,typename annotation_dtype, typename leaf_return_dtype,typename forest_return_dtype>
   class NoBagging;
 

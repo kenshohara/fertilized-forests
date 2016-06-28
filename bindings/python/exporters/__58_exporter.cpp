@@ -3,12 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__IGainCalculator_exporter.h"
+#include "./__IForestDataProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_58() {
-    export_IGainCalculator<
-              float
-                            >("_f");
+    export_IForestDataProvider<
+              double,
+              double
+                            >("_d_d");
   };
 }  // namespace pyfertilized

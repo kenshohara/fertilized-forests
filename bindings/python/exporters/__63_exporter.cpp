@@ -8,10 +8,10 @@
 namespace pyfertilized {
   void __python_export_63() {
     export_ILeafManager<
-              uint8_t,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
-                            >("_uint8_uint_fv_fv");
+                            >("_f_uint_fv_fv");
   };
 }  // namespace pyfertilized

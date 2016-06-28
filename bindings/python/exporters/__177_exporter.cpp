@@ -3,14 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__DifferenceSurfaceCalculator_exporter.h"
+#include "./__ClassificationThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_177() {
-    export_DifferenceSurfaceCalculator<
-              float,
-              float,
-              float
-                            >("_f_f_f");
+    export_ClassificationThresholdOptimizer<
+              double,
+              double,
+              uint
+                            >("_d_d_uint");
   };
 }  // namespace pyfertilized

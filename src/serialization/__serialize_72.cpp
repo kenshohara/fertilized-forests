@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/forest.h"
+#include "fertilized/bagging/equaldistbagging.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,17 +20,17 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "Forest is higher than the current library version "
+          "EqualDistBagging is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<Forest<
+      ar.template register_type<EqualDistBagging<
               uint8_t,
-              uint8_t,
-              uint,
+              int16_t,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >>();
@@ -45,24 +45,24 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const Forest<
+    TemplateFuncExport DllExport std::string serialize(const EqualDistBagging<
               uint8_t,
-              uint8_t,
-              uint,
+              int16_t,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
-    TemplateFuncExport DllExport Forest<
+    TemplateFuncExport DllExport EqualDistBagging<
               uint8_t,
-              uint8_t,
-              uint,
+              int16_t,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, Forest<
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, EqualDistBagging<
               uint8_t,
-              uint8_t,
-              uint,
+              int16_t,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >*);
@@ -74,10 +74,10 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<Forest<
+struct version<EqualDistBagging<
               uint8_t,
-              uint8_t,
-              uint,
+              int16_t,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >> {

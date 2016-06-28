@@ -3,14 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__AlternatingThresholdOptimizer_exporter.h"
+#include "./__AlignedSurfaceCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_128() {
-    export_AlternatingThresholdOptimizer<
-              float,
-              float,
-              float
-                            >("_f_f_f");
+    export_AlignedSurfaceCalculator<
+              int,
+              uint
+                            >("_i_uint");
   };
 }  // namespace pyfertilized

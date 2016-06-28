@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/features/linearsurfacecalculator.h"
+#include "fertilized/threshold_optimizers/ithresholdoptimizer.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,17 +20,13 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "LinearSurfaceCalculator is higher than the current library version "
+          "IThresholdOptimizer is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<LinearSurfaceCalculator<
-              float,
-              float
-	  >>();
     }
   };
   TemplateFuncExport DllExport void __serialization_register_168(
@@ -42,17 +38,20 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const LinearSurfaceCalculator<
-              float,
-              float
+    TemplateFuncExport DllExport std::string serialize(const IThresholdOptimizer<
+              uint8_t,
+              int16_t,
+              uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport LinearSurfaceCalculator<
-              float,
-              float
+    TemplateFuncExport DllExport IThresholdOptimizer<
+              uint8_t,
+              int16_t,
+              uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, LinearSurfaceCalculator<
-              float,
-              float
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, IThresholdOptimizer<
+              uint8_t,
+              int16_t,
+              uint
 	  >*);
 }  // namespace fertilized
 
@@ -62,9 +61,10 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<LinearSurfaceCalculator<
-              float,
-              float
+struct version<IThresholdOptimizer<
+              uint8_t,
+              int16_t,
+              uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/impurities/classificationerror.h"
+#include "fertilized/trainings/classictraining.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,15 +20,19 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "ClassificationError is higher than the current library version "
+          "ClassicTraining is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<ClassificationError<
-              float
+      ar.template register_type<ClassicTraining<
+              uint8_t,
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >>();
     }
   };
@@ -41,14 +45,26 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const ClassificationError<
-              float
+    TemplateFuncExport DllExport std::string serialize(const ClassicTraining<
+              uint8_t,
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  > *, const bool &);
-    TemplateFuncExport DllExport ClassificationError<
-              float
+    TemplateFuncExport DllExport ClassicTraining<
+              uint8_t,
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, ClassificationError<
-              float
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, ClassicTraining<
+              uint8_t,
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >*);
 }  // namespace fertilized
 
@@ -58,8 +74,12 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<ClassificationError<
-              float
+struct version<ClassicTraining<
+              uint8_t,
+              uint8_t,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;
