@@ -646,7 +646,7 @@ namespace fertilized {
    * Instantiations:
    * - uint8_t; int16_t; int16_t
    * .
-   * Exported name: StandardHoughTree
+   * Exported name: StandardHoughTreeWithoutPatch
    *
    * -----
    *
