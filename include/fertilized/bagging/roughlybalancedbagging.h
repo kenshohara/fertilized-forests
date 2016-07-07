@@ -112,7 +112,7 @@ namespace fertilized {
 
       std::vector<std::vector<size_t>> class_sample_ids(n_classes);
       const annotation_dtype *annot;
-      for (size_t sample_id = 0; sample_id < n_samples, ++sample_id) {
+      for (size_t sample_id = 0; sample_id < n_samples; ++sample_id) {
         annot = (*sample_list_ptr)[sample_id].annotation;
         class_sample_ids[*annot].push_back(sample_id);
       }
@@ -175,6 +175,8 @@ namespace fertilized {
       ar & class_dists;
     }
 #endif
+   protected:
+    RoughlyBalancedBagging() {};
 
    private:
     uint n_classes;
