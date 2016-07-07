@@ -171,8 +171,6 @@ namespace fertilized {
       ar & n_class_samples;
       ar & min_class_id;
       ar & random_engine;
-      ar & data_size_dist;
-      ar & class_dists;
     }
 #endif
    protected:
