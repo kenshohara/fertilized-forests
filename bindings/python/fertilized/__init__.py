@@ -2772,6 +2772,73 @@ class Soil:
           )
     return obj
 
+  def RoughlyBalancedBagging(self,
+        
+        n_classes,
+        n_class_samples,
+        random_seed
+           ):
+    r"""Class information:
+    ==================
+    
+    Perform roughly-balanced bagging.
+    
+    
+    -----
+
+    Available in:
+    
+    - C++
+    - Python
+    - Matlab
+    
+    Instantiations:
+    
+    - int; int; uint; std::vector<float>; std::vector<float>
+    - float; float; uint; std::vector<float>; std::vector<float>
+    - double; double; uint; std::vector<float>; std::vector<float>
+    - uint8_t; uint8_t; uint; std::vector<float>; std::vector<float>
+    - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
+    - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
+    - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+    - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+    - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+    - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+    - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
+    
+    
+    -----
+
+    Constructor:
+    ============
+    
+    -----
+
+    Available in:
+    
+    - C++
+    - Python
+    - Matlab
+    
+    
+    -----
+
+    r"""
+    attrname = 'RoughlyBalancedBagging_%s_%s_%s_%s_%s' % (self._inp_str, self._feat_str, self._ann_str, self._tres, self._fres)
+    cons_method = None
+    for part_mod in _pyfertilized:
+        if hasattr(part_mod, attrname):
+            cons_method = part_mod.__dict__[attrname]
+            break
+    if cons_method is None:
+      raise Exception("This object is not supported by the current Soil (pyfertilized.%s)!" % (attrname))
+    obj = cons_method(
+        n_classes,
+        n_class_samples,
+        random_seed
+          )
+    return obj
+
   def Samme(self,
         
         learning_rate=1

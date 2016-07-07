@@ -3,14 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ThresholdDecider_exporter.h"
+#include "./__Samme_R_exporter.h"
 
 namespace pyfertilized {
   void __python_export_299() {
-    export_ThresholdDecider<
+    export_Samme_R<
               int,
               int,
-              uint
-                            >("_i_i_uint");
+              uint,
+              std::vector<float>,
+              std::vector<float>
+                            >("_i_i_uint_fv_fv");
   };
 }  // namespace pyfertilized

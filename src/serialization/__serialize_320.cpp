@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/leafs/boostingleafmanager.h"
+#include "fertilized/boosting/adaboost.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,16 +20,19 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (101 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "BoostingLeafManager is higher than the current library version "
+          "AdaBoost is higher than the current library version "
           "(101 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 101!");
     }
     if (always_register ||
         serialization_library_version >= 101) {
-      ar.template register_type<BoostingLeafManager<
-              float,
-              uint
+      ar.template register_type<AdaBoost<
+              int,
+              int,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >>();
     }
   };
@@ -42,17 +45,26 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const BoostingLeafManager<
-              float,
-              uint
+    TemplateFuncExport DllExport std::string serialize(const AdaBoost<
+              int,
+              int,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  > *, const bool &);
-    TemplateFuncExport DllExport BoostingLeafManager<
-              float,
-              uint
+    TemplateFuncExport DllExport AdaBoost<
+              int,
+              int,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, BoostingLeafManager<
-              float,
-              uint
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, AdaBoost<
+              int,
+              int,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >*);
 }  // namespace fertilized
 
@@ -62,9 +74,12 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<BoostingLeafManager<
-              float,
-              uint
+struct version<AdaBoost<
+              int,
+              int,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

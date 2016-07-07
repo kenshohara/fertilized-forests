@@ -3,14 +3,10 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ThresholdDecider_exporter.h"
+#include "./__StandardFeatureSelectionProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_307() {
-    export_ThresholdDecider<
-              double,
-              double,
-              double
-                            >("_d_d_d");
+    export_StandardFeatureSelectionProvider("");
   };
 }  // namespace pyfertilized

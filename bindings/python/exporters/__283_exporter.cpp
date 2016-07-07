@@ -3,11 +3,11 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__Samme_exporter.h"
+#include "./__RoughlyBalancedBagging_exporter.h"
 
 namespace pyfertilized {
   void __python_export_283() {
-    export_Samme<
+    export_RoughlyBalancedBagging<
               float,
               float,
               uint,

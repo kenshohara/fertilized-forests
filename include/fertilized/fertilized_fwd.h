@@ -167,6 +167,9 @@ namespace fertilized {
   class RenyiEntropy;
 
   template <typename input_dtype, typename feature_dtype,typename annotation_dtype, typename leaf_return_dtype,typename forest_return_dtype>
+  class RoughlyBalancedBagging;
+
+  template <typename input_dtype, typename feature_dtype,typename annotation_dtype, typename leaf_return_dtype,typename forest_return_dtype>
   class Samme;
 
   template <typename input_dtype, typename feature_dtype,typename annotation_dtype, typename leaf_return_dtype,typename forest_return_dtype>

@@ -35,6 +35,7 @@
 #include "./bagging/equaldistbagging.h"
 #include "./bagging/ibaggingstrategy.h"
 #include "./bagging/nobagging.h"
+#include "./bagging/roughlybalancedbagging.h"
 #include "./boosting/adaboost.h"
 #include "./boosting/iboostingstrategy.h"
 #include "./boosting/samme.h"

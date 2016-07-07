@@ -3,12 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__TsallisEntropy_exporter.h"
+#include "./__SubsamplingDataProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_309() {
-    export_TsallisEntropy<
+    export_SubsamplingDataProvider<
+              uint8_t,
               uint
-                            >("_uint");
+                            >("_uint8_uint");
   };
 }  // namespace pyfertilized

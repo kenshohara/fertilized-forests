@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/threshold_optimizers/varianceclassificationthresholdoptimizer.h"
+#include "fertilized/impurities/tsallisentropy.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,16 +20,14 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "VarianceClassificationThresholdOptimizer is higher than the current library version "
+          "TsallisEntropy is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<VarianceClassificationThresholdOptimizer<
-              double,
-              double,
+      ar.template register_type<TsallisEntropy<
               uint
 	  >>();
     }
@@ -43,19 +41,13 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const VarianceClassificationThresholdOptimizer<
-              double,
-              double,
+    TemplateFuncExport DllExport std::string serialize(const TsallisEntropy<
               uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport VarianceClassificationThresholdOptimizer<
-              double,
-              double,
+    TemplateFuncExport DllExport TsallisEntropy<
               uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, VarianceClassificationThresholdOptimizer<
-              double,
-              double,
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, TsallisEntropy<
               uint
 	  >*);
 }  // namespace fertilized
@@ -66,9 +58,7 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<VarianceClassificationThresholdOptimizer<
-              double,
-              double,
+struct version<TsallisEntropy<
               uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;

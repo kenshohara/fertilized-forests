@@ -1633,6 +1633,50 @@ namespace fertilized {
 	   ));
   };
 
+  auto roughlybalancedbagging_vec_t() -> std::vector<std::shared_ptr<fertilized::RoughlyBalancedBagging<input_dtype,feature_dtype,annotation_dtype,leaf_return_dtype,forest_return_dtype>>>;
+  /**
+* Perform roughly-balanced bagging.
+*
+* \ingroup fertilizedbaggingGroup
+*
+* -----
+* Available in:
+* - C++
+* - Python
+* - Matlab
+* .
+* Instantiations:
+* - int; int; uint; std::vector<float>; std::vector<float>
+* - float; float; uint; std::vector<float>; std::vector<float>
+* - double; double; uint; std::vector<float>; std::vector<float>
+* - uint8_t; uint8_t; uint; std::vector<float>; std::vector<float>
+* - uint8_t; int16_t; uint; std::vector<float>; std::vector<float>
+* - uint8_t; int16_t; int16_t; std::vector<float>; std::vector<float>
+* - uint8_t; int16_t; int16_t; std::pair<float, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+* - uint8_t; int16_t; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; int16_t; std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>; std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+* - float; float; float; std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+* - double; double; double; std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>; std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
+* .
+*
+* -----
+*/
+  std::shared_ptr<fertilized::RoughlyBalancedBagging<input_dtype,feature_dtype,annotation_dtype,leaf_return_dtype,forest_return_dtype>>
+  RoughlyBalancedBagging(
+
+        const unsigned int & n_classes,
+        const std::vector<size_t> & n_class_samples,
+        const unsigned int & random_seed
+    ) {
+   return std::shared_ptr<fertilized::RoughlyBalancedBagging<input_dtype,feature_dtype,annotation_dtype,leaf_return_dtype,forest_return_dtype>>(
+     new fertilized::RoughlyBalancedBagging<input_dtype,feature_dtype,annotation_dtype,leaf_return_dtype,forest_return_dtype>(
+
+         n_classes,
+         n_class_samples,
+         random_seed
+	   ));
+  };
+
   auto samme_vec_t() -> std::vector<std::shared_ptr<fertilized::Samme<input_dtype,feature_dtype,annotation_dtype,leaf_return_dtype,forest_return_dtype>>>;
   /**
 * \brief SAMME boosting algorithm implementation

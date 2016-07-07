@@ -209,6 +209,131 @@ extern "C"
     DllExport void delete_NoBagging_f_f_int16_ht_vht(void *ptr);
     DllExport void delete_NoBagging_f_f_f_rpf_vprpff(void *ptr);
     DllExport void delete_NoBagging_d_d_d_rpd_vprpfd(void *ptr);
+
+
+    DllExport void * getRoughlyBalancedBagging_i_i_uint_fv_fv (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+    DllExport void * getRoughlyBalancedBagging_f_f_uint_fv_fv (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+    DllExport void * getRoughlyBalancedBagging_d_d_uint_fv_fv (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+    DllExport void * getRoughlyBalancedBagging_uint8_uint8_uint_fv_fv (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+    DllExport void * getRoughlyBalancedBagging_uint8_int16_uint_fv_fv (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+    DllExport void * getRoughlyBalancedBagging_uint8_int16_int16_fv_fv (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+    DllExport void * getRoughlyBalancedBagging_uint8_int16_int16_hp_vhp (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+    DllExport void * getRoughlyBalancedBagging_uint8_int16_int16_ht_vht (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+    DllExport void * getRoughlyBalancedBagging_f_f_int16_ht_vht (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+    DllExport void * getRoughlyBalancedBagging_f_f_f_rpf_vprpff (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+    DllExport void * getRoughlyBalancedBagging_d_d_d_rpd_vprpfd (
+
+        unsigned int n_classes,
+        mxArray * n_class_samples,
+        unsigned int random_seed
+);
+
+
+    DllExport int eqRoughlyBalancedBagging_i_i_uint_fv_fv (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqRoughlyBalancedBagging_f_f_uint_fv_fv (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqRoughlyBalancedBagging_d_d_uint_fv_fv (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqRoughlyBalancedBagging_uint8_uint8_uint_fv_fv (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqRoughlyBalancedBagging_uint8_int16_uint_fv_fv (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqRoughlyBalancedBagging_uint8_int16_int16_fv_fv (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqRoughlyBalancedBagging_uint8_int16_int16_hp_vhp (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqRoughlyBalancedBagging_uint8_int16_int16_ht_vht (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqRoughlyBalancedBagging_f_f_int16_ht_vht (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqRoughlyBalancedBagging_f_f_f_rpf_vprpff (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqRoughlyBalancedBagging_d_d_d_rpd_vprpfd (void *__instance,
+
+        void * rhs
+);
+    DllExport void delete_RoughlyBalancedBagging_i_i_uint_fv_fv(void *ptr);
+    DllExport void delete_RoughlyBalancedBagging_f_f_uint_fv_fv(void *ptr);
+    DllExport void delete_RoughlyBalancedBagging_d_d_uint_fv_fv(void *ptr);
+    DllExport void delete_RoughlyBalancedBagging_uint8_uint8_uint_fv_fv(void *ptr);
+    DllExport void delete_RoughlyBalancedBagging_uint8_int16_uint_fv_fv(void *ptr);
+    DllExport void delete_RoughlyBalancedBagging_uint8_int16_int16_fv_fv(void *ptr);
+    DllExport void delete_RoughlyBalancedBagging_uint8_int16_int16_hp_vhp(void *ptr);
+    DllExport void delete_RoughlyBalancedBagging_uint8_int16_int16_ht_vht(void *ptr);
+    DllExport void delete_RoughlyBalancedBagging_f_f_int16_ht_vht(void *ptr);
+    DllExport void delete_RoughlyBalancedBagging_f_f_f_rpf_vprpff(void *ptr);
+    DllExport void delete_RoughlyBalancedBagging_d_d_d_rpd_vprpfd(void *ptr);
 #ifdef __cplusplus
 }
 #endif 

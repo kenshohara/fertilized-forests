@@ -3,11 +3,11 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__TwoSideClassificationThresholdOptimizer_exporter.h"
+#include "./__ThresholdDecider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_310() {
-    export_TwoSideClassificationThresholdOptimizer<
+    export_ThresholdDecider<
               int,
               int,
               uint
