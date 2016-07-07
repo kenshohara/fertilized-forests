@@ -10,6 +10,8 @@
 
 #include <vector>
 #include <algorithm>
+#include <random>
+#include <limits>
 
 #include "../global.h"
 #include "../types.h"
@@ -18,7 +20,7 @@
 
 namespace fertilized {
   /**
-   * The data of each class are sampled with equal probability.
+   * Perform roughly-balanced bagging.
    *
    * \ingroup fertilizedbaggingGroup
    *
@@ -45,7 +47,7 @@ namespace fertilized {
    * -----
    */
   template <typename input_dtype, typename feature_dtype,typename annotation_dtype, typename leaf_return_dtype,typename forest_return_dtype>
-  class ClassBalancedReplacementBagging
+  class RoughlyBalancedBagging
   : public IBaggingStrategy <input_dtype, feature_dtype, annotation_dtype,
                                leaf_return_dtype, forest_return_dtype> {
    public:
@@ -64,16 +66,22 @@ namespace fertilized {
      *
      * -----
      */
-    ClassBalancedReplacementBagging(const uint &n_classes,
-                                    const std::vector<size_t> &n_class_samples,
-                                    const uint &random_seed)
-                                    : n_classes(n_classes),
-                                      n_class_samples(n_class_samples),
-                                      random_engine(std::make_shared<std::mt19937>(random_seed)) {
+    RoughlyBalancedBagging(const uint &n_classes,
+                           const std::vector<size_t> &n_class_samples,
+                           const uint &random_seed)
+                           : n_classes(n_classes),
+                             n_class_samples(n_class_samples),
+                             random_engine(std::make_shared<std::mt19937>(random_seed)) {
       class_dists.resize(n_classes);
-      for (int c = 0; c < n_classes; ++c) {
-        class_dists[c] = std::uniform_int_distribution<uint>(0, n_class_samples[c] - 1);
+
+      for (size_t class_id = 0; class_id < n_classes; ++class_id) {
+        class_dists[class_id] = std::uniform_int_distribution<size_t>(0, n_class_samples[class_id] - 1);
       }
+
+      auto min_it = std::min_element(std::begin(n_class_samples), std::end(n_class_samples));
+      min_class_id = min_it - std::begin(n_class_samples);
+      size_t min_n_samples = *min_it;
+      data_size_dist = std::negative_binomial_distribution<size_t>(min_n_samples, 0.5);
     };
 
     /** Returns false. */
@@ -102,10 +110,23 @@ namespace fertilized {
         usage_map.emplace_back(tr_vec, val_vec);
       }
 
+      std::vector<std::vector<size_t>> class_sample_ids(n_classes);
+      const annotation_dtype *annot;
+      for (size_t sample_id = 0; sample_id < n_samples, ++sample_id) {
+        annot = (*sample_list_ptr)[sample_id].annotation;
+        class_sample_ids[*annot].push_back(sample_id);
+      }
+
       for (size_t curr_tree_id = 0; curr_tree_id < n_trees; ++curr_tree_id) {
-        usage_map[curr_tree_id].first -> resize(n_samples);
-        std::iota(usage_map[curr_tree_id].first -> begin(),
-                  usage_map[curr_tree_id].first -> end(), 0);
+        for (size_t class_id = 0; class_id < n_classes; ++class_id) {
+          size_t n_bag_samples = (class_id == min_class_id) ?
+                  n_class_samples[class_id] : data_size_dist(*random_engine);
+          for (size_t i = 0; i < n_bag_samples; ++i) {
+            size_t rand_sample_id = class_dists[class_id](*random_engine);
+            usage_map[curr_tree_id].first -> push_back(class_sample_ids[class_id][rand_sample_id]);
+          }
+          std::sort(std::begin(*usage_map[curr_tree_id].first), std::end(*usage_map[curr_tree_id].first));
+        }
       }
       return usage_map;
     };
@@ -123,12 +144,22 @@ namespace fertilized {
     bool operator==(const IBaggingStrategy<input_dtype, feature_dtype, annotation_dtype,
                               leaf_return_dtype, forest_return_dtype> &rhs)
       const {
-      const auto *rhs_c = dynamic_cast<NoBagging<input_dtype,
-                                                 feature_dtype,
-                                                 annotation_dtype,
-                                                 leaf_return_dtype,
-                                                 forest_return_dtype> const *>(&rhs);
-      return rhs_c != nullptr;
+      const auto *rhs_c = dynamic_cast<RoughlyBalancedBagging<input_dtype,
+                                                              feature_dtype,
+                                                              annotation_dtype,
+                                                              leaf_return_dtype,
+                                                              forest_return_dtype> const *>(&rhs);
+      if (rhs_c == nullptr) {
+        return false;
+      } else {
+        bool eq_nc = n_classes == rhs_c -> n_classes;
+        bool eq_ns = n_class_samples == rhs_c -> n_class_samples;
+        bool eq_mc = min_class_id == rhs_c -> min_class_id;
+        bool eq_re = *random_engine == *(rhs_c -> random_engine);
+        bool eq_dd = data_size_dist == rhs_c -> data_size_dist;
+        bool eq_cd = class_dists == rhs_c -> class_dists;
+        return eq_nc && eq_ns && eq_mc && eq_re && eq_dd && eq_cd;
+      }
     };
 
 #ifdef SERIALIZATION_ENABLED
@@ -136,14 +167,22 @@ namespace fertilized {
     template<class Archive>
     void serialize(Archive & ar, const uint file_version) {
       ar & boost::serialization::base_object<split_strat_t>(*this);
+      ar & n_classes;
+      ar & n_class_samples;
+      ar & min_class_id;
+      ar & random_engine;
+      ar & data_size_dist;
+      ar & class_dists;
     }
 #endif
 
    private:
     uint n_classes;
     std::vector<size_t> n_class_samples;
+    uint min_class_id;
     std::shared_ptr<std::mt19937> random_engine;
-    std::vector<std::uniform_int_distribution<uint>> class_dists;
+    std::negative_binomial_distribution<size_t> data_size_dist;
+    std::vector<std::uniform_int_distribution<size_t>> class_dists;
   };
 };  // namespace fertilized
 #endif  // FERTILIZED_BAGGING_NOBAGGING_H_
