@@ -25,6 +25,7 @@
 #include "./threshold_optimizers/randomizedclassificationthresholdoptimizer.h"
 #include "./threshold_optimizers/regressionthresholdoptimizer.h"
 #include "./threshold_optimizers/varianceclassificationthresholdoptimizer.h"
+#include "./threshold_optimizers/multiclassvarianceclassificationthresholdoptimizer.h"
 #include "./threshold_optimizers/alternatingthresholdoptimizer.h"
 #include "./regression/constantregressioncalculator.h"
 #include "./regression/linearregressioncalculator.h"
@@ -1010,8 +1011,8 @@ namespace fertilized {
         n_thresholds_per_split,
         n_classes, gainc, class_gain_threshold,
         annotation_dimension, random_seed));
-    auto var_thresh_opt = std::shared_ptr<VarianceClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>>(
-      new VarianceClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>(
+    auto var_thresh_opt = std::shared_ptr<MulticlassVarianceClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>>(
+      new MulticlassVarianceClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>(
         n_thresholds_per_split, n_classes, offset_dimension, entropy_reg, var_gain_threshold, random_seed+1));
     auto alt_thresh_opt = std::shared_ptr<AlternatingThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>>(
       new AlternatingThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>(
