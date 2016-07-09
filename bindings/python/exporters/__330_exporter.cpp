@@ -3,14 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__TwoSideClassificationThresholdOptimizer_exporter.h"
+#include "./__TsallisEntropy_exporter.h"
 
 namespace pyfertilized {
   void __python_export_330() {
-    export_TwoSideClassificationThresholdOptimizer<
-              uint8_t,
-              int16_t,
-              int16_t
-                            >("_uint8_int16_int16");
+    export_TsallisEntropy<
+              float
+                            >("_f");
   };
 }  // namespace pyfertilized

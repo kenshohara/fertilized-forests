@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/trainings/boostedtraining.h"
+#include "fertilized/objecttemplate.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -18,18 +18,18 @@ namespace fertilized {
   void __serialization_register_328(Archive &ar,
                                           const bool &always_register,
                                           const unsigned int &serialization_library_version) {
-    if (101 > FERTILIZED_LIB_VERSION()) {
+    if (100 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "BoostedTraining is higher than the current library version "
-          "(101 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
+          "ObjectTemplate is higher than the current library version "
+          "(100 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
-          "'global.h' to at least 101!");
+          "'global.h' to at least 100!");
     }
     if (always_register ||
-        serialization_library_version >= 101) {
-      ar.template register_type<BoostedTraining<
-              uint8_t,
-              int16_t,
+        serialization_library_version >= 100) {
+      ar.template register_type<ObjectTemplate<
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -45,23 +45,23 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const BoostedTraining<
-              uint8_t,
-              int16_t,
+    TemplateFuncExport DllExport std::string serialize(const ObjectTemplate<
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
-    TemplateFuncExport DllExport BoostedTraining<
-              uint8_t,
-              int16_t,
+    TemplateFuncExport DllExport ObjectTemplate<
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, BoostedTraining<
-              uint8_t,
-              int16_t,
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, ObjectTemplate<
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -74,9 +74,9 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<BoostedTraining<
-              uint8_t,
-              int16_t,
+struct version<ObjectTemplate<
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>

@@ -136,6 +136,9 @@ namespace fertilized {
   template<typename input_dtype, typename feature_dtype, typename annotation_dtype>
   class MultiClassHoughThresholdDecider;
 
+  template<typename input_dtype, typename feature_dtype, typename annotation_dtype>
+  class MultiClassVarianceClassificationThresholdOptimizer;
+
   template <typename input_dtype, typename feature_dtype,typename annotation_dtype, typename leaf_return_dtype,typename forest_return_dtype>
   class NoBagging;
 

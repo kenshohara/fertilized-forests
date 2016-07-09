@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/boosting/samme_r.h"
+#include "fertilized/boosting/iboostingstrategy.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,20 +20,13 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (101 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "Samme_R is higher than the current library version "
+          "IBoostingStrategy is higher than the current library version "
           "(101 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 101!");
     }
     if (always_register ||
         serialization_library_version >= 101) {
-      ar.template register_type<Samme_R<
-              double,
-              double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
-	  >>();
     }
   };
   TemplateFuncExport DllExport void __serialization_register_347(
@@ -45,21 +38,21 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const Samme_R<
+    TemplateFuncExport DllExport std::string serialize(const IBoostingStrategy<
               double,
               double,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
-    TemplateFuncExport DllExport Samme_R<
+    TemplateFuncExport DllExport IBoostingStrategy<
               double,
               double,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, Samme_R<
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, IBoostingStrategy<
               double,
               double,
               uint,
@@ -74,7 +67,7 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<Samme_R<
+struct version<IBoostingStrategy<
               double,
               double,
               uint,

@@ -1426,6 +1426,54 @@ namespace fertilized {
     void __serialization_register_352(T &,
       const bool &always_register,
       const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_353(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_354(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_355(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_356(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_357(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_358(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_359(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_360(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_361(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_362(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_363(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_364(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
   /**
    * \brief Template helper function for all archive types to register
    * derived classes with boost serialization.
@@ -2491,6 +2539,42 @@ namespace fertilized {
         always_register,
         serialization_library_version);
     __serialization_register_352(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_353(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_354(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_355(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_356(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_357(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_358(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_359(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_360(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_361(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_362(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_363(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_364(ar,
         always_register,
         serialization_library_version);
   };

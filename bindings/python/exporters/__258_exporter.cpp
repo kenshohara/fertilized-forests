@@ -3,13 +3,16 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__PatchSampleManager_exporter.h"
+#include "./__NoBagging_exporter.h"
 
 namespace pyfertilized {
   void __python_export_258() {
-    export_PatchSampleManager<
-              uint8_t,
-              int16_t
-                            >("_uint8_int16");
+    export_NoBagging<
+              int,
+              int,
+              uint,
+              std::vector<float>,
+              std::vector<float>
+                            >("_i_i_uint_fv_fv");
   };
 }  // namespace pyfertilized

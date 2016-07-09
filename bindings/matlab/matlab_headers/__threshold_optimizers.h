@@ -297,6 +297,153 @@ extern "C"
     DllExport void delete_ClassificationThresholdOptimizer_uint8_int16_int16(void *ptr);
 
 
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_i_i_uint (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_i_f_uint (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_f_i_uint (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_uint8_i_uint (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_uint8_uint8_uint (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_uint8_f_uint (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_uint8_int16_uint (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_f_f_uint (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_f_f_int16 (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_d_d_uint (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+    DllExport void * getMultiClassVarianceClassificationThresholdOptimizer_uint8_int16_int16 (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
+
+
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_i_i_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_i_f_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_f_i_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_uint8_i_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_uint8_uint8_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_uint8_f_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_uint8_int16_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_f_f_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_f_f_int16 (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_d_d_uint (void *__instance,
+
+        void * rhs
+);
+    DllExport int eqMultiClassVarianceClassificationThresholdOptimizer_uint8_int16_int16 (void *__instance,
+
+        void * rhs
+);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_i_i_uint(void *ptr);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_i_f_uint(void *ptr);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_f_i_uint(void *ptr);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_uint8_i_uint(void *ptr);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_uint8_uint8_uint(void *ptr);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_uint8_f_uint(void *ptr);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_uint8_int16_uint(void *ptr);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_f_f_uint(void *ptr);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_f_f_int16(void *ptr);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_d_d_uint(void *ptr);
+    DllExport void delete_MultiClassVarianceClassificationThresholdOptimizer_uint8_int16_int16(void *ptr);
+
+
     DllExport void * getRandomizedClassificationThresholdOptimizer_i_i_uint (
 
         size_t n_thresholds,
@@ -671,6 +818,14 @@ extern "C"
         float gain_threshold,
         unsigned int random_seed
 );
+    DllExport void * getVarianceClassificationThresholdOptimizer_f_f_int16 (
+
+        size_t n_thresholds,
+        size_t n_classes,
+        size_t offset_dim,
+        float gain_threshold,
+        unsigned int random_seed
+);
     DllExport void * getVarianceClassificationThresholdOptimizer_d_d_uint (
 
         size_t n_thresholds,
@@ -721,6 +876,10 @@ extern "C"
 
         void * rhs
 );
+    DllExport int eqVarianceClassificationThresholdOptimizer_f_f_int16 (void *__instance,
+
+        void * rhs
+);
     DllExport int eqVarianceClassificationThresholdOptimizer_d_d_uint (void *__instance,
 
         void * rhs
@@ -737,6 +896,7 @@ extern "C"
     DllExport void delete_VarianceClassificationThresholdOptimizer_uint8_f_uint(void *ptr);
     DllExport void delete_VarianceClassificationThresholdOptimizer_uint8_int16_uint(void *ptr);
     DllExport void delete_VarianceClassificationThresholdOptimizer_f_f_uint(void *ptr);
+    DllExport void delete_VarianceClassificationThresholdOptimizer_f_f_int16(void *ptr);
     DllExport void delete_VarianceClassificationThresholdOptimizer_d_d_uint(void *ptr);
     DllExport void delete_VarianceClassificationThresholdOptimizer_uint8_int16_int16(void *ptr);
 #ifdef __cplusplus

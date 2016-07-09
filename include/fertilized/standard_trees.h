@@ -38,7 +38,7 @@
 #include "./leafs/classificationleafmanager.h"
 #include "./leafs/regressionleafmanager.h"
 #include "./leafs/houghleafmanager.h"
-#include "./leafs/multiclasshoughleafmanager.h"
+#include "./leafs"
 #include "./leafs/ileafmanager.h"
 #include "./features/isurfacecalculator.h"
 #include "./deciders/idecider.h"
@@ -1035,7 +1035,7 @@ namespace fertilized {
       new MultiClassHoughLeafManager<input_dtype, annotation_dtype>(n_classes, offset_dimension));
     return std::make_shared<Tree<input_dtype, feature_dtype, annotation_dtype,
                                  std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>,
-                                 std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>>>(
+                                 std::vector<std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>>(
                          max_depth, min_samples_at_leaf, min_samples_at_node,
                          weak_classifier, leaf_man);
   };

@@ -12,7 +12,7 @@ using namespace fertilized;
 
 
 
-          void * getVarianceClassificationThresholdOptimizer_d_d_uint (
+          void * getVarianceClassificationThresholdOptimizer_f_f_int16 (
 
         size_t n_thresholds,
         size_t n_classes,
@@ -25,11 +25,11 @@ using namespace fertilized;
 #pragma warning( push )
 #pragma warning( disable : 4800 )
   // Get the libraries' result.
-  auto *libfunc_result = new std::shared_ptr<VarianceClassificationThresholdOptimizer<double,double,uint>>(
+  auto *libfunc_result = new std::shared_ptr<VarianceClassificationThresholdOptimizer<float,float,int16_t>>(
     new VarianceClassificationThresholdOptimizer<
-              double,
-              double,
-              uint
+              float,
+              float,
+              int16_t
 >(
           n_thresholds,
           n_classes,
@@ -44,15 +44,15 @@ using namespace fertilized;
 }		
 
 
-          int eqVarianceClassificationThresholdOptimizer_d_d_uint (void *__instance,
+          int eqVarianceClassificationThresholdOptimizer_f_f_int16 (void *__instance,
 
         void * rhs
 ) {
   // Unpack instance.
-  auto __instance_unpacked = *static_cast<std::shared_ptr<VarianceClassificationThresholdOptimizer<double,double,uint>>*>(__instance);
+  auto __instance_unpacked = *static_cast<std::shared_ptr<VarianceClassificationThresholdOptimizer<float,float,int16_t>>*>(__instance);
   // From C types conversions.
 
-    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::IThresholdOptimizer<double, double, uint>>*>(rhs);
+    auto __shptr_rhs = *reinterpret_cast<std::shared_ptr<fertilized::IThresholdOptimizer<float, float, int16_t>>*>(rhs);
     auto &__converted_rhs = *(__shptr_rhs.get());
             
 
@@ -67,7 +67,7 @@ using namespace fertilized;
   return libfunc_result;
 }		
 // Destructor.
-void delete_VarianceClassificationThresholdOptimizer_d_d_uint(void *ptr) {
-  auto * storage = static_cast<std::shared_ptr<VarianceClassificationThresholdOptimizer<double,double,uint>>*>(ptr);
+void delete_VarianceClassificationThresholdOptimizer_f_f_int16(void *ptr) {
+  auto * storage = static_cast<std::shared_ptr<VarianceClassificationThresholdOptimizer<float,float,int16_t>>*>(ptr);
   delete storage;
 }

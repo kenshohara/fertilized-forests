@@ -3,13 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__BoostingLeafManager_exporter.h"
+#include "./__VarianceClassificationThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_361() {
-    export_BoostingLeafManager<
+    export_VarianceClassificationThresholdOptimizer<
               uint8_t,
+              int,
               uint
-                            >("_uint8_uint");
+                            >("_uint8_i_uint");
   };
 }  // namespace pyfertilized

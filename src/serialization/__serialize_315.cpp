@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/features/volumefeatureselectionprovider.h"
+#include "fertilized/threshold_optimizers/twosideclassificationthresholdoptimizer.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,14 +20,18 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "VolumeFeatureSelectionProvider is higher than the current library version "
+          "TwoSideClassificationThresholdOptimizer is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<VolumeFeatureSelectionProvider>();
+      ar.template register_type<TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              uint8_t,
+              uint
+	  >>();
     }
   };
   TemplateFuncExport DllExport void __serialization_register_315(
@@ -39,9 +43,21 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const VolumeFeatureSelectionProvider*, const bool &);
-    TemplateFuncExport DllExport VolumeFeatureSelectionProvider* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, VolumeFeatureSelectionProvider*);
+    TemplateFuncExport DllExport std::string serialize(const TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              uint8_t,
+              uint
+	  > *, const bool &);
+    TemplateFuncExport DllExport TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              uint8_t,
+              uint
+	  >* deserialize(std::stringstream &);
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              uint8_t,
+              uint
+	  >*);
 }  // namespace fertilized
 
 // For types, etc.
@@ -49,8 +65,12 @@ using namespace fertilized;
 namespace boost {
 namespace serialization {
 
-template<>
-struct version<VolumeFeatureSelectionProvider > {
+template <>
+struct version<TwoSideClassificationThresholdOptimizer<
+              uint8_t,
+              uint8_t,
+              uint
+	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;
     BOOST_STATIC_CONSTANT(int, value = version::type::value);

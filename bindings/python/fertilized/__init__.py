@@ -2145,6 +2145,215 @@ class Soil:
           )
     return obj
 
+  def MultiClassVarianceClassificationThresholdOptimizer(self,
+        
+        n_thresholds,
+        n_classes=2,
+        offset_dim=2,
+        gain_threshold=0,
+        random_seed=1
+           ):
+    r"""Class information:
+    ==================
+    
+    Multi-class version of VarianceClassificationThresholdOptimizerWEntropy.
+    
+    Optimizes a threshold by selecting the best some random values with respect to the variance of example offsets.
+    The annotations are assumed to be a class label followed by its offset
+    values. Since all these values must be of the same datatype, the only supported type
+    is (signed) int in this case (to allow for negative offsets). The class labels
+    must still be in [0; n_classes - 1].
+    
+    This threshold optimizer draws n_thresholds random values between
+    the minimum and maximum observed feature value and returns the best
+    one.
+    
+    
+    -----
+
+    Available in:
+    
+    - C++
+    - Python
+    - Matlab
+    
+    Instantiations:
+    
+    - int; int; uint
+    - int; float; uint
+    - float; int; uint
+    - uint8_t; int; uint
+    - uint8_t; uint8_t; uint
+    - uint8_t; float; uint
+    - uint8_t; int16_t; uint
+    - float; float; uint
+    - float; float; int16_t
+    - double; double; uint
+    - uint8_t; int16_t; int16_t
+    
+    
+    -----
+
+    Constructor:
+    ============
+    
+    Standard constructor.
+    
+    -----
+
+    Available in:
+    
+    - C++
+    - Python
+    - Matlab
+    
+    
+    -----
+
+    
+    Parameters
+    ==========
+    
+    n_thresholds : size_t>0
+      The number of thresholds to evaluate per split.
+    
+    n_classes : size_t>1
+      The number of classes in the data. Default: 2.
+    
+    offset_dim : size_t>0
+      The dimensionality of the offset annotation (usually 2). Default: 2.
+    
+    gain_threshold : float
+      The minimum gain to accept a split as valid. Default: 0.f.
+    
+    random_seed : unsigned int>0
+      The seed for the RNG. Must be greater 0. Default: 1.
+    r"""
+    attrname = 'MultiClassVarianceClassificationThresholdOptimizer_%s_%s_%s' % (self._inp_str, self._feat_str, self._ann_str)
+    cons_method = None
+    for part_mod in _pyfertilized:
+        if hasattr(part_mod, attrname):
+            cons_method = part_mod.__dict__[attrname]
+            break
+    if cons_method is None:
+      raise Exception("This object is not supported by the current Soil (pyfertilized.%s)!" % (attrname))
+    obj = cons_method(
+        n_thresholds,
+        n_classes,
+        offset_dim,
+        gain_threshold,
+        random_seed
+          )
+    return obj
+
+  def VarianceClassificationThresholdOptimizerWEntropy(self,
+        
+        n_thresholds,
+        n_classes,
+        offset_dim,
+        ent_calc,
+        gain_threshold=1,
+        random_seed=1
+           ):
+    r"""Class information:
+    ==================
+    
+    Multi-class version of VarianceClassificationThresholdOptimizerWEntropy.
+    
+    Optimizes a threshold by selecting the best some random values with respect to the variance of example offsets.
+    The annotations are assumed to be a class label followed by its offset
+    values. Since all these values must be of the same datatype, the only supported type
+    is (signed) int in this case (to allow for negative offsets). The class labels
+    must still be in [0; n_classes - 1].
+    
+    This threshold optimizer draws n_thresholds random values between
+    the minimum and maximum observed feature value and returns the best
+    one.
+    
+    
+    -----
+
+    Available in:
+    
+    - C++
+    - Python
+    - Matlab
+    
+    Instantiations:
+    
+    - int; int; uint
+    - int; float; uint
+    - float; int; uint
+    - uint8_t; int; uint
+    - uint8_t; uint8_t; uint
+    - uint8_t; float; uint
+    - uint8_t; int16_t; uint
+    - float; float; uint
+    - float; float; int16_t
+    - double; double; uint
+    - uint8_t; int16_t; int16_t
+    
+    
+    -----
+
+    Constructor:
+    ============
+    
+    Constructor with optional entropy function specification.
+    
+    Parameters
+    ==========
+    
+    n_thresholds : size_t
+      The number of thresholds to evaluate per split.
+    
+    n_classes : size_t
+      The number of classes in the data. Currently only 2 are supported! Default: 2.
+    
+    offset_dim : size_t
+      The dimensionality of the offset annotation (usually 2). Default: 2.
+    
+    ent_calc : shared(IEntropyFunction<float>) or nullptr
+      If not nullptr, a normal distribution of offsets is assumed and the
+      entropy is measured using the specified differential entropy.
+      Default: nullptr.
+    
+    gain_threshold : float
+      The minimum gain to accept a split as valid. Default: 0.f.
+    
+    random_seed : unsigned int>0
+      The seed for the RNG. Must be greater 0. Default: 1.
+    
+    -----
+
+    Available in:
+    
+    - C++
+    - Python
+    
+    Exported name: VarianceClassificationThresholdOptimizerWEntropy
+    
+    -----
+
+    r"""
+    attrname = 'MultiClassVarianceClassificationThresholdOptimizer_%s_%s_%s' % (self._inp_str, self._feat_str, self._ann_str)
+    cons_method = None
+    for part_mod in _pyfertilized:
+        if hasattr(part_mod, attrname):
+            cons_method = part_mod.__dict__[attrname]
+            break
+    if cons_method is None:
+      raise Exception("This object is not supported by the current Soil (pyfertilized.%s)!" % (attrname))
+    obj = cons_method(
+        n_thresholds,
+        n_classes,
+        offset_dim,
+        ent_calc,
+        gain_threshold,
+        random_seed
+          )
+    return obj
+
   def NoBagging(self,
         
            ):
@@ -3781,6 +3990,7 @@ class Soil:
     - uint8_t; float; uint
     - uint8_t; int16_t; uint
     - float; float; uint
+    - float; float; int16_t
     - double; double; uint
     - uint8_t; int16_t; int16_t
     
@@ -3881,6 +4091,7 @@ class Soil:
     - uint8_t; float; uint
     - uint8_t; int16_t; uint
     - float; float; uint
+    - float; float; int16_t
     - double; double; uint
     - uint8_t; int16_t; int16_t
     

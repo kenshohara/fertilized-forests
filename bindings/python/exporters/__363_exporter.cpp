@@ -3,13 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__NoCopyPatchSampleManager_exporter.h"
+#include "./__VarianceClassificationThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_363() {
-    export_NoCopyPatchSampleManager<
+    export_VarianceClassificationThresholdOptimizer<
               uint8_t,
-              int16_t
-                            >("_uint8_int16");
+              float,
+              uint
+                            >("_uint8_f_uint");
   };
 }  // namespace pyfertilized

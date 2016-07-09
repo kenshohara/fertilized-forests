@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/features/standardfeatureselectionprovider.h"
+#include "fertilized/bagging/roughlybalancedbagging.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,14 +20,20 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "StandardFeatureSelectionProvider is higher than the current library version "
+          "RoughlyBalancedBagging is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<StandardFeatureSelectionProvider>();
+      ar.template register_type<RoughlyBalancedBagging<
+              float,
+              float,
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+	  >>();
     }
   };
   TemplateFuncExport DllExport void __serialization_register_272(
@@ -39,9 +45,27 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const StandardFeatureSelectionProvider*, const bool &);
-    TemplateFuncExport DllExport StandardFeatureSelectionProvider* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, StandardFeatureSelectionProvider*);
+    TemplateFuncExport DllExport std::string serialize(const RoughlyBalancedBagging<
+              float,
+              float,
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+	  > *, const bool &);
+    TemplateFuncExport DllExport RoughlyBalancedBagging<
+              float,
+              float,
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+	  >* deserialize(std::stringstream &);
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, RoughlyBalancedBagging<
+              float,
+              float,
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+	  >*);
 }  // namespace fertilized
 
 // For types, etc.
@@ -49,8 +73,14 @@ using namespace fertilized;
 namespace boost {
 namespace serialization {
 
-template<>
-struct version<StandardFeatureSelectionProvider > {
+template <>
+struct version<RoughlyBalancedBagging<
+              float,
+              float,
+              float,
+              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;
     BOOST_STATIC_CONSTANT(int, value = version::type::value);

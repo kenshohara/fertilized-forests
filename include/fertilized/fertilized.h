@@ -101,6 +101,7 @@
 #include "./threshold_optimizers/classificationthresholdoptimizer.h"
 #include "./threshold_optimizers/feature_value_selection.h"
 #include "./threshold_optimizers/ithresholdoptimizer.h"
+#include "./threshold_optimizers/multiclassvarianceclassificationthresholdoptimizer.h"
 #include "./threshold_optimizers/randomizedclassificationthresholdoptimizer.h"
 #include "./threshold_optimizers/regressionthresholdoptimizer.h"
 #include "./threshold_optimizers/twosideclassificationthresholdoptimizer.h"

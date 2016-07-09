@@ -1812,6 +1812,103 @@ classdef Soil
             ptr = calllib(this.LibName, getter, num_threads);
             res = LocalExecutionStrategy(this.getDataTypes(), this.LibName, ptr, '%s%s');    
         end
+        function [res] = MultiClassVarianceClassificationThresholdOptimizer(this, n_thresholds, n_classes, offset_dim, gain_threshold, random_seed)
+            % Class information:
+            % ==================
+            % 
+            % Multi-class version of VarianceClassificationThresholdOptimizerWEntropy.
+            % 
+            % Optimizes a threshold by selecting the best some random values with respect to the variance of example offsets.
+            % The annotations are assumed to be a class label followed by its offset
+            % values. Since all these values must be of the same datatype, the only supported type
+            % is (signed) int in this case (to allow for negative offsets). The class labels
+            % must still be in [0; n_classes - 1].
+            % 
+            % This threshold optimizer draws n_thresholds random values between
+            % the minimum and maximum observed feature value and returns the best
+            % one.
+            % 
+            % 
+            % -----
+            % 
+            % Available in:
+            % 
+            % - C++
+            % - Python
+            % - Matlab
+            % 
+            % Instantiations:
+            % 
+            % - int; int; uint
+            % - int; float; uint
+            % - float; int; uint
+            % - uint8_t; int; uint
+            % - uint8_t; uint8_t; uint
+            % - uint8_t; float; uint
+            % - uint8_t; int16_t; uint
+            % - float; float; uint
+            % - float; float; int16_t
+            % - double; double; uint
+            % - uint8_t; int16_t; int16_t
+            % 
+            % 
+            % -----
+            % 
+            % Constructor:
+            % ============
+            % 
+            % Standard constructor.
+            % 
+            % -----
+            % 
+            % Available in:
+            % 
+            % - C++
+            % - Python
+            % - Matlab
+            % 
+            % 
+            % -----
+            % 
+            % 
+            % Parameters
+            % ==========
+            % 
+            % n_thresholds : size_t>0
+            %   The number of thresholds to evaluate per split.
+            % 
+            % n_classes : size_t>1
+            %   The number of classes in the data. Default: 2.
+            % 
+            % offset_dim : size_t>0
+            %   The dimensionality of the offset annotation (usually 2). Default: 2.
+            % 
+            % gain_threshold : float
+            %   The minimum gain to accept a split as valid. Default: 0.f.
+            % 
+            % random_seed : unsigned int>0
+            %   The seed for the RNG. Must be greater 0. Default: 1.
+            if ~exist('n_classes', 'var') || n_classes == -1
+                n_classes = 2;
+            end    
+            if ~exist('offset_dim', 'var') || offset_dim == -1
+                offset_dim = 2;
+            end    
+            if ~exist('gain_threshold', 'var') || gain_threshold == -1
+                gain_threshold = 0;
+            end    
+            if ~exist('random_seed', 'var') || random_seed == -1
+                random_seed = 1;
+            end    
+            position_list = [1,2,3];
+            tmp = '';
+            for i = position_list
+                tmp = strcat(tmp, '_', this.getDataTypes(i));
+            end
+            getter = sprintf('%s%s%s', 'get', 'MultiClassVarianceClassificationThresholdOptimizer', tmp);
+            ptr = calllib(this.LibName, getter, n_thresholds, n_classes, offset_dim, gain_threshold, random_seed);
+            res = MultiClassVarianceClassificationThresholdOptimizer(this.getDataTypes(), this.LibName, ptr, '%s%s');    
+        end
         function [res] = NoBagging(this)
             % Class information:
             % ==================
@@ -3607,6 +3704,7 @@ classdef Soil
             % - uint8_t; float; uint
             % - uint8_t; int16_t; uint
             % - float; float; uint
+            % - float; float; int16_t
             % - double; double; uint
             % - uint8_t; int16_t; int16_t
             % 

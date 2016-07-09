@@ -3,16 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__NoBagging_exporter.h"
+#include "./__MultiClassVarianceClassificationThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_249() {
-    export_NoBagging<
-              double,
-              double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
-                            >("_d_d_uint_fv_fv");
+    export_MultiClassVarianceClassificationThresholdOptimizer<
+              float,
+              int,
+              uint
+                            >("_f_i_uint");
   };
 }  // namespace pyfertilized

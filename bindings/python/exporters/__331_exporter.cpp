@@ -3,13 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__UnchangedDataProvider_exporter.h"
+#include "./__TsallisEntropy_exporter.h"
 
 namespace pyfertilized {
   void __python_export_331() {
-    export_UnchangedDataProvider<
-              float,
+    export_TsallisEntropy<
               uint
-                            >("_f_uint");
+                            >("_uint");
   };
 }  // namespace pyfertilized

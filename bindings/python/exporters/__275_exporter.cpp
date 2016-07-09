@@ -3,14 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__RandomizedClassificationThresholdOptimizer_exporter.h"
+#include "./__QuadraticSurfaceCalculator_exporter.h"
 
 namespace pyfertilized {
   void __python_export_275() {
-    export_RandomizedClassificationThresholdOptimizer<
-              uint8_t,
-              int16_t,
-              int16_t
-                            >("_uint8_int16_int16");
+    export_QuadraticSurfaceCalculator<
+              double,
+              uint
+                            >("_d_uint");
   };
 }  // namespace pyfertilized

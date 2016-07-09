@@ -3,16 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__RoughlyBalancedBagging_exporter.h"
+#include "./__RandomizedClassificationThresholdOptimizer_exporter.h"
 
 namespace pyfertilized {
   void __python_export_284() {
-    export_RoughlyBalancedBagging<
-              double,
-              double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
-                            >("_d_d_uint_fv_fv");
+    export_RandomizedClassificationThresholdOptimizer<
+              float,
+              float,
+              uint
+                            >("_f_f_uint");
   };
 }  // namespace pyfertilized

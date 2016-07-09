@@ -1210,6 +1210,123 @@ namespace fertilized {
 	   ));
   };
 
+  auto multiclassvarianceclassificationthresholdoptimizer_vec_t() -> std::vector<std::shared_ptr<fertilized::MultiClassVarianceClassificationThresholdOptimizer<input_dtype,feature_dtype,annotation_dtype>>>;
+  /**
+* \brief Multi-class version of VarianceClassificationThresholdOptimizerWEntropy.
+*
+* \brief Optimizes a threshold by selecting the best some random values with respect to the variance of example offsets.
+* The annotations are assumed to be a class label followed by its offset
+* values. Since all these values must be of the same datatype, the only supported type
+* is (signed) int in this case (to allow for negative offsets). The class labels
+* must still be in [0; n_classes - 1].
+*
+* This threshold optimizer draws n_thresholds random values between
+* the minimum and maximum observed feature value and returns the best
+* one.
+*
+* \ingroup fertilizedthreshold_optimizersGroup
+*
+* -----
+* Available in:
+* - C++
+* - Python
+* - Matlab
+* .
+* Instantiations:
+* - int; int; uint
+* - int; float; uint
+* - float; int; uint
+* - uint8_t; int; uint
+* - uint8_t; uint8_t; uint
+* - uint8_t; float; uint
+* - uint8_t; int16_t; uint
+* - float; float; uint
+* - float; float; int16_t
+* - double; double; uint
+* - uint8_t; int16_t; int16_t
+* .
+*
+* -----
+*/
+  std::shared_ptr<fertilized::MultiClassVarianceClassificationThresholdOptimizer<input_dtype,feature_dtype,annotation_dtype>>
+  MultiClassVarianceClassificationThresholdOptimizer(
+
+        const size_t & n_thresholds,
+        const size_t & n_classes=2,
+        const size_t & offset_dim=2,
+        const float & gain_threshold=0,
+        const unsigned int & random_seed=1
+    ) {
+   return std::shared_ptr<fertilized::MultiClassVarianceClassificationThresholdOptimizer<input_dtype,feature_dtype,annotation_dtype>>(
+     new fertilized::MultiClassVarianceClassificationThresholdOptimizer<input_dtype,feature_dtype,annotation_dtype>(
+
+         n_thresholds,
+         n_classes,
+         offset_dim,
+         gain_threshold,
+         random_seed
+	   ));
+  };
+
+  /**
+* \brief Multi-class version of VarianceClassificationThresholdOptimizerWEntropy.
+*
+* \brief Optimizes a threshold by selecting the best some random values with respect to the variance of example offsets.
+* The annotations are assumed to be a class label followed by its offset
+* values. Since all these values must be of the same datatype, the only supported type
+* is (signed) int in this case (to allow for negative offsets). The class labels
+* must still be in [0; n_classes - 1].
+*
+* This threshold optimizer draws n_thresholds random values between
+* the minimum and maximum observed feature value and returns the best
+* one.
+*
+* \ingroup fertilizedthreshold_optimizersGroup
+*
+* -----
+* Available in:
+* - C++
+* - Python
+* - Matlab
+* .
+* Instantiations:
+* - int; int; uint
+* - int; float; uint
+* - float; int; uint
+* - uint8_t; int; uint
+* - uint8_t; uint8_t; uint
+* - uint8_t; float; uint
+* - uint8_t; int16_t; uint
+* - float; float; uint
+* - float; float; int16_t
+* - double; double; uint
+* - uint8_t; int16_t; int16_t
+* .
+*
+* -----
+*/
+  std::shared_ptr<fertilized::MultiClassVarianceClassificationThresholdOptimizer<input_dtype,feature_dtype,annotation_dtype>>
+  VarianceClassificationThresholdOptimizerWEntropy(
+
+        const size_t & n_thresholds,
+        const size_t & n_classes,
+        const size_t & offset_dim,
+        const std::shared_ptr<fertilized::IEntropyFunction<float> > & ent_calc,
+        const float & gain_threshold=1,
+        const unsigned int & random_seed=1
+    ) {
+   return std::shared_ptr<fertilized::MultiClassVarianceClassificationThresholdOptimizer<input_dtype,feature_dtype,annotation_dtype>>(
+     new fertilized::MultiClassVarianceClassificationThresholdOptimizer<input_dtype,feature_dtype,annotation_dtype>(
+
+         n_thresholds,
+         n_classes,
+         offset_dim,
+         ent_calc,
+         gain_threshold,
+         random_seed
+	   ));
+  };
+
   auto nobagging_vec_t() -> std::vector<std::shared_ptr<fertilized::NoBagging<input_dtype,feature_dtype,annotation_dtype,leaf_return_dtype,forest_return_dtype>>>;
   /**
 * As the name suggests, performs no bagging and uses all samples for all trees.
@@ -2303,6 +2420,7 @@ namespace fertilized {
 * - uint8_t; float; uint
 * - uint8_t; int16_t; uint
 * - float; float; uint
+* - float; float; int16_t
 * - double; double; uint
 * - uint8_t; int16_t; int16_t
 * .
@@ -2358,6 +2476,7 @@ namespace fertilized {
 * - uint8_t; float; uint
 * - uint8_t; int16_t; uint
 * - float; float; uint
+* - float; float; int16_t
 * - double; double; uint
 * - uint8_t; int16_t; int16_t
 * .
