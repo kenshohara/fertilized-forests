@@ -39,7 +39,7 @@
 #include "./leafs/classificationleafmanager.h"
 #include "./leafs/regressionleafmanager.h"
 #include "./leafs/houghleafmanager.h"
-#include "./leafs"
+#include "./leafs/multiclasshoughleafmanager.h"
 #include "./leafs/ileafmanager.h"
 #include "./features/isurfacecalculator.h"
 #include "./deciders/idecider.h"
@@ -1011,8 +1011,8 @@ namespace fertilized {
         n_thresholds_per_split,
         n_classes, gainc, class_gain_threshold,
         annotation_dimension, random_seed));
-    auto var_thresh_opt = std::shared_ptr<MulticlassVarianceClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>>(
-      new MulticlassVarianceClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>(
+    auto var_thresh_opt = std::shared_ptr<MultiClassVarianceClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>>(
+      new MultiClassVarianceClassificationThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>(
         n_thresholds_per_split, n_classes, offset_dimension, entropy_reg, var_gain_threshold, random_seed+1));
     auto alt_thresh_opt = std::shared_ptr<AlternatingThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>>(
       new AlternatingThresholdOptimizer<input_dtype, feature_dtype, annotation_dtype>(
