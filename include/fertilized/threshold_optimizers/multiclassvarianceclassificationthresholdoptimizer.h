@@ -326,7 +326,7 @@ namespace fertilized {
           class_id = *xn;
           xn++;
         }
-        class_weight_sums_right[class_label] += weights[i];
+        class_weight_sums_right[class_id] += weights[i];
         for (size_t j = 0; j < offset_dim; ++j, ++xn) {
           mu_old = class_means_right[class_id][j];
           xnv = static_cast<float>(*xn);
@@ -359,7 +359,7 @@ namespace fertilized {
       }
 
       float weight_sum_left = 0.f;
-      float weight_sum_right = std::accumulate(std::begin(class_weight_sums_right), std::end(class_weight_sums_right()), 0.f);
+      float weight_sum_right = std::accumulate(std::begin(class_weight_sums_right), std::end(class_weight_sums_right), 0.f);
       float weight_sum = weight_sum_right;
       // Feature value trackers.
       feature_dtype last_val = std::numeric_limits<feature_dtype>::lowest();
@@ -493,7 +493,7 @@ namespace fertilized {
     bool operator==(const IThresholdOptimizer<input_dtype,
                     feature_dtype,
                     annotation_dtype> &rhs) const {
-      const auto *rhs_c = dynamic_cast<VarianceClassificationThresholdOptimizer<input_dtype,
+      const auto *rhs_c = dynamic_cast<MultiClassVarianceClassificationThresholdOptimizer<input_dtype,
                                                            feature_dtype,
                                                            annotation_dtype> const *>(&rhs);
       if (rhs_c == nullptr) {
@@ -527,7 +527,7 @@ namespace fertilized {
 #endif
    protected:
      // cppcheck-suppress uninitVar
-     VarianceClassificationThresholdOptimizer() :
+     MultiClassVarianceClassificationThresholdOptimizer() :
         seed_dist(0U, std::numeric_limits<unsigned int>::max()) {}
 
    private:
@@ -541,7 +541,7 @@ namespace fertilized {
     unsigned int main_seed;
     std::uniform_int_distribution<unsigned int> seed_dist;
 
-    DISALLOW_COPY_AND_ASSIGN(VarianceClassificationThresholdOptimizer);
+    DISALLOW_COPY_AND_ASSIGN(MultiClassVarianceClassificationThresholdOptimizer);
   };
 
 
