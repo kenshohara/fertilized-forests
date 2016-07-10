@@ -67,10 +67,6 @@ namespace fertilized {
     : n_classes(n_classes), annot_dim(annot_dim)
     , distribution_map(std::unordered_map<node_id_t,
        std::tuple<float, std::shared_ptr<std::vector<annotation_dtype>>, std::shared_ptr<std::vector<annotation_dtype>>>>()) {
-      if (n_classes != 2) {
-        throw Fertilized_Exception("The HoughLeaf Manager currently only supports "
-          "two classes!");
-      }
       if (annot_dim == 0) {
         throw Fertilized_Exception("The number of annotation dimensions should "
           "be greater 0!");
