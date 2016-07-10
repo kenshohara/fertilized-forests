@@ -210,7 +210,7 @@ namespace fertilized {
             "The canonic choice is tree max depth - 2. The value 0 is not "
             "accepted.");
         }
-        if (n_classes >= 2) {
+        if (n_classes < 2) {
           throw Fertilized_Exception("The number of classes must be >=2.");
         }
       }
