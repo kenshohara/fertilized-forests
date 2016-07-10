@@ -2246,7 +2246,7 @@ class Soil:
           )
     return obj
 
-  def VarianceClassificationThresholdOptimizerWEntropy(self,
+  def MutiClassVarianceClassificationThresholdOptimizerWEntropy(self,
         
         n_thresholds,
         n_classes,
@@ -2331,7 +2331,7 @@ class Soil:
     - C++
     - Python
     
-    Exported name: VarianceClassificationThresholdOptimizerWEntropy
+    Exported name: MutiClassVarianceClassificationThresholdOptimizerWEntropy
     
     -----
 

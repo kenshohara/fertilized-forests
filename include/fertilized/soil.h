@@ -1306,7 +1306,7 @@ namespace fertilized {
 * -----
 */
   std::shared_ptr<fertilized::MultiClassVarianceClassificationThresholdOptimizer<input_dtype,feature_dtype,annotation_dtype>>
-  VarianceClassificationThresholdOptimizerWEntropy(
+  MutiClassVarianceClassificationThresholdOptimizerWEntropy(
 
         const size_t & n_thresholds,
         const size_t & n_classes,
