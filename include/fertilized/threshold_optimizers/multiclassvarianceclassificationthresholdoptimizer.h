@@ -133,10 +133,6 @@ namespace fertilized {
       if (random_seed == 0) {
         throw Fertilized_Exception("Need a random seed >= 1!");
       }
-      if (n_classes != 2) {
-        throw Fertilized_Exception("The VarianceClassificationThresholdOptimizer "
-          "currently only supports two classes!");
-      }
     }
 
     /**
@@ -184,10 +180,6 @@ namespace fertilized {
         seed_dist(0U, std::numeric_limits<unsigned int>::max()) {
       if (random_seed == 0) {
         throw Fertilized_Exception("Need a random seed >= 1!");
-      }
-      if (n_classes != 2) {
-        throw Fertilized_Exception("The VarianceClassificationThresholdOptimizer "
-          "currently only supports two classes!");
       }
     }
 
