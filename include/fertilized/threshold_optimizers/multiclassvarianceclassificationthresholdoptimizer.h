@@ -158,7 +158,7 @@ namespace fertilized {
      * - C++
      * - Python
      * .
-     * Exported name: VarianceClassificationThresholdOptimizerWEntropy
+     * Exported name: MutiClassVarianceClassificationThresholdOptimizerWEntropy
      *
      * -----
      */
