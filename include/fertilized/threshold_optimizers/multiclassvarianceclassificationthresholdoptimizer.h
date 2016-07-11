@@ -18,6 +18,7 @@
 #include <random>
 #include <set>
 #include <numeric>
+#include <cmath>
 
 #include "../global.h"
 #include "../types.h"
@@ -335,6 +336,9 @@ namespace fertilized {
       float current_entropy = 0.f;
       if (entropy_calculator.get() == nullptr) {
         for (size_t class_id = 0; class_id < n_classes; ++class_id) {
+          if (class_weight_sums_right[class_id] < std::numeric_limits<float>::epsilon()) {
+            continue;
+          }
           float class_current_entropy = 0.f;
           for (size_t i = 0; i < offset_dim; ++i) {
             class_current_entropy += class_vars_right[class_id][i];
@@ -347,7 +351,7 @@ namespace fertilized {
             covar_mat(i, i) = class_vars_right[class_id][i] / class_weight_sums_right[class_id];
           }
           float class_entropy = entropy_calculator -> differential_normal(covar_mat);
-          if (class_entropy != -std::numeric_limits<float>::infinity()) {
+          if (!std::isinf(class_entropy) && !std::isnan(class_entropy)) {
             current_entropy += class_entropy;
           }
         }
@@ -400,8 +404,8 @@ namespace fertilized {
             for (size_t class_id = 0; class_id < n_classes; ++class_id) {
               for (size_t i = 0; i < offset_dim; ++i)
                 covar_mat(i, i) = class_vars_left[class_id][i] / class_weight_sums_left[class_id];
-              float class_entropy = entropy_calculator -> differential_normal(covar_mat);
-              if (class_entropy != -std::numeric_limits<float>::infinity()) {
+              float class_entropy = entropy_calculator->differential_normal(covar_mat);
+              if (!std::isinf(class_entropy) && !std::isnan(class_entropy)) {
                 eleft += class_entropy;
               }
             }
@@ -415,7 +419,7 @@ namespace fertilized {
               for (size_t i = 0; i < offset_dim; ++i)
                 covar_mat(i, i) = class_vars_right[class_id][i] / class_weight_sums_right[class_id];
               float class_entropy = entropy_calculator -> differential_normal(covar_mat);
-              if (class_entropy != -std::numeric_limits<float>::infinity()) {
+              if (!std::isinf(class_entropy) && !std::isnan(class_entropy)) {
                 eright += class_entropy;
               }
             }
