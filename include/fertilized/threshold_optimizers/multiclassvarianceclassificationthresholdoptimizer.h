@@ -400,7 +400,7 @@ namespace fertilized {
             for (size_t class_id = 0; class_id < n_classes; ++class_id) {
               for (size_t i = 0; i < offset_dim; ++i)
                 covar_mat(i, i) = class_vars_left[class_id][i] / class_weight_sums_left[class_id];
-              float class_entropy = entropy_calculator -> differential_normal(covar_mat)
+              float class_entropy = entropy_calculator -> differential_normal(covar_mat);
               if (class_entropy != -std::numeric_limits<float>::infinity()) {
                 eleft += class_entropy;
               }
