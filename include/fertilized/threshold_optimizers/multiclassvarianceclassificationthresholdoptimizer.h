@@ -304,6 +304,8 @@ namespace fertilized {
       std::vector<std::vector<float>> class_means_left(class_means_right), class_vars_left(class_vars_right);
       std::vector<float> class_weight_sums_left(n_classes, 0.f);
       std::vector<float> class_weight_sums_right(n_classes, 0.f);
+      std::vector<size_t> class_n_samples_left(n_classes, 0);
+      std::vector<size_t> class_n_samples_right(n_classes, 0);
       float mu_old;
       const annotation_dtype *xn = annotations;
       float xnv;
@@ -319,6 +321,7 @@ namespace fertilized {
           xn++;
         }
         class_weight_sums_right[class_id] += weights[i];
+        class_n_samples_right[class_id]++;
         for (size_t j = 0; j < offset_dim; ++j, ++xn) {
           mu_old = class_means_right[class_id][j];
           xnv = static_cast<float>(*xn);
@@ -335,10 +338,6 @@ namespace fertilized {
       float current_entropy = 0.f;
       if (entropy_calculator.get() == nullptr) {
         for (size_t class_id = 0; class_id < n_classes; ++class_id) {
-          if (class_weight_sums_right[class_id] < std::numeric_limits<float>::epsilon()) {
-            continue;
-          }
-
           float class_current_entropy = 0.f;
           for (size_t i = 0; i < offset_dim; ++i) {
             class_current_entropy += class_vars_right[class_id][i];
@@ -347,7 +346,7 @@ namespace fertilized {
         }
       } else {
         for (size_t class_id = 0; class_id < n_classes; ++class_id) {
-          if (class_weight_sums_right[class_id] < std::numeric_limits<float>::epsilon()) {
+          if (class_n_samples_right[class_id] <= 1) {
             continue;
           }
           for (size_t i = 0; i < offset_dim; ++i) {
@@ -402,7 +401,7 @@ namespace fertilized {
             current_gain = - eleft - eright;
           } else {
             for (size_t class_id = 0; class_id < n_classes; ++class_id) {
-              if (class_weight_sums_left[class_id] < std::numeric_limits<float>::epsilon()) {
+              if (class_n_samples_left[class_id] <= 1) {
                 continue;
               }
               for (size_t i = 0; i < offset_dim; ++i)
@@ -416,7 +415,7 @@ namespace fertilized {
               goto gain_comparison;
             }
             for (size_t class_id = 0; class_id < n_classes; ++class_id) {
-              if (class_weight_sums_right[class_id] < std::numeric_limits<float>::epsilon()) {
+              if (class_n_samples_right[class_id] <= 1) {
                 continue;
               }
               for (size_t i = 0; i < offset_dim; ++i)
@@ -446,10 +445,12 @@ namespace fertilized {
           // Update the histograms.
           weight_sum_left += current_weight;
           class_weight_sums_left[current_annot] += current_weight;
+          class_n_samples_left[current_annot]++;
           FASSERT(weight_sum_right >= current_weight);
           float wquot = class_weight_sums_right[current_annot] / current_weight;
           weight_sum_right -= current_weight;
           class_weight_sums_right[current_annot] -= current_weight;
+          class_n_samples_right[current_annot]--;
           float current_elem;
           for (size_t dim_index = 0; dim_index < offset_dim; ++dim_index) {
             mu_old = class_means_left[current_annot][dim_index];
