@@ -8,7 +8,7 @@
 namespace pyfertilized {
   void __python_export_317() {
     export_ShannonEntropy<
-              uint
-                            >("_uint");
+              float
+                            >("_f");
   };
 }  // namespace pyfertilized

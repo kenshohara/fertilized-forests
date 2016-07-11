@@ -28,8 +28,8 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<VarianceClassificationThresholdOptimizer<
-              int,
               float,
+              int,
               uint
 	  >>();
     }
@@ -44,18 +44,18 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const VarianceClassificationThresholdOptimizer<
-              int,
               float,
+              int,
               uint
 	  > *, const bool &);
     TemplateFuncExport DllExport VarianceClassificationThresholdOptimizer<
-              int,
               float,
+              int,
               uint
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, VarianceClassificationThresholdOptimizer<
-              int,
               float,
+              int,
               uint
 	  >*);
 }  // namespace fertilized
@@ -67,8 +67,8 @@ namespace serialization {
 
 template <>
 struct version<VarianceClassificationThresholdOptimizer<
-              int,
               float,
+              int,
               uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;

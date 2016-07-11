@@ -3,16 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__RoughlyBalancedBagging_exporter.h"
+#include "./__RenyiEntropy_exporter.h"
 
 namespace pyfertilized {
   void __python_export_293() {
-    export_RoughlyBalancedBagging<
-              int,
-              int,
-              uint,
-              std::vector<float>,
-              std::vector<float>
-                            >("_i_i_uint_fv_fv");
+    export_RenyiEntropy<
+              uint
+                            >("_uint");
   };
 }  // namespace pyfertilized

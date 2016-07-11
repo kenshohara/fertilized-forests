@@ -1474,6 +1474,10 @@ namespace fertilized {
     void __serialization_register_364(T &,
       const bool &always_register,
       const unsigned int &serialization_library_version);
+    template <typename T>
+    void __serialization_register_365(T &,
+      const bool &always_register,
+      const unsigned int &serialization_library_version);
   /**
    * \brief Template helper function for all archive types to register
    * derived classes with boost serialization.
@@ -2575,6 +2579,9 @@ namespace fertilized {
         always_register,
         serialization_library_version);
     __serialization_register_364(ar,
+        always_register,
+        serialization_library_version);
+    __serialization_register_365(ar,
         always_register,
         serialization_library_version);
   };

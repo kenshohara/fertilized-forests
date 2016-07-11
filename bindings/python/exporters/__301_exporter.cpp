@@ -8,11 +8,11 @@
 namespace pyfertilized {
   void __python_export_301() {
     export_RoughlyBalancedBagging<
-              float,
-              float,
+              uint8_t,
+              int16_t,
               int16_t,
               std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
               std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
-                            >("_f_f_int16_ht_vht");
+                            >("_uint8_int16_int16_ht_vht");
   };
 }  // namespace pyfertilized

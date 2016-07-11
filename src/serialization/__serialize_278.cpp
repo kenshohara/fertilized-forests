@@ -31,8 +31,8 @@ namespace fertilized {
               uint8_t,
               int16_t,
               int16_t,
-              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
 	  >>();
     }
   };
@@ -49,22 +49,22 @@ namespace fertilized {
               uint8_t,
               int16_t,
               int16_t,
-              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
 	  > *, const bool &);
     TemplateFuncExport DllExport RoughlyBalancedBagging<
               uint8_t,
               int16_t,
               int16_t,
-              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, RoughlyBalancedBagging<
               uint8_t,
               int16_t,
               int16_t,
-              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
 	  >*);
 }  // namespace fertilized
 
@@ -78,8 +78,8 @@ struct version<RoughlyBalancedBagging<
               uint8_t,
               int16_t,
               int16_t,
-              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

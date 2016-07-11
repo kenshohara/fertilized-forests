@@ -8,9 +8,9 @@
 namespace pyfertilized {
   void __python_export_327() {
     export_ThresholdDecider<
-              float,
-              float,
+              uint8_t,
+              int16_t,
               int16_t
-                            >("_f_f_int16");
+                            >("_uint8_int16_int16");
   };
 }  // namespace pyfertilized

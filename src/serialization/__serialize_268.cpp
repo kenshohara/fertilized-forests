@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/impurities/renyientropy.h"
+#include "fertilized/threshold_optimizers/regressionthresholdoptimizer.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,14 +20,15 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "RenyiEntropy is higher than the current library version "
+          "RegressionThresholdOptimizer is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<RenyiEntropy<
+      ar.template register_type<RegressionThresholdOptimizer<
+              float,
               float
 	  >>();
     }
@@ -41,13 +42,16 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const RenyiEntropy<
+    TemplateFuncExport DllExport std::string serialize(const RegressionThresholdOptimizer<
+              float,
               float
 	  > *, const bool &);
-    TemplateFuncExport DllExport RenyiEntropy<
+    TemplateFuncExport DllExport RegressionThresholdOptimizer<
+              float,
               float
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, RenyiEntropy<
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, RegressionThresholdOptimizer<
+              float,
               float
 	  >*);
 }  // namespace fertilized
@@ -58,7 +62,8 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<RenyiEntropy<
+struct version<RegressionThresholdOptimizer<
+              float,
               float
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;

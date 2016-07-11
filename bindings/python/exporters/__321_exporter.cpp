@@ -3,14 +3,13 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__ThresholdDecider_exporter.h"
+#include "./__SubsamplingDataProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_321() {
-    export_ThresholdDecider<
-              int,
-              int,
+    export_SubsamplingDataProvider<
+              uint8_t,
               uint
-                            >("_i_i_uint");
+                            >("_uint8_uint");
   };
 }  // namespace pyfertilized

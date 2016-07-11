@@ -10,9 +10,9 @@ namespace pyfertilized {
     export_RoughlyBalancedBagging<
               float,
               float,
-              float,
-              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
-                            >("_f_f_f_rpf_vprpff");
+              int16_t,
+              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
+                            >("_f_f_int16_ht_vht");
   };
 }  // namespace pyfertilized

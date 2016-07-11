@@ -28,8 +28,8 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<TwoSideClassificationThresholdOptimizer<
-              float,
-              float,
+              double,
+              double,
               uint
 	  >>();
     }
@@ -44,18 +44,18 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const TwoSideClassificationThresholdOptimizer<
-              float,
-              float,
+              double,
+              double,
               uint
 	  > *, const bool &);
     TemplateFuncExport DllExport TwoSideClassificationThresholdOptimizer<
-              float,
-              float,
+              double,
+              double,
               uint
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, TwoSideClassificationThresholdOptimizer<
-              float,
-              float,
+              double,
+              double,
               uint
 	  >*);
 }  // namespace fertilized
@@ -67,8 +67,8 @@ namespace serialization {
 
 template <>
 struct version<TwoSideClassificationThresholdOptimizer<
-              float,
-              float,
+              double,
+              double,
               uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;

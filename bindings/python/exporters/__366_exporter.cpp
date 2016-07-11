@@ -10,7 +10,7 @@ namespace pyfertilized {
     export_VarianceClassificationThresholdOptimizer<
               float,
               float,
-              int16_t
-                            >("_f_f_int16");
+              uint
+                            >("_f_f_uint");
   };
 }  // namespace pyfertilized

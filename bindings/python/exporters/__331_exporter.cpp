@@ -8,7 +8,7 @@
 namespace pyfertilized {
   void __python_export_331() {
     export_TsallisEntropy<
-              uint
-                            >("_uint");
+              float
+                            >("_f");
   };
 }  // namespace pyfertilized

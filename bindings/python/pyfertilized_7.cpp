@@ -54,6 +54,7 @@ namespace pyfertilized {
   void __python_export_374();
   void __python_export_375();
   void __python_export_376();
+  void __python_export_377();
 };
 
 BOOST_PYTHON_MODULE(pyfertilized_7) {
@@ -99,4 +100,5 @@ BOOST_PYTHON_MODULE(pyfertilized_7) {
   __python_export_374();
   __python_export_375();
   __python_export_376();
+  __python_export_377();
 };

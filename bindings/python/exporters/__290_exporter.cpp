@@ -8,8 +8,8 @@
 namespace pyfertilized {
   void __python_export_290() {
     export_RegressionThresholdOptimizer<
-              double,
-              double
-                            >("_d_d");
+              float,
+              float
+                            >("_f_f");
   };
 }  // namespace pyfertilized

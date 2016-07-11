@@ -3,13 +3,10 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__BoostingLeafManager_exporter.h"
+#include "./__VolumeFeatureSelectionProvider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_370() {
-    export_BoostingLeafManager<
-              int,
-              uint
-                            >("_i_uint");
+    export_VolumeFeatureSelectionProvider("");
   };
 }  // namespace pyfertilized

@@ -2634,6 +2634,7 @@ class Soil:
     - uint8_t; float; uint
     - uint8_t; int16_t; uint
     - float; float; uint
+    - float; float; int16_t
     - double; double; uint
     - uint8_t; int16_t; int16_t
     

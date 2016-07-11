@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/threshold_optimizers/regressionthresholdoptimizer.h"
+#include "fertilized/leafs/regressionleafmanager.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,16 +20,15 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "RegressionThresholdOptimizer is higher than the current library version "
+          "RegressionLeafManager is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<RegressionThresholdOptimizer<
-              double,
-              double
+      ar.template register_type<RegressionLeafManager<
+              float
 	  >>();
     }
   };
@@ -42,17 +41,14 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const RegressionThresholdOptimizer<
-              double,
-              double
+    TemplateFuncExport DllExport std::string serialize(const RegressionLeafManager<
+              float
 	  > *, const bool &);
-    TemplateFuncExport DllExport RegressionThresholdOptimizer<
-              double,
-              double
+    TemplateFuncExport DllExport RegressionLeafManager<
+              float
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, RegressionThresholdOptimizer<
-              double,
-              double
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, RegressionLeafManager<
+              float
 	  >*);
 }  // namespace fertilized
 
@@ -62,9 +58,8 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<RegressionThresholdOptimizer<
-              double,
-              double
+struct version<RegressionLeafManager<
+              float
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

@@ -30,7 +30,7 @@ namespace fertilized {
       ar.template register_type<ThresholdDecider<
               double,
               double,
-              uint
+              double
 	  >>();
     }
   };
@@ -46,17 +46,17 @@ namespace fertilized {
     TemplateFuncExport DllExport std::string serialize(const ThresholdDecider<
               double,
               double,
-              uint
+              double
 	  > *, const bool &);
     TemplateFuncExport DllExport ThresholdDecider<
               double,
               double,
-              uint
+              double
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, ThresholdDecider<
               double,
               double,
-              uint
+              double
 	  >*);
 }  // namespace fertilized
 
@@ -69,7 +69,7 @@ template <>
 struct version<ThresholdDecider<
               double,
               double,
-              uint
+              double
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

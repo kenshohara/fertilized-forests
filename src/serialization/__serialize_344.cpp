@@ -28,7 +28,7 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 101) {
       ar.template register_type<BoostingLeafManager<
-              int,
+              float,
               uint
 	  >>();
     }
@@ -43,15 +43,15 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const BoostingLeafManager<
-              int,
+              float,
               uint
 	  > *, const bool &);
     TemplateFuncExport DllExport BoostingLeafManager<
-              int,
+              float,
               uint
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, BoostingLeafManager<
-              int,
+              float,
               uint
 	  >*);
 }  // namespace fertilized
@@ -63,7 +63,7 @@ namespace serialization {
 
 template <>
 struct version<BoostingLeafManager<
-              int,
+              float,
               uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;

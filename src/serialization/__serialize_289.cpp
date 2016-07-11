@@ -28,8 +28,8 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<ThresholdDecider<
-              int,
-              int,
+              float,
+              float,
               uint
 	  >>();
     }
@@ -44,18 +44,18 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const ThresholdDecider<
-              int,
-              int,
+              float,
+              float,
               uint
 	  > *, const bool &);
     TemplateFuncExport DllExport ThresholdDecider<
-              int,
-              int,
+              float,
+              float,
               uint
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, ThresholdDecider<
-              int,
-              int,
+              float,
+              float,
               uint
 	  >*);
 }  // namespace fertilized
@@ -67,8 +67,8 @@ namespace serialization {
 
 template <>
 struct version<ThresholdDecider<
-              int,
-              int,
+              float,
+              float,
               uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;

@@ -8,8 +8,8 @@
 namespace pyfertilized {
   void __python_export_371() {
     export_BoostingLeafManager<
-              float,
+              int,
               uint
-                            >("_f_uint");
+                            >("_i_uint");
   };
 }  // namespace pyfertilized

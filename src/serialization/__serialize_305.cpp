@@ -28,7 +28,7 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<TsallisEntropy<
-              uint
+              float
 	  >>();
     }
   };
@@ -42,13 +42,13 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const TsallisEntropy<
-              uint
+              float
 	  > *, const bool &);
     TemplateFuncExport DllExport TsallisEntropy<
-              uint
+              float
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, TsallisEntropy<
-              uint
+              float
 	  >*);
 }  // namespace fertilized
 
@@ -59,7 +59,7 @@ namespace serialization {
 
 template <>
 struct version<TsallisEntropy<
-              uint
+              float
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

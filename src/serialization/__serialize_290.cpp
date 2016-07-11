@@ -28,9 +28,9 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<ThresholdDecider<
-              uint8_t,
-              int16_t,
-              int16_t
+              int,
+              int,
+              uint
 	  >>();
     }
   };
@@ -44,19 +44,19 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const ThresholdDecider<
-              uint8_t,
-              int16_t,
-              int16_t
+              int,
+              int,
+              uint
 	  > *, const bool &);
     TemplateFuncExport DllExport ThresholdDecider<
-              uint8_t,
-              int16_t,
-              int16_t
+              int,
+              int,
+              uint
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, ThresholdDecider<
-              uint8_t,
-              int16_t,
-              int16_t
+              int,
+              int,
+              uint
 	  >*);
 }  // namespace fertilized
 
@@ -67,9 +67,9 @@ namespace serialization {
 
 template <>
 struct version<ThresholdDecider<
-              uint8_t,
-              int16_t,
-              int16_t
+              int,
+              int,
+              uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

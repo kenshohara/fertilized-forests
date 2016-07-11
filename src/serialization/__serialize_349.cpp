@@ -39,22 +39,22 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const IBoostingStrategy<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
     TemplateFuncExport DllExport IBoostingStrategy<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, IBoostingStrategy<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -68,8 +68,8 @@ namespace serialization {
 
 template <>
 struct version<IBoostingStrategy<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>

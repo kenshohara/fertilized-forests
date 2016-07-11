@@ -30,7 +30,7 @@ namespace fertilized {
       ar.template register_type<Samme_R<
               uint8_t,
               int16_t,
-              uint,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >>();
@@ -48,21 +48,21 @@ namespace fertilized {
     TemplateFuncExport DllExport std::string serialize(const Samme_R<
               uint8_t,
               int16_t,
-              uint,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
     TemplateFuncExport DllExport Samme_R<
               uint8_t,
               int16_t,
-              uint,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, Samme_R<
               uint8_t,
               int16_t,
-              uint,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >*);
@@ -77,7 +77,7 @@ template <>
 struct version<Samme_R<
               uint8_t,
               int16_t,
-              uint,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >> {

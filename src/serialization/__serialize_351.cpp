@@ -41,21 +41,21 @@ namespace fertilized {
     TemplateFuncExport DllExport std::string serialize(const IBoostingStrategy<
               uint8_t,
               int16_t,
-              uint,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
     TemplateFuncExport DllExport IBoostingStrategy<
               uint8_t,
               int16_t,
-              uint,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, IBoostingStrategy<
               uint8_t,
               int16_t,
-              uint,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >*);
@@ -70,7 +70,7 @@ template <>
 struct version<IBoostingStrategy<
               uint8_t,
               int16_t,
-              uint,
+              int16_t,
               std::vector<float>,
               std::vector<float>
 	  >> {

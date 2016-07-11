@@ -10,7 +10,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/tree.h"
+#include "fertilized/deciders/thresholddecider.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
@@ -20,19 +20,17 @@ namespace fertilized {
                                           const unsigned int &serialization_library_version) {
     if (0 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "Tree is higher than the current library version "
+          "ThresholdDecider is higher than the current library version "
           "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
           "'global.h' to at least 0!");
     }
     if (always_register ||
         serialization_library_version >= 0) {
-      ar.template register_type<Tree<
-              double,
-              double,
-              double,
-              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
+      ar.template register_type<ThresholdDecider<
+              uint8_t,
+              uint8_t,
+              uint
 	  >>();
     }
   };
@@ -45,26 +43,20 @@ namespace fertilized {
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const Tree<
-              double,
-              double,
-              double,
-              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
+    TemplateFuncExport DllExport std::string serialize(const ThresholdDecider<
+              uint8_t,
+              uint8_t,
+              uint
 	  > *, const bool &);
-    TemplateFuncExport DllExport Tree<
-              double,
-              double,
-              double,
-              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
+    TemplateFuncExport DllExport ThresholdDecider<
+              uint8_t,
+              uint8_t,
+              uint
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, Tree<
-              double,
-              double,
-              double,
-              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, ThresholdDecider<
+              uint8_t,
+              uint8_t,
+              uint
 	  >*);
 }  // namespace fertilized
 
@@ -74,12 +66,10 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<Tree<
-              double,
-              double,
-              double,
-              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
+struct version<ThresholdDecider<
+              uint8_t,
+              uint8_t,
+              uint
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

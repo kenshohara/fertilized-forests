@@ -30,9 +30,9 @@ namespace fertilized {
       ar.template register_type<Tree<
               double,
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 	  >>();
     }
   };
@@ -48,23 +48,23 @@ namespace fertilized {
     TemplateFuncExport DllExport std::string serialize(const Tree<
               double,
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 	  > *, const bool &);
     TemplateFuncExport DllExport Tree<
               double,
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, Tree<
               double,
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 	  >*);
 }  // namespace fertilized
 
@@ -77,9 +77,9 @@ template <>
 struct version<Tree<
               double,
               double,
-              uint,
-              std::vector<float>,
-              std::vector<float>
+              double,
+              std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,
+              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<double>>,std::shared_ptr<std::vector<double>>>,float>>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

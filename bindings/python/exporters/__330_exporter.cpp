@@ -3,12 +3,14 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__TsallisEntropy_exporter.h"
+#include "./__ThresholdDecider_exporter.h"
 
 namespace pyfertilized {
   void __python_export_330() {
-    export_TsallisEntropy<
-              float
-                            >("_f");
+    export_ThresholdDecider<
+              double,
+              double,
+              double
+                            >("_d_d_d");
   };
 }  // namespace pyfertilized

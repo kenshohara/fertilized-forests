@@ -8,7 +8,7 @@
 namespace pyfertilized {
   void __python_export_288() {
     export_RegressionLeafManager<
-              double
-                            >("_d");
+              float
+                            >("_f");
   };
 }  // namespace pyfertilized

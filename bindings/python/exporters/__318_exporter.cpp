@@ -3,10 +3,12 @@
 /**
  * This is an automatically generated file!
  */
-#include "./__StandardFeatureSelectionProvider_exporter.h"
+#include "./__ShannonEntropy_exporter.h"
 
 namespace pyfertilized {
   void __python_export_318() {
-    export_StandardFeatureSelectionProvider("");
+    export_ShannonEntropy<
+              uint
+                            >("_uint");
   };
 }  // namespace pyfertilized

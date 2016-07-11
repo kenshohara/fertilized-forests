@@ -11,8 +11,8 @@ namespace pyfertilized {
               uint8_t,
               int16_t,
               int16_t,
-              std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>,
-              std::vector<std::tuple<float, std::shared_ptr<std::vector<int16_t>>, std::shared_ptr<std::vector<int16_t>>>>
-                            >("_uint8_int16_int16_ht_vht");
+              std::pair<float, std::shared_ptr<std::vector<int16_t>>>,
+              std::vector<std::pair<float, std::shared_ptr<std::vector<int16_t>>>>
+                            >("_uint8_int16_int16_hp_vhp");
   };
 }  // namespace pyfertilized

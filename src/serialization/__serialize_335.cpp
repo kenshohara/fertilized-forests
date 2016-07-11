@@ -29,7 +29,7 @@ namespace fertilized {
         serialization_library_version >= 101) {
       ar.template register_type<AdaBoost<
               uint8_t,
-              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -47,21 +47,21 @@ namespace fertilized {
 
     TemplateFuncExport DllExport std::string serialize(const AdaBoost<
               uint8_t,
-              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
     TemplateFuncExport DllExport AdaBoost<
               uint8_t,
-              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, AdaBoost<
               uint8_t,
-              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -76,7 +76,7 @@ namespace serialization {
 template <>
 struct version<AdaBoost<
               uint8_t,
-              uint8_t,
+              int16_t,
               uint,
               std::vector<float>,
               std::vector<float>

@@ -10,7 +10,7 @@ namespace pyfertilized {
     export_ThresholdDecider<
               float,
               float,
-              float
-                            >("_f_f_f");
+              int16_t
+                            >("_f_f_int16");
   };
 }  // namespace pyfertilized

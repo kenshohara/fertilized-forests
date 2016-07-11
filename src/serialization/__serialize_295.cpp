@@ -28,11 +28,11 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<Tree<
-              float,
-              float,
-              float,
-              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+              double,
+              double,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >>();
     }
   };
@@ -46,25 +46,25 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const Tree<
-              float,
-              float,
-              float,
-              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+              double,
+              double,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  > *, const bool &);
     TemplateFuncExport DllExport Tree<
-              float,
-              float,
-              float,
-              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+              double,
+              double,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, Tree<
-              float,
-              float,
-              float,
-              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+              double,
+              double,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >*);
 }  // namespace fertilized
 
@@ -75,11 +75,11 @@ namespace serialization {
 
 template <>
 struct version<Tree<
-              float,
-              float,
-              float,
-              std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,
-              std::vector<std::pair<std::pair<std::shared_ptr<std::vector<float>>,std::shared_ptr<std::vector<float>>>,float>>
+              double,
+              double,
+              uint,
+              std::vector<float>,
+              std::vector<float>
 	  >> {
     typedef mpl::int_<FERTILIZED_VERSION_COUNT> type;
     typedef mpl::integral_c_tag tag;

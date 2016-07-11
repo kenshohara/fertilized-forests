@@ -28,8 +28,8 @@ namespace fertilized {
     if (always_register ||
         serialization_library_version >= 0) {
       ar.template register_type<RoughlyBalancedBagging<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -46,22 +46,22 @@ namespace fertilized {
       const unsigned int &serialization_library_version);
 
     TemplateFuncExport DllExport std::string serialize(const RoughlyBalancedBagging<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
     TemplateFuncExport DllExport RoughlyBalancedBagging<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
     TemplateFuncExport DllExport void deserialize(std::stringstream &, RoughlyBalancedBagging<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -75,8 +75,8 @@ namespace serialization {
 
 template <>
 struct version<RoughlyBalancedBagging<
-              int,
-              int,
+              float,
+              float,
               uint,
               std::vector<float>,
               std::vector<float>

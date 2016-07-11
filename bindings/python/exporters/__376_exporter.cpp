@@ -9,7 +9,7 @@ namespace pyfertilized {
   void __python_export_376() {
     export_NoCopyPatchSampleManager<
               uint8_t,
-              uint
-                            >("_uint8_uint");
+              int16_t
+                            >("_uint8_int16");
   };
 }  // namespace pyfertilized

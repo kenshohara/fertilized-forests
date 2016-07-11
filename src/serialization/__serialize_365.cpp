@@ -10,58 +10,58 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/version.hpp>
 
-#include "fertilized/tree.h"
+#include "fertilized/boosting/samme_r.h"
 #include "fertilized/serialization/_serialization_definition.h"
 
 namespace fertilized {
   template <class Archive>
-  void __serialization_register_303(Archive &ar,
+  void __serialization_register_365(Archive &ar,
                                           const bool &always_register,
                                           const unsigned int &serialization_library_version) {
-    if (0 > FERTILIZED_LIB_VERSION()) {
+    if (101 > FERTILIZED_LIB_VERSION()) {
         throw Fertilized_Exception("The serialization generation of the class "
-          "Tree is higher than the current library version "
-          "(0 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
+          "Samme_R is higher than the current library version "
+          "(101 > " + std::to_string(FERTILIZED_LIB_VERSION()) +
           ")! This will break serialization! Raise the library version in the file "
-          "'global.h' to at least 0!");
+          "'global.h' to at least 101!");
     }
     if (always_register ||
-        serialization_library_version >= 0) {
-      ar.template register_type<Tree<
+        serialization_library_version >= 101) {
+      ar.template register_type<Samme_R<
               uint8_t,
-              int16_t,
+              uint8_t,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >>();
     }
   };
-  TemplateFuncExport DllExport void __serialization_register_303(
+  TemplateFuncExport DllExport void __serialization_register_365(
       boost::archive::text_iarchive &ar,
       const bool &always_register,
       const unsigned int &serialization_library_version);
-  TemplateFuncExport DllExport void __serialization_register_303(
+  TemplateFuncExport DllExport void __serialization_register_365(
       boost::archive::text_oarchive &ar,
       const bool &always_register,
       const unsigned int &serialization_library_version);
 
-    TemplateFuncExport DllExport std::string serialize(const Tree<
+    TemplateFuncExport DllExport std::string serialize(const Samme_R<
               uint8_t,
-              int16_t,
+              uint8_t,
               uint,
               std::vector<float>,
               std::vector<float>
 	  > *, const bool &);
-    TemplateFuncExport DllExport Tree<
+    TemplateFuncExport DllExport Samme_R<
               uint8_t,
-              int16_t,
+              uint8_t,
               uint,
               std::vector<float>,
               std::vector<float>
 	  >* deserialize(std::stringstream &);
-    TemplateFuncExport DllExport void deserialize(std::stringstream &, Tree<
+    TemplateFuncExport DllExport void deserialize(std::stringstream &, Samme_R<
               uint8_t,
-              int16_t,
+              uint8_t,
               uint,
               std::vector<float>,
               std::vector<float>
@@ -74,9 +74,9 @@ namespace boost {
 namespace serialization {
 
 template <>
-struct version<Tree<
+struct version<Samme_R<
               uint8_t,
-              int16_t,
+              uint8_t,
               uint,
               std::vector<float>,
               std::vector<float>

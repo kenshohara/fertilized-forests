@@ -9,8 +9,8 @@ namespace pyfertilized {
   void __python_export_333() {
     export_TwoSideClassificationThresholdOptimizer<
               int,
-              float,
+              int,
               uint
-                            >("_i_f_uint");
+                            >("_i_i_uint");
   };
 }  // namespace pyfertilized

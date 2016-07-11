@@ -8,8 +8,8 @@
 namespace pyfertilized {
   void __python_export_352() {
     export_UnchangedFDataProvider<
-              uint8_t,
+              int,
               uint
-                            >("_uint8_uint");
+                            >("_i_uint");
   };
 }  // namespace pyfertilized

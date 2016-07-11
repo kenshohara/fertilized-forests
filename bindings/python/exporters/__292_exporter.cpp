@@ -8,7 +8,7 @@
 namespace pyfertilized {
   void __python_export_292() {
     export_RenyiEntropy<
-              uint
-                            >("_uint");
+              float
+                            >("_f");
   };
 }  // namespace pyfertilized
