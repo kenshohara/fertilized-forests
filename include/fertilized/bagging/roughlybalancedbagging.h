@@ -1,7 +1,7 @@
 /* Author: Christoph Lassner. */
 #pragma once
-#ifndef FERTILIZED_BAGGING_NOBAGGING_H_
-#define FERTILIZED_BAGGING_NOBAGGING_H_
+#ifndef FERTILIZED_BAGGING_ROUGHLYBALANCEDBAGGING_H_
+#define FERTILIZED_BAGGING_ROUGHLYBALANCEDBAGGING_H_
 
 #ifdef SERIALIZATION_ENABLED
 #include <boost/serialization/serialization.hpp>
